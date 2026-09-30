@@ -1,4 +1,0 @@
-{
-  "// note": "Fill from your build pipeline. Put narration.mp3 / music.mp3 etc.",
-  "// note2": "in ./public/ so Remotion staticFile() can resolve them."
-}
