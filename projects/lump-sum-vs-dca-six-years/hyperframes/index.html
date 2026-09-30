@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>10万元：一次买入还是分72次买？</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/chart-data.js"></script>
+    <style>
+      @font-face { font-family: "Film CJK"; src: url("assets/hiragino-sans-gb.ttc") format("truetype"); }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; }
+      body { font-family: "Film CJK", sans-serif; color: #171715; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+      .clip { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; background: #F2EFE7; overflow: hidden; opacity: 0; }
+      #sc01 { opacity: 1; }
+      .scene::before { content: ""; position: absolute; inset: 0; opacity: .17; background-image: repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(23,23,21,.035) 4px); pointer-events: none; }
+      .inner { position: relative; width: 100%; height: 100%; padding: 116px 96px 0; }
+      .topline { display: flex; justify-content: space-between; align-items: baseline; color: #6C6860; font: 500 24px "SFMono-Regular",monospace; letter-spacing: .10em; }
+      .rule { width: 888px; height: 2px; background: #171715; margin-top: 22px; }
+      h1, h2, h3, p { margin: 0; }
+      h1 { font-size: 88px; line-height: 1.12; letter-spacing: -.035em; font-weight: 700; }
+      h2 { font-size: 76px; line-height: 1.16; letter-spacing: -.025em; font-weight: 700; }
+      h3 { font-size: 48px; line-height: 1.25; font-weight: 700; }
+      .muted { color: #6C6860; }
+      .source { position: absolute; left: 96px; right: 96px; top: 1490px; color: #6C6860; font-size: 22px; line-height: 1.35; }
+      .label { color: #6C6860; font: 600 24px "SFMono-Regular",monospace; letter-spacing: .09em; }
+      .ink { color: #171715; } .teal { color: #345C5B; } .verm { color: #B44736; } .gold { color: #8A6C22; }
+      .hero-title { margin-top: 165px; max-width: 890px; }
+      .hero-sub { margin-top: 44px; font-size: 39px; color: #171715; }
+      .hero-meta { margin-top: 18px; font-size: 30px; color: #6C6860; }
+      .hero-plot-label { margin-top: 88px; font-size: 25px; color: #6C6860; }
+      .hero-plot { width: 888px; height: 360px; margin-top: 18px; border-top: 2px solid #CFC9BE; border-bottom: 3px solid #171715; }
+      .rules-title { margin-top: 145px; }
+      .rules-grid { margin-top: 78px; display: grid; grid-template-columns: 1fr 1fr; gap: 46px; }
+      .rule-col { border-top: 5px solid; padding-top: 28px; min-height: 250px; }
+      .rule-col.lump { border-color: #345C5B; } .rule-col.dca { border-color: #B44736; }
+      .rule-col .name { font-size: 34px; }
+      .rule-col .big { margin-top: 32px; font: 700 54px "SFMono-Regular",monospace; }
+      .rule-col .detail { margin-top: 20px; font-size: 27px; line-height: 1.45; }
+      .month-caption { margin-top: 54px; display: flex; justify-content: space-between; font: 600 24px "SFMono-Regular",monospace; }
+      .months { margin-top: 20px; display: grid; grid-template-columns: repeat(12,1fr); gap: 8px; }
+      .month { width: 100%; height: 26px; background: #B44736; }
+      .funding-note { margin-top: 38px; font-size: 29px; color: #6C6860; }
+      .formula-title { margin-top: 270px; }
+      .formula-brief { margin-top: 78px; border-top: 3px solid #171715; border-bottom: 3px solid #171715; padding: 42px 0; font-size: 42px; line-height: 1.35; }
+      .formula-brief strong { display: block; margin-top: 20px; color: #345C5B; font-size: 51px; }
+      .formula-panel { margin-top: 102px; padding: 60px 0; border-top: 2px solid #171715; border-bottom: 2px solid #171715; }
+      .formula-line { display: flex; align-items: center; justify-content: space-between; font-size: 42px; margin: 26px 0; }
+      .formula-line strong { font: 700 48px "SFMono-Regular",monospace; }
+      .formula-equals { margin: 50px 0; font: 700 63px "SFMono-Regular",monospace; color: #B44736; }
+      .formula-result { font-size: 58px; color: #345C5B; font-weight: 700; }
+      .formula-foot { margin-top: 76px; max-width: 830px; font-size: 32px; line-height: 1.55; }
+      .index-title { margin-top: 42px; }
+      .index-sub { margin-top: 15px; font-size: 32px; color: #6C6860; }
+      .legend { margin-top: 50px; display: flex; gap: 54px; align-items: center; font-size: 28px; }
+      .legend-item { display: flex; align-items: center; gap: 16px; white-space: nowrap; }
+      .swatch { display: inline-block; width: 36px; height: 7px; border-radius: 7px; }
+      .swatch.lump { background: #345C5B; } .swatch.dca { background: #B44736; }
+      .chart-shell { margin-top: 42px; width: 888px; height: 710px; border-top: 2px solid #CFC9BE; border-bottom: 2px solid #CFC9BE; }
+      .chart { display: block; width: 888px; height: 706px; }
+      .axis-text { font: 500 22px "SFMono-Regular",monospace; fill: #6C6860; }
+      .axis-line { stroke: #CFC9BE; stroke-width: 2; } .zero-line { stroke: #171715; stroke-width: 3; }
+      .profit-line { fill: none; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .profit-line.lump { stroke: #345C5B; } .profit-line.dca { stroke: #B44736; }
+      .cursor-line { stroke: #C5A64A; stroke-width: 3; stroke-dasharray: 8 10; } .cursor-dot { fill: #C5A64A; }
+      .readout { margin-top: 36px; display: flex; justify-content: space-between; gap: 14px; align-items: end; }
+      .readout small { display: block; color: #6C6860; font: 500 21px "SFMono-Regular",monospace; margin-bottom: 9px; }
+      .readout .date { font: 600 40px "SFMono-Regular",monospace; }
+      .read-values { display: flex; gap: 20px; }
+      .read-values .v { min-width: 204px; }
+      .read-values strong { display: block; font: 700 34px "SFMono-Regular",monospace; }
+      .read-values .lump strong { color: #345C5B; } .read-values .dca strong { color: #B44736; }
+      .capital { margin-top: 44px; }
+      .capital-head { display: flex; justify-content: space-between; font-size: 27px; }
+      .capital-head strong { font: 600 27px "SFMono-Regular",monospace; }
+      .capital-track { margin-top: 16px; width: 888px; height: 20px; background: #D8D2C7; }
+      .capital-fill { width: 100%; height: 100%; background: #B44736; transform-origin: left center; transform: scaleX(0); }
+      .index-source { margin-top: 29px; color: #6C6860; font-size: 21px; }
+      .result-panel { position: absolute; z-index: 5; top: 1110px; left: 96px; width: 888px; min-height: 276px; padding: 14px 24px; background: rgba(248,245,237,.99); border: 3px solid #171715; opacity: 0; }
+      .result-panel h3 { font-size: 25px; }
+      .result-panel .result-main { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .result-column { border-top: 4px solid; padding-top: 7px; }
+      .result-column.lump { border-color: #345C5B; } .result-column.dca { border-color: #B44736; }
+      .result-column .method { font-size: 19px; }
+      .result-column .amount { margin-top: 4px; font: 700 28px "SFMono-Regular",monospace; }
+      .result-column .metric { margin-top: 4px; font-size: 18px; line-height: 1.23; }
+      .result-column .metric strong { font: 600 20px "SFMono-Regular",monospace; }
+      .result-foot { margin-top: 6px; border-top: 1px solid #CFC9BE; padding-top: 5px; color: #6C6860; font-size: 16px; line-height: 1.2; }
+      .summary-title { margin-top: 70px; }
+      .summary-head { margin-top: 70px; display: grid; grid-template-columns: 220px 1fr 1fr; border-bottom: 3px solid #171715; padding: 0 0 18px; font-size: 24px; }
+      .summary-row { display: grid; grid-template-columns: 220px 1fr 1fr; align-items: baseline; gap: 8px; border-bottom: 2px solid #CFC9BE; padding: 30px 0; }
+      .summary-row .name { font-size: 29px; font-weight: 700; }
+      .summary-row .amount { font: 700 32px "SFMono-Regular",monospace; }
+      .summary-row .delta { grid-column: 2 / 4; font-size: 23px; color: #6C6860; margin-top: 5px; }
+      .summary-loss-title { margin-top: 70px; font-size: 32px; font-weight: 700; }
+      .loss-row { display: grid; grid-template-columns: 220px 1fr 1fr; border-bottom: 1px solid #CFC9BE; padding: 16px 0; font-size: 27px; }
+      .method-title { margin-top: 85px; }
+      .method-list { margin-top: 76px; border-top: 3px solid #171715; }
+      .method-item { display: grid; grid-template-columns: 100px 1fr; gap: 30px; padding: 43px 0; border-bottom: 2px solid #CFC9BE; font-size: 35px; line-height: 1.42; }
+      .method-item .num { color: #B44736; font: 700 31px "SFMono-Regular",monospace; }
+      .method-note { margin-top: 70px; font-size: 30px; line-height: 1.55; color: #6C6860; }
+      .final-title { margin-top: 120px; }
+      .final-claim { margin-top: 92px; border-left: 9px solid #345C5B; padding-left: 40px; font-size: 45px; line-height: 1.5; }
+      .final-claim strong { color: #345C5B; }
+      .final-secondary { margin-top: 56px; font-size: 31px; line-height: 1.5; color: #6C6860; }
+      .disclaimer { position: absolute; top: 1180px; left: 96px; width: 888px; padding: 28px 0; border-top: 2px solid #171715; border-bottom: 2px solid #171715; font-size: 30px; line-height: 1.5; color: #171715; }
+      .endmark { position: absolute; top: 1408px; left: 96px; color: #8A6C22; font: 600 24px "SFMono-Regular",monospace; letter-spacing: .09em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="185" data-width="1080" data-height="1920">
+      <div id="film" class="clip" data-start="0" data-duration="185" data-track-index="1">
+        <section id="sc01" class="scene"></section>
+        <section id="sc02" class="scene"></section>
+        <section id="sc03" class="scene"></section>
+        <section id="sc04" class="scene" data-scene-start="14"></section>
+        <section id="sc05" class="scene" data-scene-start="64"></section>
+        <section id="sc06" class="scene" data-scene-start="114"></section>
+        <section id="sc07" class="scene"></section>
+        <section id="sc08" class="scene"></section>
+        <section id="sc09" class="scene"></section>
+      </div>
+    </div>
+    <script>window.__timelines = window.__timelines || {}; window.__timelines["main"] = gsap.timeline({paused:true});</script>
+    <script src="assets/app.js"></script>
+    <script>window.initFilm();</script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "topic": "同样最终投入10万元，2020年10月至2026年9月一次性买入与72期月度定投在三个中证全收益指数上的期末金额和浮亏体验有何差别",
+  "research_date": "2026-09-30",
+  "landscape": {
+    "existing_content": [
+      {"title": "Cost averaging: Invest now or temporarily hold your cash?", "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf", "source": "Vanguard Research", "angle": "跨市场历史样本中的投入时机", "what_it_covers": "一次性投入与分批投入的一般性对比", "what_it_misses": "没有本方案三个中国全收益指数的同区间逐日账户路径"},
+      {"title": "The Benefits and Limitations of Dollar-Cost Averaging", "url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging", "source": "FINRA", "angle": "投资者教育与资金暴露风险", "what_it_covers": "定投机制、现金拖累和费用风险", "what_it_misses": "没有72期相同本金与逐日浮亏实测"},
+      {"title": "What Is Dollar-Cost Averaging?", "url": "https://www.schwab.com/learn/story/what-is-dollar-cost-averaging", "source": "Charles Schwab", "angle": "普通投资者的定投入门", "what_it_covers": "平均成本与市场择时误区", "what_it_misses": "没有分红再投资口径下的三指数对照"}
+    ],
+    "saturated_angles": ["预设一次性买入总是胜出", "预设定投总能降低亏损"],
+    "underserved_gaps": ["统一全收益口径、同一72个月买入日，对比期末金额与过程浮亏", "把定投浮亏百分比和实际亏损金额同时呈现"]
+  },
+  "data_points": [
+    {"claim": "固定观察区间截至2026-09-29：沪深300全收益指数一次性买入期末107111.21元，72期定投112101.99元。", "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20201001&endDate=20260929", "source_name": "中证指数有限公司官方日频行情；项目内可复算回测", "credibility": "primary_source", "surprise_factor": "notable", "usable_as": "沪深300结果段；明确固定截止日"},
+    {"claim": "固定观察区间截至2026-09-29：中证500全收益指数一次性买入期末128714.86元，72期定投124819.94元。", "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00905&startDate=20201001&endDate=20260929", "source_name": "中证指数有限公司官方日频行情；项目内可复算回测", "credibility": "primary_source", "surprise_factor": "notable", "usable_as": "中证500结果段；明确固定截止日"},
+    {"claim": "固定观察区间截至2026-09-29：中证红利低波动全收益指数一次性买入期末180125.52元，72期定投130662.29元。", "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H20269&startDate=20201001&endDate=20260929", "source_name": "中证指数有限公司官方日频行情；项目内可复算回测", "credibility": "primary_source", "surprise_factor": "surprising", "usable_as": "红利低波压轴；解释资金入场时间"},
+    {"claim": "红利低波价格指数H30269对应的全收益指数为H20269，沪深300价格指数000300对应全收益H00300；本片使用全收益序列以计入分红再投资。", "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/H30269factsheet.pdf", "source_name": "中证指数官方指数资料", "credibility": "primary_source", "surprise_factor": "expected", "usable_as": "口径说明"},
+    {"claim": "分批投入与一次性投入的持有时间不同；分批投入期间部分本金仍以现金形式等待入场。", "source_url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging", "source_name": "FINRA投资者教育", "credibility": "primary_source", "surprise_factor": "notable", "usable_as": "公平性说明"}
+  ],
+  "audience_insights": {
+    "common_questions": ["现有10万元，应该一次性投入还是分批？", "定投的期末金额是否一定更高？", "定投能否减轻账户浮亏？"],
+    "misconceptions": [
+      {"myth": "定投总能跑赢一次性买入", "reality": "本区间三个指数的结果并不一致，结果受入场路径影响", "source": "中证指数官方行情与项目回测"},
+      {"myth": "两种方式的10万元承受了相同时间的市场涨跌", "reality": "一次性买入全额从首日起暴露，定投逐月进入", "source": "FINRA; Vanguard"}
+    ],
+    "knowledge_level": "了解定投和指数的名称，但通常不熟悉全收益、现金流年化与投入本金动态变化。",
+    "pain_points": ["只看终点金额忽略中途亏损", "把全收益指数和价格指数混用", "把定投的总盈利除以六年当年化"]
+  },
+  "angles_discovered": [
+    {"name": "同一笔钱三条不同路径", "hook": "同样十万元，分72次进场，结果竟然不是同一个方向。", "type": "data_driven", "why_now": "固定观察区间覆盖连续72个月投入", "grounded_in": ["沪深300回测结果", "中证500回测结果", "红利低波回测结果"]},
+    {"name": "终点金额之外的亏损体验", "hook": "钱最后多了，途中真的就更好熬吗？", "type": "narrative", "why_now": "官方逐日序列可复算每个时点相对已投入本金的浮亏", "grounded_in": ["三条官方日频序列", "FINRA分批投入机制"]},
+    {"name": "红利低波为何放大入场差", "hook": "红利低波这六年，慢慢买和一开始买，差的是什么？", "type": "data_driven", "why_now": "红利低波的期末差额最显著，适合解释资金暴露时间", "grounded_in": ["红利低波回测结果", "中证指数红利低波编制说明"]}
+  ],
+  "sources": [
+    {"url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20201001&endDate=20260929", "title": "沪深300全收益官方历史行情", "used_for": "逐日指数点位与回测", "reliability": "primary"},
+    {"url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00905&startDate=20201001&endDate=20260929", "title": "中证500全收益官方历史行情", "used_for": "逐日指数点位与回测", "reliability": "primary"},
+    {"url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H20269&startDate=20201001&endDate=20260929", "title": "中证红利低波动全收益官方历史行情", "used_for": "逐日指数点位与回测", "reliability": "primary"},
+    {"url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/H30269factsheet.pdf", "title": "中证红利低波动指数资料", "used_for": "价格与全收益代码及指数定义", "reliability": "primary"},
+    {"url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000300factsheet.pdf", "title": "沪深300指数资料", "used_for": "全收益代码与指数定义", "reliability": "primary"},
+    {"url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging", "title": "The Benefits and Limitations of Dollar-Cost Averaging", "used_for": "资金暴露时间和费用限制", "reliability": "primary"},
+    {"url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf", "title": "Cost averaging: Invest now or temporarily hold your cash?", "used_for": "已有研究与内容空白", "reliability": "primary"}
+  ],
+  "research_summary": "以2020年10月9日至2026年9月29日为本片固定观察区间。三条全收益指数对一次性投入与72期定投给出不同结果。影片保留方案的三个指数顺序，以滚动收益曲线展示沪深300、中证500、红利低波的路径差异；同时呈现期末金额、收益与相对已投入本金的最大浮亏。无需等待9月30日收盘或据此刷新。",
+  "metadata": {
+    "content_category": "finance",
+    "core_question": "同样最终投入10万元，在三个指数上一次性买入与72期定投的结果和浮亏体验如何不同？",
+    "editorial_direction": {
+      "primary_mode": "EXPLAIN", "classification_confidence": "high", "audience_task": "understand_mechanism",
+      "rationale": ["核心任务是用可复核历史路径解释投入时点和持有时间的影响，不是预测市场。"],
+      "evidence_priority": ["official_total_return_daily_levels", "monthly_cash_flows", "investor_education_definitions"],
+      "visual_priority": ["chart", "comparison", "annotated_cash_flow"],
+      "canvas_preference": ["data", "paper", "margin-note"],
+      "density_profile": {"opening": "sparse", "body": "standard", "evidence": "dense", "ending": "sparse"},
+      "hook_grammar": "CONTRADICTION", "ending_grammar": "OPEN_QUESTION",
+      "key_editorial_risk": "不得把一个历史区间说成普遍投资建议；不得混用价格指数与全收益指数。",
+      "key_anti_pattern": "避免用三段同构静态表格和没有信息作用的股市素材。"
+    },
+    "evidence_ledger": [
+      {"claim_class": "FACT", "period": "2020-10-09至2026-09-29（本片固定观察区间）", "comparison_basis": "同为最终投入100000元，三条官方全收益序列", "limitations": "不含费用、税费、基金跟踪误差；不代表其他截止日结果"},
+      {"claim_class": "INFERENCE", "period": "同上", "comparison_basis": "一次性全额暴露与逐月投入", "limitations": "只解释本区间路径差异，不外推未来"}
+    ],
+    "methodology": {"start": "2020-10-09", "fixed_end": "2026-09-29", "monthly_buy": "每月首个实际交易日收盘价", "cash_flows": "前71期各1388.89元，第72期1388.81元，合计恰好100000元", "annualization": "一次性采用实际持有天数复合年化，定投采用XIRR", "floating_loss": "每日账户价值除以当日累计投入减1；同时报告亏损金额", "source_data_note": "中证接口在非交易日起始查询中会插入一条虚拟起始日，计算时已剔除"},
+    "calculation_artifact": "projects/lump-sum-vs-dca-six-years/artifacts/backtest-fixed-20260929.json",
+    "calculation_script": "projects/lump-sum-vs-dca-six-years/backtest.py"
+  }
+}

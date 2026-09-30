@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "title": "10万元，一次买入还是分72次买？",
+  "total_duration_seconds": 185,
+  "sections": [
+    {
+      "id": "s01", "label": "问题", "text": "同样10万元，一次买入还是定投？\n沪深300·中证500·中证红利低波动\n2020.10—2026.09，三条指数全收益曲线", "start_seconds": 0, "end_seconds": 5,
+      "enhancement_cues": [{"type": "animation", "description": "首帧直接亮出比较主题、三条测试指数与固定区间；下方只用注明为沪深300的真实曲线作预告。"}]
+    },
+    {
+      "id": "s02", "label": "实验规则", "text": "同样最终投入10万元。一次买入在2020.10.09全部入场；定投每月首个交易日买入，72期累计10万元（前71期各1,388.89元，末期1,388.81元）。", "start_seconds": 5, "end_seconds": 11,
+      "enhancement_cues": [{"type": "animation", "description": "两列直接对比入场时间和金额；72格资金刻度快速填满，详尽现金流保留在项目证据记录，不占长时间说明画面。"}],
+      "source_ref": "research_brief.metadata.methodology"
+    },
+    {
+      "id": "s03", "label": "读图口径", "text": "接下来只看曲线：账户价值－当时已投入本金＝逐日净收益（元）。", "start_seconds": 11, "end_seconds": 14,
+      "enhancement_cues": [{"type": "diagram", "description": "一条简短公式取代整页A/B解释；进入曲线后持续显示日期、元单位与定投累计投入。"}],
+      "source_ref": "research_brief.metadata.methodology"
+    },
+    {
+      "id": "s04", "label": "沪深300：滚动曲线", "text": "沪深300｜两种买法的净收益轨迹\n青线：一次买入　赭线：每月定投", "start_seconds": 14, "end_seconds": 58,
+      "enhancement_cues": [{"type": "animation", "description": "按官方逐日数据自2020-10-09向2026-09-29滚动揭示两条净收益曲线；日期、当日净收益、定投累计投入同步变化。重要下行和反超节点局部放慢，零轴、单位与刻度持续可见。"}],
+      "source_ref": "research_brief.data_points[0]"
+    },
+    {
+      "id": "s05", "label": "沪深300：终点与浮亏", "text": "沪深300｜期末资产：一次买入107,111.21元；定投112,101.99元\n最终盈利：7,111.21元 / 12,101.99元｜总收益率：7.11% / 12.10%\n年化：1.16% / XIRR 3.77%｜最大浮亏：-27.44% / -23.55%", "start_seconds": 58, "end_seconds": 64,
+      "enhancement_cues": [{"type": "overlay", "description": "曲线终点保持可见；完整指标作为贴近曲线底部的简洁读数出现，不以居中大卡片遮挡走势图。"}],
+      "source_ref": "research_brief.data_points[0]"
+    },
+    {
+      "id": "s06", "label": "中证500：滚动曲线", "text": "中证500｜同样的投入规则，另一条市场路径", "start_seconds": 64, "end_seconds": 108,
+      "enhancement_cues": [{"type": "animation", "description": "第二组真实收益曲线在同一零轴和单位下从头滚动；与上一组保持可比比例，局部放大仅在明确标注时使用，日期与定投累计投入继续同步。"}],
+      "source_ref": "research_brief.data_points[1]"
+    },
+    {
+      "id": "s07", "label": "中证500：终点与浮亏", "text": "中证500｜期末资产：一次买入128,714.86元；定投124,819.94元\n最终盈利：28,714.86元 / 24,819.94元｜总收益率：28.71% / 24.82%\n年化：4.32% / XIRR 7.32%｜最大浮亏：-26.38% / -26.74%", "start_seconds": 108, "end_seconds": 114,
+      "enhancement_cues": [{"type": "overlay", "description": "在曲线仍可见时展开贴底结果读数；浮亏差异不作夸张视觉比例。"}],
+      "source_ref": "research_brief.data_points[1]"
+    },
+    {
+      "id": "s08", "label": "红利低波：滚动曲线", "text": "中证红利低波动｜资金早进场的差异被放大", "start_seconds": 114, "end_seconds": 158,
+      "enhancement_cues": [{"type": "animation", "description": "第三组真实收益曲线逐日滚动；同样显示定投累计投入。保留全收益分红再投资口径标记，重点突出早期至中期两条路径的累积差，而非凭视觉制造突然暴涨。"}],
+      "source_ref": "research_brief.data_points[2]"
+    },
+    {
+      "id": "s09", "label": "红利低波：终点与浮亏", "text": "红利低波｜期末资产：一次买入180,125.52元；定投130,662.29元\n最终盈利：80,125.52元 / 30,662.29元｜总收益率：80.13% / 30.66%\n年化：10.36% / XIRR 8.84%｜最大浮亏：-2.83% / -4.64%", "start_seconds": 158, "end_seconds": 164,
+      "enhancement_cues": [{"type": "overlay", "description": "保持完整曲线，结果以贴底读数出现；最大浮亏仍使用百分比和文字。"}],
+      "source_ref": "research_brief.data_points[2]"
+    },
+    {
+      "id": "s10", "label": "总表", "text": "同样最终投入10万元，六组终点\n沪深300：107,111.21 / 112,101.99元（定投多4,990.78元）\n中证500：128,714.86 / 124,819.94元（一次买入多3,894.92元）\n红利低波：180,125.52 / 130,662.29元（一次买入多49,463.23元）\n最大浮亏也要一起看：-27.44% / -23.55%；-26.38% / -26.74%；-2.83% / -4.64%", "start_seconds": 164, "end_seconds": 173,
+      "enhancement_cues": [{"type": "diagram", "description": "三行总表分批进入，固定列顺序为一次买入/定投，先读期末金额，再翻到最大浮亏。数字从官方回测原生渲染，不做任何图片化字体。"}],
+      "source_ref": "research_brief.data_points[0-2]"
+    },
+    {
+      "id": "s11", "label": "口径与边界", "text": "统一采用指数全收益（含分红再投资）｜不含交易费、税费和基金跟踪误差\n定投年化按每笔资金实际入场时间计算（XIRR）\n未计场外等待资金的利息；历史回测不代表未来", "start_seconds": 173, "end_seconds": 179,
+      "enhancement_cues": [{"type": "overlay", "description": "三条短句简洁呈现；配乐未选定前先验证画面节奏与文字可读性。"}],
+      "source_ref": "research_brief.metadata.methodology"
+    },
+    {
+      "id": "s12", "label": "判断方法与风险提示", "text": "下次比较买法，先看钱何时入场；再看终点，也看途中最深的浮亏。\n换个起点或买入周期，结果可能不同。", "start_seconds": 179, "end_seconds": 185,
+      "enhancement_cues": [{"type": "animation", "description": "三组收益曲线作为浅层背景合流，前景留下可复用的判断问题。结尾原生文字页脚完整显示法定提示，不让音乐淡出遮盖阅读时间。"}]
+    }
+  ],
+  "metadata": {
+    "content_category": "finance",
+    "format": "visual_script_no_narration",
+    "narration_enabled": false,
+    "audio_direction": "无旁白；使用经过授权核验的无歌词、稳健节奏音乐。曲线速度服从可读性，转场可对齐节拍。",
+    "data_status": "固定观察区间2020-10-09至2026-09-29；不等待9月30日收盘",
+    "chart_contract": {
+      "primary_measure": "当日账户价值减去当日累计已投入本金，单位元",
+      "axis_policy": "三组统一零轴、时间方向和单位；任何局部放大均明确标记，不截去负收益",
+      "cash_exposure": "定投累计投入始终可见；一次买入首日投入10万元",
+      "source_artifact": "projects/lump-sum-vs-dca-six-years/artifacts/backtest-fixed-20260929.json"
+    },
+    "editorial_direction": {
+      "primary_mode": "EXPLAIN", "classification_confidence": "high", "audience_task": "understand_mechanism",
+      "rationale": ["以历史指数路径解释投入时间的影响。"],
+      "evidence_priority": ["official_total_return_daily_levels", "monthly_cash_flows"],
+      "visual_priority": ["chart", "comparison"], "canvas_preference": ["data", "paper"],
+      "density_profile": {"opening": "sparse", "body": "standard", "evidence": "dense", "ending": "sparse"},
+      "hook_grammar": "CONTRADICTION", "ending_grammar": "OPEN_QUESTION",
+      "key_editorial_risk": "不得把本区间结论外推为投资建议。", "key_anti_pattern": "不要使用泛股市素材。"
+    },
+    "finance_editorial": {
+      "core_question": "同样最终投入10万元，一次性买入与72期定投在三条全收益指数上的终值和过程浮亏有何差异？",
+      "evidence_refs": ["research_brief.data_points[0]", "research_brief.data_points[1]", "research_brief.data_points[2]", "research_brief.metadata.methodology"],
+      "boundary_conditions": ["固定历史区间，不能外推未来", "指数全收益非基金实际收益", "不计交易费、税费、跟踪误差及场外现金利息", "定投浮亏百分比的分母为当时累计投入"],
+      "reusable_judgment_method": "比较两种买法时先看资金进场日期和暴露时间，再同时看期末金额与过程浮亏。",
+      "narration_style": "none_user_requested"
+    },
+    "compliance": {
+      "financial_disclaimer": "本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。",
+      "presentation": "footer", "placement": "ending", "ending_section_id": "s12", "native_text_required": true
+    }
+  }
+}

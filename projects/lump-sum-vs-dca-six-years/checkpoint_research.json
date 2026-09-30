@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "project_id": "lump-sum-vs-dca-six-years",
+  "pipeline_type": "finance-dossier",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-09-30T02:41:27.349516+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "\u540c\u6837\u6700\u7ec8\u6295\u516510\u4e07\u5143\uff0c2020\u5e7410\u6708\u81f32026\u5e749\u6708\u4e00\u6b21\u6027\u4e70\u5165\u4e0e72\u671f\u6708\u5ea6\u5b9a\u6295\u5728\u4e09\u4e2a\u4e2d\u8bc1\u5168\u6536\u76ca\u6307\u6570\u4e0a\u7684\u671f\u672b\u91d1\u989d\u548c\u6d6e\u4e8f\u4f53\u9a8c\u6709\u4f55\u5dee\u522b",
+      "research_date": "2026-09-30",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "Cost averaging: Invest now or temporarily hold your cash?",
+            "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf",
+            "source": "Vanguard Research",
+            "angle": "\u8de8\u5e02\u573a\u5386\u53f2\u6837\u672c\u4e2d\u7684\u6295\u5165\u65f6\u673a",
+            "what_it_covers": "\u4e00\u6b21\u6027\u6295\u5165\u4e0e\u5206\u6279\u6295\u5165\u7684\u4e00\u822c\u6027\u5bf9\u6bd4",
+            "what_it_misses": "\u6ca1\u6709\u672c\u65b9\u6848\u4e09\u4e2a\u4e2d\u56fd\u5168\u6536\u76ca\u6307\u6570\u7684\u540c\u533a\u95f4\u9010\u65e5\u8d26\u6237\u8def\u5f84"
+          },
+          {
+            "title": "The Benefits and Limitations of Dollar-Cost Averaging",
+            "url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+            "source": "FINRA",
+            "angle": "\u6295\u8d44\u8005\u6559\u80b2\u4e0e\u8d44\u91d1\u66b4\u9732\u98ce\u9669",
+            "what_it_covers": "\u5b9a\u6295\u673a\u5236\u3001\u73b0\u91d1\u62d6\u7d2f\u548c\u8d39\u7528\u98ce\u9669",
+            "what_it_misses": "\u6ca1\u670972\u671f\u76f8\u540c\u672c\u91d1\u4e0e\u9010\u65e5\u6d6e\u4e8f\u5b9e\u6d4b"
+          },
+          {
+            "title": "What Is Dollar-Cost Averaging?",
+            "url": "https://www.schwab.com/learn/story/what-is-dollar-cost-averaging",
+            "source": "Charles Schwab",
+            "angle": "\u666e\u901a\u6295\u8d44\u8005\u7684\u5b9a\u6295\u5165\u95e8",
+            "what_it_covers": "\u5e73\u5747\u6210\u672c\u4e0e\u5e02\u573a\u62e9\u65f6\u8bef\u533a",
+            "what_it_misses": "\u6ca1\u6709\u5206\u7ea2\u518d\u6295\u8d44\u53e3\u5f84\u4e0b\u7684\u4e09\u6307\u6570\u5bf9\u7167"
+          }
+        ],
+        "saturated_angles": [
+          "\u9884\u8bbe\u4e00\u6b21\u6027\u4e70\u5165\u603b\u662f\u80dc\u51fa",
+          "\u9884\u8bbe\u5b9a\u6295\u603b\u80fd\u964d\u4f4e\u4e8f\u635f"
+        ],
+        "underserved_gaps": [
+          "\u7edf\u4e00\u5168\u6536\u76ca\u53e3\u5f84\u3001\u540c\u4e0072\u4e2a\u6708\u4e70\u5165\u65e5\uff0c\u5bf9\u6bd4\u671f\u672b\u91d1\u989d\u4e0e\u8fc7\u7a0b\u6d6e\u4e8f",
+          "\u628a\u5b9a\u6295\u6d6e\u4e8f\u767e\u5206\u6bd4\u548c\u5b9e\u9645\u4e8f\u635f\u91d1\u989d\u540c\u65f6\u5448\u73b0"
+        ]
+      },
+      "data_points": [
+        {
+          "claim": "\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\u622a\u81f32026-09-29\uff1a\u6caa\u6df1300\u5168\u6536\u76ca\u6307\u6570\u4e00\u6b21\u6027\u4e70\u5165\u671f\u672b107111.21\u5143\uff0c72\u671f\u5b9a\u6295112101.99\u5143\u3002",
+          "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20201001&endDate=20260929",
+          "source_name": "\u4e2d\u8bc1\u6307\u6570\u6709\u9650\u516c\u53f8\u5b98\u65b9\u65e5\u9891\u884c\u60c5\uff1b\u9879\u76ee\u5185\u53ef\u590d\u7b97\u56de\u6d4b",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "\u6caa\u6df1300\u7ed3\u679c\u6bb5\uff1b\u660e\u786e\u56fa\u5b9a\u622a\u6b62\u65e5"
+        },
+        {
+          "claim": "\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\u622a\u81f32026-09-29\uff1a\u4e2d\u8bc1500\u5168\u6536\u76ca\u6307\u6570\u4e00\u6b21\u6027\u4e70\u5165\u671f\u672b128714.86\u5143\uff0c72\u671f\u5b9a\u6295124819.94\u5143\u3002",
+          "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00905&startDate=20201001&endDate=20260929",
+          "source_name": "\u4e2d\u8bc1\u6307\u6570\u6709\u9650\u516c\u53f8\u5b98\u65b9\u65e5\u9891\u884c\u60c5\uff1b\u9879\u76ee\u5185\u53ef\u590d\u7b97\u56de\u6d4b",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "\u4e2d\u8bc1500\u7ed3\u679c\u6bb5\uff1b\u660e\u786e\u56fa\u5b9a\u622a\u6b62\u65e5"
+        },
+        {
+          "claim": "\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\u622a\u81f32026-09-29\uff1a\u4e2d\u8bc1\u7ea2\u5229\u4f4e\u6ce2\u52a8\u5168\u6536\u76ca\u6307\u6570\u4e00\u6b21\u6027\u4e70\u5165\u671f\u672b180125.52\u5143\uff0c72\u671f\u5b9a\u6295130662.29\u5143\u3002",
+          "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H20269&startDate=20201001&endDate=20260929",
+          "source_name": "\u4e2d\u8bc1\u6307\u6570\u6709\u9650\u516c\u53f8\u5b98\u65b9\u65e5\u9891\u884c\u60c5\uff1b\u9879\u76ee\u5185\u53ef\u590d\u7b97\u56de\u6d4b",
+          "credibility": "primary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "\u7ea2\u5229\u4f4e\u6ce2\u538b\u8f74\uff1b\u89e3\u91ca\u8d44\u91d1\u5165\u573a\u65f6\u95f4"
+        },
+        {
+          "claim": "\u7ea2\u5229\u4f4e\u6ce2\u4ef7\u683c\u6307\u6570H30269\u5bf9\u5e94\u7684\u5168\u6536\u76ca\u6307\u6570\u4e3aH20269\uff0c\u6caa\u6df1300\u4ef7\u683c\u6307\u6570000300\u5bf9\u5e94\u5168\u6536\u76caH00300\uff1b\u672c\u7247\u4f7f\u7528\u5168\u6536\u76ca\u5e8f\u5217\u4ee5\u8ba1\u5165\u5206\u7ea2\u518d\u6295\u8d44\u3002",
+          "source_url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/H30269factsheet.pdf",
+          "source_name": "\u4e2d\u8bc1\u6307\u6570\u5b98\u65b9\u6307\u6570\u8d44\u6599",
+          "credibility": "primary_source",
+          "surprise_factor": "expected",
+          "usable_as": "\u53e3\u5f84\u8bf4\u660e"
+        },
+        {
+          "claim": "\u5206\u6279\u6295\u5165\u4e0e\u4e00\u6b21\u6027\u6295\u5165\u7684\u6301\u6709\u65f6\u95f4\u4e0d\u540c\uff1b\u5206\u6279\u6295\u5165\u671f\u95f4\u90e8\u5206\u672c\u91d1\u4ecd\u4ee5\u73b0\u91d1\u5f62\u5f0f\u7b49\u5f85\u5165\u573a\u3002",
+          "source_url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+          "source_name": "FINRA\u6295\u8d44\u8005\u6559\u80b2",
+          "credibility": "primary_source",
+          "surprise_factor": "notable",
+          "usable_as": "\u516c\u5e73\u6027\u8bf4\u660e"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "\u73b0\u670910\u4e07\u5143\uff0c\u5e94\u8be5\u4e00\u6b21\u6027\u6295\u5165\u8fd8\u662f\u5206\u6279\uff1f",
+          "\u5b9a\u6295\u7684\u671f\u672b\u91d1\u989d\u662f\u5426\u4e00\u5b9a\u66f4\u9ad8\uff1f",
+          "\u5b9a\u6295\u80fd\u5426\u51cf\u8f7b\u8d26\u6237\u6d6e\u4e8f\uff1f"
+        ],
+        "misconceptions": [
+          {
+            "myth": "\u5b9a\u6295\u603b\u80fd\u8dd1\u8d62\u4e00\u6b21\u6027\u4e70\u5165",
+            "reality": "\u672c\u533a\u95f4\u4e09\u4e2a\u6307\u6570\u7684\u7ed3\u679c\u5e76\u4e0d\u4e00\u81f4\uff0c\u7ed3\u679c\u53d7\u5165\u573a\u8def\u5f84\u5f71\u54cd",
+            "source": "\u4e2d\u8bc1\u6307\u6570\u5b98\u65b9\u884c\u60c5\u4e0e\u9879\u76ee\u56de\u6d4b"
+          },
+          {
+            "myth": "\u4e24\u79cd\u65b9\u5f0f\u768410\u4e07\u5143\u627f\u53d7\u4e86\u76f8\u540c\u65f6\u95f4\u7684\u5e02\u573a\u6da8\u8dcc",
+            "reality": "\u4e00\u6b21\u6027\u4e70\u5165\u5168\u989d\u4ece\u9996\u65e5\u8d77\u66b4\u9732\uff0c\u5b9a\u6295\u9010\u6708\u8fdb\u5165",
+            "source": "FINRA; Vanguard"
+          }
+        ],
+        "knowledge_level": "\u4e86\u89e3\u5b9a\u6295\u548c\u6307\u6570\u7684\u540d\u79f0\uff0c\u4f46\u901a\u5e38\u4e0d\u719f\u6089\u5168\u6536\u76ca\u3001\u73b0\u91d1\u6d41\u5e74\u5316\u4e0e\u6295\u5165\u672c\u91d1\u52a8\u6001\u53d8\u5316\u3002",
+        "pain_points": [
+          "\u53ea\u770b\u7ec8\u70b9\u91d1\u989d\u5ffd\u7565\u4e2d\u9014\u4e8f\u635f",
+          "\u628a\u5168\u6536\u76ca\u6307\u6570\u548c\u4ef7\u683c\u6307\u6570\u6df7\u7528",
+          "\u628a\u5b9a\u6295\u7684\u603b\u76c8\u5229\u9664\u4ee5\u516d\u5e74\u5f53\u5e74\u5316"
+        ]
+      },
+      "angles_discovered": [
+        {
+          "name": "\u540c\u4e00\u7b14\u94b1\u4e09\u6761\u4e0d\u540c\u8def\u5f84",
+          "hook": "\u540c\u6837\u5341\u4e07\u5143\uff0c\u520672\u6b21\u8fdb\u573a\uff0c\u7ed3\u679c\u7adf\u7136\u4e0d\u662f\u540c\u4e00\u4e2a\u65b9\u5411\u3002",
+          "type": "data_driven",
+          "why_now": "\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\u8986\u76d6\u8fde\u7eed72\u4e2a\u6708\u6295\u5165",
+          "grounded_in": [
+            "\u6caa\u6df1300\u56de\u6d4b\u7ed3\u679c",
+            "\u4e2d\u8bc1500\u56de\u6d4b\u7ed3\u679c",
+            "\u7ea2\u5229\u4f4e\u6ce2\u56de\u6d4b\u7ed3\u679c"
+          ]
+        },
+        {
+          "name": "\u7ec8\u70b9\u91d1\u989d\u4e4b\u5916\u7684\u4e8f\u635f\u4f53\u9a8c",
+          "hook": "\u94b1\u6700\u540e\u591a\u4e86\uff0c\u9014\u4e2d\u771f\u7684\u5c31\u66f4\u597d\u71ac\u5417\uff1f",
+          "type": "narrative",
+          "why_now": "\u5b98\u65b9\u9010\u65e5\u5e8f\u5217\u53ef\u590d\u7b97\u6bcf\u4e2a\u65f6\u70b9\u76f8\u5bf9\u5df2\u6295\u5165\u672c\u91d1\u7684\u6d6e\u4e8f",
+          "grounded_in": [
+            "\u4e09\u6761\u5b98\u65b9\u65e5\u9891\u5e8f\u5217",
+            "FINRA\u5206\u6279\u6295\u5165\u673a\u5236"
+          ]
+        },
+        {
+          "name": "\u7ea2\u5229\u4f4e\u6ce2\u4e3a\u4f55\u653e\u5927\u5165\u573a\u5dee",
+          "hook": "\u7ea2\u5229\u4f4e\u6ce2\u8fd9\u516d\u5e74\uff0c\u6162\u6162\u4e70\u548c\u4e00\u5f00\u59cb\u4e70\uff0c\u5dee\u7684\u662f\u4ec0\u4e48\uff1f",
+          "type": "data_driven",
+          "why_now": "\u7ea2\u5229\u4f4e\u6ce2\u7684\u671f\u672b\u5dee\u989d\u6700\u663e\u8457\uff0c\u9002\u5408\u89e3\u91ca\u8d44\u91d1\u66b4\u9732\u65f6\u95f4",
+          "grounded_in": [
+            "\u7ea2\u5229\u4f4e\u6ce2\u56de\u6d4b\u7ed3\u679c",
+            "\u4e2d\u8bc1\u6307\u6570\u7ea2\u5229\u4f4e\u6ce2\u7f16\u5236\u8bf4\u660e"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20201001&endDate=20260929",
+          "title": "\u6caa\u6df1300\u5168\u6536\u76ca\u5b98\u65b9\u5386\u53f2\u884c\u60c5",
+          "used_for": "\u9010\u65e5\u6307\u6570\u70b9\u4f4d\u4e0e\u56de\u6d4b",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00905&startDate=20201001&endDate=20260929",
+          "title": "\u4e2d\u8bc1500\u5168\u6536\u76ca\u5b98\u65b9\u5386\u53f2\u884c\u60c5",
+          "used_for": "\u9010\u65e5\u6307\u6570\u70b9\u4f4d\u4e0e\u56de\u6d4b",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H20269&startDate=20201001&endDate=20260929",
+          "title": "\u4e2d\u8bc1\u7ea2\u5229\u4f4e\u6ce2\u52a8\u5168\u6536\u76ca\u5b98\u65b9\u5386\u53f2\u884c\u60c5",
+          "used_for": "\u9010\u65e5\u6307\u6570\u70b9\u4f4d\u4e0e\u56de\u6d4b",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/H30269factsheet.pdf",
+          "title": "\u4e2d\u8bc1\u7ea2\u5229\u4f4e\u6ce2\u52a8\u6307\u6570\u8d44\u6599",
+          "used_for": "\u4ef7\u683c\u4e0e\u5168\u6536\u76ca\u4ee3\u7801\u53ca\u6307\u6570\u5b9a\u4e49",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/000300factsheet.pdf",
+          "title": "\u6caa\u6df1300\u6307\u6570\u8d44\u6599",
+          "used_for": "\u5168\u6536\u76ca\u4ee3\u7801\u4e0e\u6307\u6570\u5b9a\u4e49",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://syndication.finra.org/content/benefits-and-limitations-dollar-cost-averaging",
+          "title": "The Benefits and Limitations of Dollar-Cost Averaging",
+          "used_for": "\u8d44\u91d1\u66b4\u9732\u65f6\u95f4\u548c\u8d39\u7528\u9650\u5236",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf",
+          "title": "Cost averaging: Invest now or temporarily hold your cash?",
+          "used_for": "\u5df2\u6709\u7814\u7a76\u4e0e\u5185\u5bb9\u7a7a\u767d",
+          "reliability": "primary"
+        }
+      ],
+      "research_summary": "\u4ee52020\u5e7410\u67089\u65e5\u81f32026\u5e749\u670829\u65e5\u4e3a\u672c\u7247\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\u3002\u4e09\u6761\u5168\u6536\u76ca\u6307\u6570\u5bf9\u4e00\u6b21\u6027\u6295\u5165\u4e0e72\u671f\u5b9a\u6295\u7ed9\u51fa\u4e0d\u540c\u7ed3\u679c\u3002\u5f71\u7247\u4fdd\u7559\u65b9\u6848\u7684\u4e09\u4e2a\u6307\u6570\u987a\u5e8f\uff0c\u4ee5\u6eda\u52a8\u6536\u76ca\u66f2\u7ebf\u5c55\u793a\u6caa\u6df1300\u3001\u4e2d\u8bc1500\u3001\u7ea2\u5229\u4f4e\u6ce2\u7684\u8def\u5f84\u5dee\u5f02\uff1b\u540c\u65f6\u5448\u73b0\u671f\u672b\u91d1\u989d\u3001\u6536\u76ca\u4e0e\u76f8\u5bf9\u5df2\u6295\u5165\u672c\u91d1\u7684\u6700\u5927\u6d6e\u4e8f\u3002\u65e0\u9700\u7b49\u5f859\u670830\u65e5\u6536\u76d8\u6216\u636e\u6b64\u5237\u65b0\u3002",
+      "metadata": {
+        "content_category": "finance",
+        "core_question": "\u540c\u6837\u6700\u7ec8\u6295\u516510\u4e07\u5143\uff0c\u5728\u4e09\u4e2a\u6307\u6570\u4e0a\u4e00\u6b21\u6027\u4e70\u5165\u4e0e72\u671f\u5b9a\u6295\u7684\u7ed3\u679c\u548c\u6d6e\u4e8f\u4f53\u9a8c\u5982\u4f55\u4e0d\u540c\uff1f",
+        "editorial_direction": {
+          "primary_mode": "EXPLAIN",
+          "classification_confidence": "high",
+          "audience_task": "understand_mechanism",
+          "rationale": [
+            "\u6838\u5fc3\u4efb\u52a1\u662f\u7528\u53ef\u590d\u6838\u5386\u53f2\u8def\u5f84\u89e3\u91ca\u6295\u5165\u65f6\u70b9\u548c\u6301\u6709\u65f6\u95f4\u7684\u5f71\u54cd\uff0c\u4e0d\u662f\u9884\u6d4b\u5e02\u573a\u3002"
+          ],
+          "evidence_priority": [
+            "official_total_return_daily_levels",
+            "monthly_cash_flows",
+            "investor_education_definitions"
+          ],
+          "visual_priority": [
+            "chart",
+            "comparison",
+            "annotated_cash_flow"
+          ],
+          "canvas_preference": [
+            "data",
+            "paper",
+            "margin-note"
+          ],
+          "density_profile": {
+            "opening": "sparse",
+            "body": "standard",
+            "evidence": "dense",
+            "ending": "sparse"
+          },
+          "hook_grammar": "CONTRADICTION",
+          "ending_grammar": "OPEN_QUESTION",
+          "key_editorial_risk": "\u4e0d\u5f97\u628a\u4e00\u4e2a\u5386\u53f2\u533a\u95f4\u8bf4\u6210\u666e\u904d\u6295\u8d44\u5efa\u8bae\uff1b\u4e0d\u5f97\u6df7\u7528\u4ef7\u683c\u6307\u6570\u4e0e\u5168\u6536\u76ca\u6307\u6570\u3002",
+          "key_anti_pattern": "\u907f\u514d\u7528\u4e09\u6bb5\u540c\u6784\u9759\u6001\u8868\u683c\u548c\u6ca1\u6709\u4fe1\u606f\u4f5c\u7528\u7684\u80a1\u5e02\u7d20\u6750\u3002"
+        },
+        "evidence_ledger": [
+          {
+            "claim_class": "FACT",
+            "period": "2020-10-09\u81f32026-09-29\uff08\u672c\u7247\u56fa\u5b9a\u89c2\u5bdf\u533a\u95f4\uff09",
+            "comparison_basis": "\u540c\u4e3a\u6700\u7ec8\u6295\u5165100000\u5143\uff0c\u4e09\u6761\u5b98\u65b9\u5168\u6536\u76ca\u5e8f\u5217",
+            "limitations": "\u4e0d\u542b\u8d39\u7528\u3001\u7a0e\u8d39\u3001\u57fa\u91d1\u8ddf\u8e2a\u8bef\u5dee\uff1b\u4e0d\u4ee3\u8868\u5176\u4ed6\u622a\u6b62\u65e5\u7ed3\u679c"
+          },
+          {
+            "claim_class": "INFERENCE",
+            "period": "\u540c\u4e0a",
+            "comparison_basis": "\u4e00\u6b21\u6027\u5168\u989d\u66b4\u9732\u4e0e\u9010\u6708\u6295\u5165",
+            "limitations": "\u53ea\u89e3\u91ca\u672c\u533a\u95f4\u8def\u5f84\u5dee\u5f02\uff0c\u4e0d\u5916\u63a8\u672a\u6765"
+          }
+        ],
+        "methodology": {
+          "start": "2020-10-09",
+          "fixed_end": "2026-09-29",
+          "monthly_buy": "\u6bcf\u6708\u9996\u4e2a\u5b9e\u9645\u4ea4\u6613\u65e5\u6536\u76d8\u4ef7",
+          "cash_flows": "\u524d71\u671f\u54041388.89\u5143\uff0c\u7b2c72\u671f1388.81\u5143\uff0c\u5408\u8ba1\u6070\u597d100000\u5143",
+          "annualization": "\u4e00\u6b21\u6027\u91c7\u7528\u5b9e\u9645\u6301\u6709\u5929\u6570\u590d\u5408\u5e74\u5316\uff0c\u5b9a\u6295\u91c7\u7528XIRR",
+          "floating_loss": "\u6bcf\u65e5\u8d26\u6237\u4ef7\u503c\u9664\u4ee5\u5f53\u65e5\u7d2f\u8ba1\u6295\u5165\u51cf1\uff1b\u540c\u65f6\u62a5\u544a\u4e8f\u635f\u91d1\u989d",
+          "source_data_note": "\u4e2d\u8bc1\u63a5\u53e3\u5728\u975e\u4ea4\u6613\u65e5\u8d77\u59cb\u67e5\u8be2\u4e2d\u4f1a\u63d2\u5165\u4e00\u6761\u865a\u62df\u8d77\u59cb\u65e5\uff0c\u8ba1\u7b97\u65f6\u5df2\u5254\u9664"
+        },
+        "calculation_artifact": "projects/lump-sum-vs-dca-six-years/artifacts/backtest-fixed-20260929.json",
+        "calculation_script": "projects/lump-sum-vs-dca-six-years/backtest.py"
+      }
+    }
+  },
+  "metadata": {
+    "fixed_cutoff": "2026-09-29",
+    "revision_reason": "User requested no wait for 2026-09-30"
+  }
+}

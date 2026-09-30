@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "render_runtime": "hyperframes",
+  "composition_mode": "atelier",
+  "renderer_family": "explainer-data",
+  "width": 1080,
+  "height": 1920,
+  "cuts": [
+    {"id":"sc01","source":"hyperframes/index.html","in_seconds":0,"out_seconds":5,"reason":"直接点明问题与三条指数"},
+    {"id":"sc02","source":"hyperframes/index.html","in_seconds":5,"out_seconds":11,"reason":"六秒交代两种入场时间"},
+    {"id":"sc03","source":"hyperframes/index.html","in_seconds":11,"out_seconds":14,"reason":"三秒说明净收益口径"},
+    {"id":"sc04","source":"hyperframes/index.html","in_seconds":14,"out_seconds":64,"reason":"沪深300逐日曲线与终点读数"},
+    {"id":"sc05","source":"hyperframes/index.html","in_seconds":64,"out_seconds":114,"reason":"中证500逐日曲线与终点读数"},
+    {"id":"sc06","source":"hyperframes/index.html","in_seconds":114,"out_seconds":164,"reason":"中证红利低波动逐日曲线与终点读数"},
+    {"id":"sc07","source":"hyperframes/index.html","in_seconds":164,"out_seconds":173,"reason":"三组结果与最大浮亏同页核对"},
+    {"id":"sc08","source":"hyperframes/index.html","in_seconds":173,"out_seconds":179,"reason":"回测计算口径与边界"},
+    {"id":"sc09","source":"hyperframes/index.html","in_seconds":179,"out_seconds":185,"reason":"结论和原生风险提示"}
+  ],
+  "subtitles": {"enabled": false, "safe_area": {"policy":"social-ui-safe","bottom_offset_px":520,"side_margin_px":96}},
+  "bespoke": {"entry":"projects/lump-sum-vs-dca-six-years/hyperframes/index.html","composition_id":"main","art_direction":"projects/lump-sum-vs-dca-six-years/art-direction.md"},
+  "metadata": {
+    "preview_audio_state": "picture_only_pending_approved_music",
+    "duration_seconds": 185,
+    "curve_process_seconds": 150,
+    "compliance": {"financial_disclaimer":"本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。","presentation":"footer","placement":"ending","ending_cut_id":"sc09","native_text_required":true}
+  }
+}

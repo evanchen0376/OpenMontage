@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "content_category": "finance",
+  "concept_options": [
+    {
+      "id": "c1", "title": "同样10万元，三条指数给出三种答案", "hook": "同样十万元，慢慢投，最后一定更好吗？", "narrative_structure": "comparison", "visual_approach": "72个月收益曲线随日期横向滚动；一次买与定投的净收益线、定投累计入场资金同步前进，关键节点停帧展示完整指标和浮亏，最后六组结果总表。全片无旁白，仅无歌词节奏音乐。", "suggested_playbook": "finance-dossier", "target_audience": "有一笔可投入资金、正在犹豫一次买还是分批买的普通投资者", "target_platform": "generic", "target_duration_seconds": 151, "key_points": ["三条指数在同一时间窗内的胜出买法并不一致", "期末金额和过程浮亏必须分开看", "投入市场的时间不同是比较的核心变量"], "core_message": "同样最终投入10万元，结果取决于何时承担市场涨跌以及市场走过的路径。", "tone": "克制、好奇、可复核", "grounded_in": ["官方三条全收益序列", "72期现金流回测"], "why_this_works": "让真实收益路径担当主画面；文字只负责规则、读数与必要边界，阅读时间不被口播牵制。"
+    },
+    {
+      "id": "c2", "title": "最后多赚的钱，换来了怎样的浮亏", "hook": "六年后钱多了，中间就一定更好熬吗？", "narrative_structure": "data_narrative", "visual_approach": "从最低账户价值与已投入本金差额切入，再倒回看三条终值曲线；百分比和元数成对标注。", "suggested_playbook": "finance-dossier", "target_audience": "更在意账户波动体验的投资者", "target_platform": "generic", "target_duration_seconds": 220, "key_points": ["最大浮亏百分比和实际亏损金额不总在同一天", "定投本金逐月变化，不能直接把两条账户曲线当作同额资金曲线", "期末收益不能代替过程风险"], "core_message": "评价买法，需要同时看资金暴露与过程体验。", "tone": "观察式、审慎", "grounded_in": ["官方逐日点位", "每日累计投入与浮亏计算"], "why_this_works": "把方案中的最大浮亏从附属指标提升为主要叙事，能解释定投百分比指标的边界。"
+    },
+    {
+      "id": "c3", "title": "差的不是定投规则，是钱入场的时间", "hook": "两个人都投十万，为什么红利低波差这么多？", "narrative_structure": "journey", "visual_approach": "用72格资金入场时间轴与红利低波全收益曲线叠合，再回看沪深300和中证500的反例。", "suggested_playbook": "finance-dossier", "target_audience": "想理解一次投入与分批投入机制的人", "target_platform": "generic", "target_duration_seconds": 220, "key_points": ["首日投入与逐月投入的市场暴露时间不同", "红利低波在本区间放大了早入场的差异", "不同指数路径下，结论方向会变化"], "core_message": "把资金进入市场的时间画出来，才看得懂两种买法的差别。", "tone": "解释式、平实", "grounded_in": ["红利低波临时回测", "三指数官方时间序列"], "why_this_works": "机制清楚，但会把用户方案要求的沪深300开场顺序后移，因此列为备选。"
+    }
+  ],
+  "selected_concept": {"concept_id": "c1", "rationale": "按用户修订：无旁白，以连续滚动的收益曲线为主体；保留沪深300→中证500→红利低波顺序及终值、浮亏和路径的完整比较。"},
+  "production_plan": {
+    "pipeline": "finance-dossier", "playbook": "finance-dossier", "renderer_family": "explainer-data", "render_runtime": "hyperframes", "composition_mode": "atelier", "art_direction": "projects/lump-sum-vs-dca-six-years/art-direction.md",
+    "taste_profile": {"design_read": "一张随72个月推进的精美收益地图：曲线持续向前滚动，关键时刻才让数字停下来。", "visual_variance": 6, "motion_intensity": 7, "information_density": 6, "palette_discipline": "沿用Finance Dossier暖纸、深墨、青绿、朱砂与赭金，正负方向同时用符号和文字表达。", "layout_variation": "三组曲线共享一致的阅读语法，却以不同路径事件、局部放大和数据停帧形成节奏变化。", "reference_strategy": "先为曲线主镜头、峰谷标注和最终对照各制作本项目专用参考静帧，并以官方事实表核查。", "anti_patterns": ["卡片网格", "霓虹交易终端", "只滚动静态全图", "装饰性股票素材", "用AI图写金融数字"], "quality_gates": ["收益曲线为画面主体且随日期真实推进", "本钱入场进度始终可见", "所有金额与官方数据逐项核对", "来源、口径、风险提示在手机上可读"]},
+    "delivery_promise": {"promise_type": "data_explainer", "motion_required": true, "tone_mode": "editorial", "quality_floor": "broadcast", "approved_fallback": null},
+    "stages": [
+      {"stage": "research", "tools": [], "approach": "中证官方三条全收益序列；固定观察区间2020-10-09至2026-09-29；统一72次买入、终值、XIRR与浮亏，不等9月30日数据。"},
+      {"stage": "proposal", "tools": [], "approach": "确认脚本方向、运行环境、画面覆盖、预算与音频计划。"},
+      {"stage": "script", "tools": [], "approach": "写无旁白的视觉脚本：收益曲线随时间滚动，日期、两种买法的净收益、定投累计投入同步推进；每组停帧展示完整指标。时长依阅读与音乐节奏确定，不按95秒硬压缩。"},
+      {"stage": "scene_plan", "tools": [], "approach": "逐场写不同的视觉主体与信息任务；保留规则、公平性、六组指标、总表、浮亏体验和边界；结尾在最后有意义的画面放完整风险提示。"},
+      {"stage": "assets", "tools": [], "approach": "不生成旁白；数据曲线、标签和金额均由原生矢量画面生成。搜索并试听合适的无歌词节奏音乐，核验授权，再在资产审核时确认具体曲目。"},
+      {"stage": "edit", "tools": [], "approach": "锁定三组滚动曲线、数据停帧和安全文字区域；按音乐节拍控制事件高亮与场景切换，不为节拍牺牲数字阅读时间。"},
+      {"stage": "compose", "tools": [{"tool_name": "video_compose", "role": "竖屏定制数据动画与合成", "provider": "hyperframes", "available": true, "estimated_cost_usd": 0, "why_this_provider": "适合手工导演随日期推进的矢量收益曲线，同时保持数值原生可复核。"}, {"tool_name": "audio_mixer", "role": "背景节奏音乐混音", "provider": "ffmpeg", "available": true, "estimated_cost_usd": 0, "why_this_provider": "本地混音并控制音乐响度。"}], "approach": "Node 22环境中的HyperFrames手工合成；1080×1920、30fps；逐场静帧、lint、validate及最终数字和风险提示核查。"},
+      {"stage": "cover", "tools": [{"tool_name": "codex_builtin_image_gen", "role": "主封面底图", "provider": "OpenAI Codex host", "available": true, "estimated_cost_usd": 0.5, "why_this_provider": "本环境封面规则要求；精确中文字和金额后期原生叠加。"}], "approach": "成片后制作一张与真实结论一致的竖屏封面，单独审核。"},
+      {"stage": "publish", "tools": [{"tool_name": "export_bundle", "role": "本地交付包", "provider": "OpenMontage", "available": true, "estimated_cost_usd": 0, "why_this_provider": "附视频、封面、数据来源和复算说明。"}], "approach": "仅输出本地文件，不远程发布。"}
+    ],
+    "quality_tradeoffs": [
+      {"tradeoff": "HyperFrames 与 Remotion", "recommendation": "HyperFrames", "quality_impact": "更适合这次要求的逐场定制和镜头衔接；原生数字仍需严格校验，制作与本地渲染时间更长。"},
+      {"tradeoff": "手工定制与模板式", "recommendation": "手工定制", "quality_impact": "可把72期投入做成本片独有的视觉叙事；逐场设计和返工量增加。"},
+      {"tradeoff": "纯图表与素材视频混合", "recommendation": "纯图表", "quality_impact": "所有关键段落都由现金流和指数数据承担；泛股市镜头不增加解释力。"}
+    ],
+    "alternative_paths": [
+      {"description": "Remotion手工定制数据叙事", "total_cost_usd": 1.0, "quality_level": "premium", "what_changes": "同样能达到高品质；更适合React原生图表与逐字字幕，需另写本片专属场景。"},
+      {"description": "Remotion模板式快版", "total_cost_usd": 1.0, "quality_level": "standard", "what_changes": "数据正确但视觉重复性较高，不符合本次质量优先要求。"},
+      {"description": "FFmpeg静态数据页和简单转场", "total_cost_usd": 1.0, "quality_level": "budget", "what_changes": "缺少跟随数据解释的曲线动画；不推荐。"}
+    ],
+    "music_source": {"source_type": "bring_your_own", "provider": "pixabay_music", "mood_direction": "待在资产阶段试听并核验授权的无歌词、稳健律动曲目，约90–110 BPM，避免戏剧化涨跌音效。", "estimated_cost_usd": 0, "inherited_from_defaults": false},
+    "voice_selection": {"provider": "none", "inherited_from_defaults": false, "rationale": "用户明确要求不需要旁白。", "estimated_cost_usd": 0},
+    "decision_log_ref": "projects/lump-sum-vs-dca-six-years/artifacts/decision_log.json"
+  },
+  "cost_estimate": {"total_estimated_usd": 0.5, "line_items": [{"tool": "pixabay_music", "operation": "搜索并选择可授权使用的无歌词节奏音乐", "quantity": 1, "estimated_usd": 0, "notes": "具体曲目和授权在资产阶段核验。"}, {"tool": "codex_builtin_image_gen", "operation": "封面底图与一次修改预留", "quantity": 2, "estimated_usd": 0.5, "notes": "宿主计费未在OpenMontage注册表中公开，按预算预留。"}], "budget_cap_usd": 2.0, "budget_verdict": "within_budget"},
+  "approval": {"status": "approved_with_changes", "user_notes": "用户明确修订为滚动收益曲线主导、无旁白、加入合适背景节奏音乐，固定使用已核验的9月29日截止数据，不等待9月30日。"},
+    "metadata": {
+    "content_category": "finance",
+    "editorial_direction": {"primary_mode": "EXPLAIN", "classification_confidence": "high", "audience_task": "understand_mechanism", "rationale": ["以历史指数路径解释投入时间的影响。"], "evidence_priority": ["official_total_return_daily_levels", "monthly_cash_flows"], "visual_priority": ["chart", "comparison"], "canvas_preference": ["data", "paper"], "density_profile": {"opening": "sparse", "body": "standard", "evidence": "dense", "ending": "sparse"}, "hook_grammar": "CONTRADICTION", "ending_grammar": "OPEN_QUESTION", "key_editorial_risk": "不得把本区间结论外推为投资建议。", "key_anti_pattern": "不要使用泛股市素材。"},
+    "data_status": "本片固定观察区间2020-10-09至2026-09-29；无需等待2026-09-30收盘",
+    "semantic_motion_audit": {"precision_critical": ["72次现金流", "三条指数曲线", "终值、XIRR与浮亏", "来源与口径"], "semantic_motion_candidates": [], "decorative_only": ["交易屏幕", "钞票镜头", "握手与办公楼"], "coverage_options": ["composition-only", "light-hybrid", "footage-led"], "recommendation": "composition-only"},
+    "runtime_options": {"remotion": "适合精确曲线与逐字字幕；手工定制也能达到高品质，已可用。", "hyperframes": "适合本片逐场设计的HTML/SVG/GSAP镜头，Node 22预检通过，CLI 0.8.94可运行。", "ffmpeg": "适合拼接与简单转场，不适合本片的数据动画。"},
+    "composition_options": {"templated": "可靠、经济，但视觉容易重复。", "atelier": "为本片手工设计专属画面；需要更多设计、逐场审核和本地渲染时间。"},
+    "capability_summary": {"tts": "不需要", "video_generation": "2/22", "image_generation_registry": "2/12，Codex宿主image_gen另可用", "music_generation": "0/3；Pixabay音乐搜索1/2可用，本项目拟从授权曲库选曲", "video_post": "9/9（在Node 22环境）", "composition_runtimes": {"ffmpeg": true, "remotion": true, "hyperframes": true}},
+    "compliance": {"exact_text": "本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。", "presentation": "final_meaningful_scene_native_footer"}
+  }
+}

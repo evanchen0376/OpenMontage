@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "renders/curve-first-picture-v2.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 185,
+      "file_size_bytes": 15814778,
+      "platform_target": "portrait-social-picture-review"
+    }
+  ],
+  "render_time_seconds": 229,
+  "warnings": ["本版无音轨；背景音乐尚未确定，不能视为最终音频版。", "HyperFrames 有一条非阻断的嵌套结构 lint 警告。"],
+  "verification_notes": ["ffprobe 核对时长 185 秒、1080x1920、30 fps、H.264、无音轨。", "从实际 MP4 抽检第 0 秒、60 秒、110 秒、160 秒和 184 秒；主题、三组曲线、终点数值与片尾提示均可见。", "第 0 秒标题修正后重新渲染为 v2；v1 保留供回溯。"],
+  "render_grammar": "explainer-data",
+  "decision_log_ref": "decision_log.json",
+  "final_review_ref": "artifacts/final_review.json",
+  "metadata": {"runtime":"hyperframes@0.8.94","composition_mode":"atelier","audio_state":"picture_only_pending_approved_music","render_variant":"v2_first_frame_fixed"}
+}

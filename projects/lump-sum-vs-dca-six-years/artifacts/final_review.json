@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "output_path": "renders/curve-first-picture-v2.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {"valid_container":true,"duration_seconds":185,"resolution":"1080x1920","fps":30,"has_audio":false,"codec":"h264","file_size_bytes":15814778,"issues":[]},
+    "visual_spotcheck": {"frames_sampled":5,"frame_paths":["renders/qa/v2-first.png","renders/qa/v2-60s.png","renders/qa/v2-110s.png","renders/qa/v2-160s.png","renders/qa/v2-last.png"],"black_frames_detected":false,"broken_overlays":false,"missing_assets":false,"unreadable_text":false,"issues":[]},
+    "opening_frame_check": {"frame_path":"renders/qa/v2-first.png","extracted":true,"large_blank_area_detected":false,"theme_elements_visible":true,"inspection_method":"ffmpeg exact first decoded frame, visual inspection","issues":[]},
+    "audio_spotcheck": {"narration_present":false,"music_present":false,"unexpected_silence":false,"clipping_detected":false,"mix_intelligible":false,"issues":["用户要求先合成画面；本版刻意无音轨，后续音乐待定。"]},
+    "promise_preservation": {"delivery_promise_honored":true,"renderer_family_used":"explainer-data","render_runtime_used":"hyperframes","runtime_swap_detected":false,"runtime_swap_check":"ok — proposal and render both use HyperFrames","motion_ratio_actual":0.81,"silent_downgrade_detected":false,"issues":[]},
+    "subtitle_check": {"subtitles_expected":false,"subtitles_present":false,"coverage_ratio":0,"timing_drift_detected":false,"safe_area_policy":"social-ui-safe","safe_area_applied":true,"bottom_clearance_px":520,"minimum_bottom_clearance_px":520,"side_clearance_px":96,"issues":[]},
+    "compliance": {"financial_disclaimer_present":true,"financial_disclaimer_exact":true,"financial_disclaimer_readable":true,"financial_disclaimer_at_end":true,"financial_disclaimer_presentation":"footer","issues":[]},
+    "atelier": {"stock_reuse_detected":false,"offending_imports":[],"art_direction_declared":true,"art_direction":"projects/lump-sum-vs-dca-six-years/art-direction.md","issues":[]}
+  },
+  "issues_found": ["背景音乐尚未确认；本次通过仅针对无音轨画面版。"],
+  "recommended_action": "present_to_user",
+  "metadata": {"scene_distinctness":"开头主题、资金规则、净收益口径、三条真实曲线、汇总、边界与结尾各有独立任务；三条曲线使用相同构图是用户要求的跨指数可比性，不属于装饰性复用。","could_be_any_other_video":false,"prior_look_reused":false,"numbers_checked_against_fixed_backtest":true}
+}

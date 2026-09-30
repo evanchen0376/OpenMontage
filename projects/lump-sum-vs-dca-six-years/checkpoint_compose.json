@@ -1,0 +1,149 @@
+{
+  "version": "1.0",
+  "project_id": "lump-sum-vs-dca-six-years",
+  "pipeline_type": "finance-dossier",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-09-30T09:39:32.997145+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "renders/curve-first-picture-v2.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "resolution": "1080x1920",
+          "fps": 30,
+          "duration_seconds": 185,
+          "file_size_bytes": 15814778,
+          "platform_target": "portrait-social-picture-review"
+        }
+      ],
+      "render_time_seconds": 229,
+      "warnings": [
+        "\u672c\u7248\u65e0\u97f3\u8f68\uff1b\u80cc\u666f\u97f3\u4e50\u5c1a\u672a\u786e\u5b9a\uff0c\u4e0d\u80fd\u89c6\u4e3a\u6700\u7ec8\u97f3\u9891\u7248\u3002",
+        "HyperFrames \u6709\u4e00\u6761\u975e\u963b\u65ad\u7684\u5d4c\u5957\u7ed3\u6784 lint \u8b66\u544a\u3002"
+      ],
+      "verification_notes": [
+        "ffprobe \u6838\u5bf9\u65f6\u957f 185 \u79d2\u30011080x1920\u300130 fps\u3001H.264\u3001\u65e0\u97f3\u8f68\u3002",
+        "\u4ece\u5b9e\u9645 MP4 \u62bd\u68c0\u7b2c 0 \u79d2\u300160 \u79d2\u3001110 \u79d2\u3001160 \u79d2\u548c 184 \u79d2\uff1b\u4e3b\u9898\u3001\u4e09\u7ec4\u66f2\u7ebf\u3001\u7ec8\u70b9\u6570\u503c\u4e0e\u7247\u5c3e\u63d0\u793a\u5747\u53ef\u89c1\u3002",
+        "\u7b2c 0 \u79d2\u6807\u9898\u4fee\u6b63\u540e\u91cd\u65b0\u6e32\u67d3\u4e3a v2\uff1bv1 \u4fdd\u7559\u4f9b\u56de\u6eaf\u3002"
+      ],
+      "render_grammar": "explainer-data",
+      "decision_log_ref": "decision_log.json",
+      "final_review_ref": "artifacts/final_review.json",
+      "metadata": {
+        "runtime": "hyperframes@0.8.94",
+        "composition_mode": "atelier",
+        "audio_state": "picture_only_pending_approved_music",
+        "render_variant": "v2_first_frame_fixed"
+      }
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "renders/curve-first-picture-v2.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 185,
+          "resolution": "1080x1920",
+          "fps": 30,
+          "has_audio": false,
+          "codec": "h264",
+          "file_size_bytes": 15814778,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 5,
+          "frame_paths": [
+            "renders/qa/v2-first.png",
+            "renders/qa/v2-60s.png",
+            "renders/qa/v2-110s.png",
+            "renders/qa/v2-160s.png",
+            "renders/qa/v2-last.png"
+          ],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "opening_frame_check": {
+          "frame_path": "renders/qa/v2-first.png",
+          "extracted": true,
+          "large_blank_area_detected": false,
+          "theme_elements_visible": true,
+          "inspection_method": "ffmpeg exact first decoded frame, visual inspection",
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": false,
+          "music_present": false,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": false,
+          "issues": [
+            "\u7528\u6237\u8981\u6c42\u5148\u5408\u6210\u753b\u9762\uff1b\u672c\u7248\u523b\u610f\u65e0\u97f3\u8f68\uff0c\u540e\u7eed\u97f3\u4e50\u5f85\u5b9a\u3002"
+          ]
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "renderer_family_used": "explainer-data",
+          "render_runtime_used": "hyperframes",
+          "runtime_swap_detected": false,
+          "runtime_swap_check": "ok \u2014 proposal and render both use HyperFrames",
+          "motion_ratio_actual": 0.81,
+          "silent_downgrade_detected": false,
+          "issues": []
+        },
+        "subtitle_check": {
+          "subtitles_expected": false,
+          "subtitles_present": false,
+          "coverage_ratio": 0,
+          "timing_drift_detected": false,
+          "safe_area_policy": "social-ui-safe",
+          "safe_area_applied": true,
+          "bottom_clearance_px": 520,
+          "minimum_bottom_clearance_px": 520,
+          "side_clearance_px": 96,
+          "issues": []
+        },
+        "compliance": {
+          "financial_disclaimer_present": true,
+          "financial_disclaimer_exact": true,
+          "financial_disclaimer_readable": true,
+          "financial_disclaimer_at_end": true,
+          "financial_disclaimer_presentation": "footer",
+          "issues": []
+        },
+        "atelier": {
+          "stock_reuse_detected": false,
+          "offending_imports": [],
+          "art_direction_declared": true,
+          "art_direction": "projects/lump-sum-vs-dca-six-years/art-direction.md",
+          "issues": []
+        }
+      },
+      "issues_found": [
+        "\u80cc\u666f\u97f3\u4e50\u5c1a\u672a\u786e\u8ba4\uff1b\u672c\u6b21\u901a\u8fc7\u4ec5\u9488\u5bf9\u65e0\u97f3\u8f68\u753b\u9762\u7248\u3002"
+      ],
+      "recommended_action": "present_to_user",
+      "metadata": {
+        "scene_distinctness": "\u5f00\u5934\u4e3b\u9898\u3001\u8d44\u91d1\u89c4\u5219\u3001\u51c0\u6536\u76ca\u53e3\u5f84\u3001\u4e09\u6761\u771f\u5b9e\u66f2\u7ebf\u3001\u6c47\u603b\u3001\u8fb9\u754c\u4e0e\u7ed3\u5c3e\u5404\u6709\u72ec\u7acb\u4efb\u52a1\uff1b\u4e09\u6761\u66f2\u7ebf\u4f7f\u7528\u76f8\u540c\u6784\u56fe\u662f\u7528\u6237\u8981\u6c42\u7684\u8de8\u6307\u6570\u53ef\u6bd4\u6027\uff0c\u4e0d\u5c5e\u4e8e\u88c5\u9970\u6027\u590d\u7528\u3002",
+        "could_be_any_other_video": false,
+        "prior_look_reused": false,
+        "numbers_checked_against_fixed_backtest": true
+      }
+    }
+  },
+  "style_playbook": "finance-dossier",
+  "metadata": {
+    "review": "pass for picture-only video; soundtrack still pending",
+    "cost_usd": 0
+  }
+}

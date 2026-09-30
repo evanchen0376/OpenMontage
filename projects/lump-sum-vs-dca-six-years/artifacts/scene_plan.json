@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "style_playbook": "finance-dossier",
+  "scenes": [
+    {
+      "id": "sc01", "type": "animation", "description": "开头立即点明测试主题：同样10万元，一次买入还是定投；逐字列出沪深300、中证500、中证红利低波动三条指数及观察区间。下方注明沪深300的真实曲线预告。", "start_seconds": 0, "end_seconds": 5, "script_section_id": "s01",
+      "framing": "9:16暖纸全屏；主题与三条测试指数在上半部完整可读，沪深300曲线预告在中部。", "movement": "问题文字与真实曲线快速进入，不拖延进入数据主线。", "transition_in": "首帧直接入题", "transition_out": "硬切至精简的买入规则。", "overlay_notes": "屏幕明确写出测试对象，不以匿名曲线或装饰性问号代替主题。", "shot_intent": "让观众5秒内知道片名、测试对象和问题。", "narrative_role": "build_tension", "information_role": "知道本片比较三条具体指数上同样10万元的两种入场路径。", "hero_moment": true,
+      "finance_family": "DATA", "finance_scene_type": "chart", "claim_class": "FACT", "source_anchor": {"label": "中证指数官方全收益日频序列；项目回测", "period": "2020-10-09—2026-09-29", "tier": 1}, "layout_variant": "atelier-opening-curve", "finance_justification": "先借真实曲线建立问题，不提前暗示胜出方。", "required_assets": [{"type": "backtest_data", "description": "三组官方数据的可复算回测路径，仅用于真实线形", "source": "source"}]
+    },
+    {
+      "id": "sc02", "type": "animation", "description": "用两列快速交代一次买入10万元与72期定投累计10万元的入场差异；准确现金流保留在注释和项目记录，不作为长时间说明卡。", "start_seconds": 5, "end_seconds": 11, "script_section_id": "s02",
+      "framing": "时间刻度是主视觉，上方为2020.10—2026.09，下方保留资金数值。", "movement": "时间格STEP/FILL；首格一次性投入直接LOCKS IN，定投累计本金随月份COUNT UP。", "transition_in": "承接开头日期游标", "transition_out": "72格刻度收敛为后续曲线下方的累计投入细条。", "overlay_notes": "显示前71期1,388.89元、末期1,388.81元；日期标注实际首个交易日2020-10-09，结束2026-09-29。", "shot_intent": "让观众一眼理解两条曲线为何起始资金暴露不同。", "narrative_role": "establish_context", "information_role": "掌握72期买入规则和相同最终本金。", "finance_family": "MECHANISM", "finance_scene_type": "money_flow", "claim_class": "FACT", "source_anchor": {"label": "72期现金流规则；项目回测", "period": "2020-10—2026-09", "tier": 1}, "layout_variant": "atelier-72-month-funding-ruler", "mechanism_importance": true, "required_assets": [{"type": "backtest_data", "description": "72个实际买入日期及各期金额", "source": "source"}]
+    },
+    {
+      "id": "sc03", "type": "diagram", "description": "3秒读图口径：账户价值减去当时累计投入本金等于逐日净收益；不再使用A/B变量和多行解释。", "start_seconds": 11, "end_seconds": 14, "script_section_id": "s03",
+      "framing": "单行大字写出净收益计算式，画面其余部分留白，不增加示意图。", "movement": "计算式快速REVEAL；三秒后立即切入第一组真实曲线。", "transition_in": "72格资金刻度压缩成下方本金进度带", "transition_out": "示意线被第一组真实逐日数据接管。", "overlay_notes": "主图单位写作净收益（元）；定投累计投入固定在曲线下方，不把两条账户余额直接当作同本金曲线。", "shot_intent": "提前化解比较口径的误读，而不打断后面连续滚动体验。", "narrative_role": "introduce_subject", "information_role": "理解画面中曲线的含义及比较边界。", "finance_family": "MECHANISM", "finance_scene_type": "money_flow", "claim_class": "FACT", "source_anchor": {"label": "项目回测计算口径", "period": "2020-10-09—2026-09-29", "tier": 1}, "layout_variant": "atelier-profit-formula", "mechanism_importance": true, "required_assets": [{"type": "backtest_data", "description": "逐日账户价值与逐日累计投入", "source": "source"}]
+    },
+    {
+      "id": "sc04", "type": "animation", "description": "沪深300的两条真实净收益曲线占据50秒，约44秒连续滚动，最后6秒在曲线仍可见时于下方显示完整结果读数。日期、净收益与定投累计投入同步更新。", "start_seconds": 14, "end_seconds": 64, "script_section_id": "s04",
+      "framing": "主曲线位于画面中上部；各图纵轴独立并明示，真实零轴和单位保留；终点指标替换曲线下方实时读数，不遮挡走势。", "movement": "按官方交易日真实路径DRAW；14—58秒滚动，58—64秒HOLD/REVEAL完整指标；不伪造峰谷。", "transition_in": "读图口径直接切为沪深300真实路径", "transition_out": "下一组回到同一起点。", "overlay_notes": "青绿/朱砂始终配文字；期末107,111.21/112,101.99元；最大浮亏-27.44%/-23.55%。", "shot_intent": "把主要观看时间还给沪深300真实涨跌过程。", "narrative_role": "evidence", "information_role": "回答沪深300这一条路径的终点与过程风险。", "hero_moment": true,
+      "finance_family": "DATA", "finance_scene_type": "chart", "claim_class": "FACT", "source_anchor": {"label": "中证指数 H00300 全收益日频；项目72期回测", "date": "2026-09-29", "period": "2020-10-09—2026-09-29", "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20201001&endDate=20260929", "tier": 1}, "layout_variant": "atelier-scrolling-profit-300", "required_assets": [{"type": "index_series", "description": "沪深300全收益官方日频序列及回测路径", "source": "source"}]
+    },
+    {
+      "id": "sc05", "type": "animation", "description": "中证500沿用相同零轴、颜色、单位；44秒真实曲线滚动，6秒贴底结果读数，曲线始终可见。", "start_seconds": 64, "end_seconds": 114, "script_section_id": "s06",
+      "framing": "保留跨指数可比的轴和读数位置；结果贴底显示，不挡主曲线。", "movement": "64—108秒真实路径DRAW；108—114秒终点读数REVEAL。", "transition_in": "日期复位至2020-10-09并明确指数名称", "transition_out": "第三组从同一资金起点继续。", "overlay_notes": "期末128,714.86/124,819.94元；最大浮亏-26.38%/-26.74%；差距仅0.36个百分点，不夸大。", "shot_intent": "展示同一买法规则遇到另一条市场路径后，终点胜出方改变。", "narrative_role": "comparison", "information_role": "比较中证500结果，理解结论随市场路径变化。", "finance_family": "DATA", "finance_scene_type": "chart", "claim_class": "FACT", "source_anchor": {"label": "中证指数 H00905 全收益日频；项目72期回测", "date": "2026-09-29", "period": "2020-10-09—2026-09-29", "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00905&startDate=20201001&endDate=20260929", "tier": 1}, "layout_variant": "atelier-scrolling-profit-500", "required_assets": [{"type": "index_series", "description": "中证500全收益官方日频序列及回测路径", "source": "source"}]
+    },
+    {
+      "id": "sc06", "type": "animation", "description": "中证红利低波动的真实曲线从首日持续滚动44秒；最后6秒曲线保留在背景，指标贴底呈现。", "start_seconds": 114, "end_seconds": 164, "script_section_id": "s08",
+      "framing": "曲线仍使用相同时间方向和零轴，终点读数不遮挡主体；全收益口径持续可见。", "movement": "114—158秒SCROLL/DRAW；158—164秒最终间距HOLD并REVEAL读数。", "transition_in": "从中证500终点回到同一资金起点", "transition_out": "三组终点转化为总表对应行。", "overlay_notes": "期末180,125.52/130,662.29元；最大浮亏-2.83%/-4.64%；浮亏低点不是同一天。", "shot_intent": "显示早入场在这条历史路径上的复利暴露效果，同时避免泛化成买入建议。", "narrative_role": "evidence", "information_role": "看清红利低波在本区间的大额终点差异和过程浮亏。", "hero_moment": true,
+      "finance_family": "DATA", "finance_scene_type": "chart", "claim_class": "FACT", "source_anchor": {"label": "中证指数 H20269 全收益日频；项目72期回测", "date": "2026-09-29", "period": "2020-10-09—2026-09-29", "url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H20269&startDate=20201001&endDate=20260929", "tier": 1}, "layout_variant": "atelier-scrolling-profit-dividend-low-vol", "required_assets": [{"type": "index_series", "description": "中证红利低波动全收益官方日频序列及回测路径", "source": "source"}]
+    },
+    {
+      "id": "sc07", "type": "diagram", "description": "三组曲线终点快速汇成一张原生数字对照页，9秒内核对期末金额和过程浮亏；不重复解释已在各指数曲线中看过的过程。", "start_seconds": 164, "end_seconds": 173, "script_section_id": "s10",
+      "framing": "左右两列买法、三行指数；每行显示精确终值和差额，下方直接列出三组最大浮亏。", "movement": "汇总表整体快速进入并保持静止，9秒内供观众核对；不再分两页。", "transition_in": "三组曲线终点汇聚到对应三行", "transition_out": "总表行距拉开，露出口径文字。", "overlay_notes": "差额4,990.78/3,894.92/49,463.23元按胜出方文字标注；浮亏页必须明说分母为当时累计投入。", "shot_intent": "在完整看过三条过程路径后，把六组结果放进可直接核对的对照框架。", "narrative_role": "comparison", "information_role": "横向核对三指数终值与过程浮亏，发现没有放之四海皆准的胜出办法。", "finance_family": "DATA", "finance_scene_type": "evidence_card", "claim_class": "FACT", "source_anchor": {"label": "中证指数三条全收益序列；项目回测", "date": "2026-09-29", "period": "2020-10-09—2026-09-29", "tier": 1}, "layout_variant": "atelier-two-pass-results-table", "required_assets": [{"type": "backtest_data", "description": "三条指数六组回测指标，所有差额复核", "source": "source"}]
+    },
+    {
+      "id": "sc08", "type": "diagram", "description": "方法与边界压缩至6秒：全收益含分红再投资、定投年化按实际入场时间算XIRR、费用税费跟踪误差与场外利息未计。", "start_seconds": 173, "end_seconds": 179, "script_section_id": "s11",
+      "framing": "主标题上方，三条原生文字规则位于安全区中央，不堆满注释。", "movement": "三行边界文字逐行REVEAL，最后保留静止阅读。", "transition_in": "总表列线收拢为时间轴", "transition_out": "时间轴减淡，三条曲线轮廓回到背景。", "overlay_notes": "不能把总收益率、一次买入持有年化和定投XIRR混作同一公式；标注历史回测不代表未来。", "shot_intent": "告诉观众数字何以成立、哪些现实因素未计入，避免误读为真实基金收益。", "narrative_role": "resolution", "information_role": "掌握计算口径与推论边界。", "finance_family": "DOCUMENT", "finance_scene_type": "document", "claim_class": "FACT", "source_anchor": {"label": "项目回测方法；中证指数全收益口径", "date": "2026-09-29", "period": "2020-10—2026-09", "tier": 1}, "layout_variant": "atelier-method-margin-note", "required_assets": [{"type": "methodology", "description": "官方指数口径与项目可复算代码", "source": "source"}]
+    },
+    {
+      "id": "sc09", "type": "animation", "description": "片尾6秒给出可复用的判断方法：看入场时间、终点和途中最深浮亏；完整风险提示在最终意义画面的原生页脚保持到最后一帧。", "start_seconds": 179, "end_seconds": 185, "script_section_id": "s12",
+      "framing": "结论文字位于画面中上部；风险提示用足够字号放在平台安全区内的下半部，避开右侧交互控件和底部520px。", "movement": "三条细线静止定格，判断方法逐句REVEALS；最后4秒全画面HOLD供阅读，音乐缓慢淡出。", "transition_in": "方法页时间轴化为三条历史路径", "transition_out": "无；完整风险提示随影片结束保持可见。", "overlay_notes": "必须原生完整显示：本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。", "shot_intent": "完成观众任务，留下可复用的比较方法及明确风险边界。", "narrative_role": "resolution", "information_role": "知道下次应同时检查入场时间、期末结果与过程浮亏。", "finance_family": "DECISION", "finance_scene_type": "watch_list", "claim_class": "INFERENCE", "source_anchor": {"label": "三条官方全收益序列与项目回测总结", "date": "2026-09-29", "period": "2020-10-09—2026-09-29", "tier": 1}, "layout_variant": "atelier-judgment-close", "required_assets": [{"type": "backtest_data", "description": "片尾历史曲线线形，淡化为背景但保持真实", "source": "source"}]
+    }
+  ],
+  "metadata": {
+    "content_category": "finance",
+    "editorial_direction": {"primary_mode": "EXPLAIN", "classification_confidence": "high", "audience_task": "understand_mechanism", "rationale": ["以历史指数路径解释投入时间的影响。"], "evidence_priority": ["official_total_return_daily_levels", "monthly_cash_flows"], "visual_priority": ["chart", "comparison"], "canvas_preference": ["data", "paper"], "density_profile": {"opening": "sparse", "body": "standard", "evidence": "dense", "ending": "sparse"}, "hook_grammar": "CONTRADICTION", "ending_grammar": "OPEN_QUESTION", "key_editorial_risk": "不得把本区间结论外推为投资建议。", "key_anti_pattern": "不要使用泛股市素材。"},
+    "duration_seconds": 185,
+    "scene_variety_review": {"warning_codes": ["REPEATED_SCENE_TYPE"], "decision": "accepted_with_reason", "reason": "资金刻度与净收益口径先后承担不同认知任务；三条连续滚动曲线沿用相同轴、颜色与读数位置是用户明确要求，也确保跨指数可比。各指数的真实轨迹、谷底与期末停帧不同，并以原生数据而非模板部件制作。"},
+    "narration_enabled": false,
+    "audio_direction": "本轮先审核静音画面预览；背景音乐保留待选，不将静音预览当作最终音频决策。",
+    "script_section_coverage": {"sc01": ["s01"], "sc02": ["s02"], "sc03": ["s03"], "sc04": ["s04", "s05"], "sc05": ["s06", "s07"], "sc06": ["s08", "s09"], "sc07": ["s10"], "sc08": ["s11"], "sc09": ["s12"]},
+    "motion_contract": {"runtime": "hyperframes", "composition_mode": "atelier", "chart_data_source": "projects/lump-sum-vs-dca-six-years/artifacts/backtest-fixed-20260929.json", "primary_measure": "当日账户价值－当日累计投入本金，元", "axis_policy": "全部画面有真实零轴、元单位与日期；跨指数比较不得无标记截轴；可按需要扩大共同纵轴上界；只允许明示的局部放大", "fixed_cutoff": "2026-09-29", "mobile_safe_area_px_1080x1920": {"left": 96, "right": 96, "bottom": 520}, "source_treatment": "所有事实镜头以原生小号但实测可读的来源标签标注官方指数代码、全收益口径、固定期间"},
+    "compliance": {"financial_disclaimer": "本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。", "presentation": "footer", "placement": "ending", "ending_scene_id": "sc09", "native_text_required": true}
+  }
+}
