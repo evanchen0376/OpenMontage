@@ -357,16 +357,6 @@
     },
     "width": { "type": "integer", "minimum": 1, "description": "Explicit Remotion composition width in pixels." },
     "height": { "type": "integer", "minimum": 1, "description": "Explicit Remotion composition height in pixels." },
-    "brand": {
-      "type": "object",
-      "description": "Optional public-facing Finance Dossier identity. Engine names are never rendered by default.",
-      "properties": {
-        "label": { "type": "string" },
-        "series": { "type": "string" },
-        "issue": { "type": "string" }
-      },
-      "additionalProperties": false
-    },
     "bespoke": {
       "type": "object",
       "description": "Required when composition_mode='atelier'. Contract for the hand-authored, project-local Remotion render. See tools/video/video_compose.py → _render_via_atelier docstring.",

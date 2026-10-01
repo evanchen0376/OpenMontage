@@ -85,15 +85,9 @@ be shortened, paraphrased, translated, or replaced:
 > 本视频仅作知识分享，不构成任何投资建议。市场有风险，投资需谨慎。
 
 It must be native readable text at the end of the video and never baked into an
-AI-generated image. For `finance-dossier`, the normal presentation is a quiet
-`footer` or `overlay` on the final meaningful editorial scene, carried through
-`script.metadata.compliance`, `scene_plan.metadata.compliance`, and
-`edit_decisions.metadata.compliance`. A standalone exact-text card remains
-allowed when explicitly requested or required by an external platform, legal,
-or workflow policy. Other finance pipelines retain their declared compliance
-presentation until their own manifests opt into the metadata contract. During
-post-render review, inspect the ending frame and record that the sentence is
-present, exact, readable, and at the end. Checkpoint validation fails closed
+AI-generated image. Follow the selected pipeline's compliance presentation.
+During post-render review, inspect the ending frame and record that the sentence
+is present, exact, readable, and at the end. Checkpoint validation fails closed
 when the approved presentation or exact wording is missing.
 
 ## Conditional Financial Editorial Workflow
@@ -379,7 +373,6 @@ If the folder has tracks, the proposal and asset stages should present them as o
 | `localization-dub` | Subtitle, dub, and translated variants | beta |
 | `framework-smoke` | Test: minimal 2-stage smoke test | test |
 | `finance-wechat-article` | Screen finance videos and create evidence-first 公众号 article packages | beta |
-| `finance-dossier` | Evidence-first finance research shorts with documents, mechanisms, and scenario framing | beta |
 
 > **Beta pipelines** have not been fully audited. They work, but expect rough edges. Mention this when the user selects one.
 
@@ -562,7 +555,6 @@ For these requests:
 
 See `remotion-composer/SCENE_TYPES.md` for the authoritative list and their cut schemas. Current scene types usable via `cut.type`:
 `text_card`, `stat_card`, `callout`, `comparison`, `hero_title`, `terminal_scene`, `anime_scene`, `bar_chart`, `line_chart`, `pie_chart`, `kpi_grid`, `progress_bar`. Overlay types include `section_title`, `stat_reveal`, `hero_title`, `provider_chip`.
-Finance dossier cut types extend the same dispatch: `evidence_card`, `expectation_gap`, `money_flow`, `causal_chain`, `research_timeline`, `scenario_board`, and `thesis_breaker`.
 
 These stock scene-types are the **templated** path — fast and reliable, but they are why videos look alike. For **hero work, prefer atelier mode** (hand-authored composition) over this catalog; read those types as a *mechanics codex*, not a menu to assemble. See "Composition Authoring Mode" above and `skills/meta/bespoke-composition.md`.
 
@@ -898,7 +890,6 @@ Tool rules:
 | `premium-minimalist` | Investor updates, expert explainers, product narratives |
 | `flat-motion-graphics` | Social media, TikTok, startups |
 | `minimalist-diagram` | Technical deep-dives, architecture |
-| `finance-dossier` | Finance research, filings, expectation gaps, mechanisms, and conditional scenarios |
 | `ink-sketch` (Ink Theater) | Hand-drawn ink-on-white doodle animation; a character that draws itself, walks, dances; contraption explainers |
 
 For custom, atelier, brand, launch, or hero work, read `skills/meta/taste-direction.md` before choosing a playbook. Carry its `taste_profile` into the proposal so later stages can preserve the design read, visual variance, motion intensity, information density, reference strategy, and anti-patterns.

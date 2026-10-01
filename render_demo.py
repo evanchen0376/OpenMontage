@@ -29,7 +29,6 @@ DEMO_DESCRIPTIONS = {
     "world-in-numbers": "Global scale story with titles, stats, and charts",
     "code-to-screen": "Developer workflow explainer with comparison and KPI cards",
     "focusflow-pitch": "Startup-style pitch built only from Remotion components",
-    "finance-dossier-sample": "Evidence-first fictional finance short (1080x1920)",
 }
 
 

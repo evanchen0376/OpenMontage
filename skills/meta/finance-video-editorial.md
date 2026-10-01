@@ -135,10 +135,7 @@ Use `narration_style: "source_voice_preserved"` instead when the source-preservi
 exception above applies, or record the explicit user-selected style identifier.
 
 Preserve the mandatory exact disclaimer as defined in `AGENT_GUIDE.md`. Use the
-selected pipeline's declared compliance presentation. `finance-dossier`
-normally carries it as native footer/overlay metadata on the reusable judgment
-method or other final meaningful editorial section; pipelines without that
-explicit metadata contract retain the standalone final section. The disclaimer
+selected pipeline's declared compliance presentation. The disclaimer
 is compliance copy, not a substitute for boundary conditions.
 
 ### Scene Plan / Assets / Edit
@@ -151,9 +148,7 @@ is compliance copy, not a substitute for boundary conditions.
   Avoid truncated axes or visual scale choices that exaggerate the conclusion.
 - Remove any visual or number that does not advance the core question.
 - Keep the reusable judgment method or mode-appropriate decision as the final
-  editorial beat. For Finance Dossier, carry the exact disclaimer on that frame
-  through approved footer/overlay metadata; use a following standalone card only
-  when explicitly requested or externally required.
+  editorial beat, followed by the selected pipeline's approved disclaimer presentation.
 
 ### Compose / Publish
 
@@ -163,9 +158,8 @@ is compliance copy, not a substitute for boundary conditions.
 - Do not turn a qualified script into an absolute title, cover, caption, or
   description. The publishing hook may be sharp, but it may not overstate the
   evidence.
-- Verify the approved native compliance presentation: exact/readable footer or
-  overlay on the ending frame for normal Finance Dossier work, or standalone
-  card where the pipeline or external policy requires it.
+- Verify the selected pipeline's approved compliance presentation and the exact,
+  readable disclaimer at the end.
 
 ## Finance Review Gate
 

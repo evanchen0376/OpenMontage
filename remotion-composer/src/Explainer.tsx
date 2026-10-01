@@ -55,29 +55,6 @@ import type { TerminalStep } from "./components/TerminalScene";
 import { ScreenshotScene } from "./components/ScreenshotScene";
 import type { ScreenshotStep } from "./components/ScreenshotScene";
 import { ProviderChip } from "./components/ProviderChip";
-import {
-  CausalChain,
-  EvidenceCard,
-  ExpectationGap,
-  MoneyFlow,
-  ResearchTimeline,
-  ScenarioBoard,
-  ThesisBreaker,
-} from "./components/finance";
-import type {
-  CausalEdge,
-  CausalNode,
-  FinanceCanvasMode,
-  FinanceDensity,
-  FinanceHeaderTreatment,
-  FinanceSourceTreatment,
-  FlowEdge,
-  FlowNode,
-  ResearchTimelineEvent,
-  Scenario,
-  SupportingMetric,
-  ThesisBreakerCondition,
-} from "./components/finance";
 import type { ParticleType } from "./components/ParticleOverlay";
 import { resolveTheme, type ThemeConfig } from "./theme";
 
@@ -298,40 +275,6 @@ interface Cut {
   screenshotSteps?: ScreenshotStep[];
   screenshotSize?: { width: number; height: number };
   cursorStartAt?: [number, number];
-  // Finance dossier props
-  label?: string;
-  primaryValue?: string | number;
-  supportingMetrics?: SupportingMetric[];
-  period?: string;
-  sourceLabel?: string;
-  sourceDate?: string;
-  sampleData?: boolean;
-  interpretation?: string;
-  variant?: string;
-  metric?: string;
-  expectedValue?: string | number;
-  actualValue?: string | number;
-  delta?: string | number;
-  unit?: string;
-  nodes?: Array<FlowNode | CausalNode>;
-  edges?: Array<FlowEdge | CausalEdge>;
-  highlightedPath?: string[];
-  activeNodeId?: string;
-  hypothesis?: boolean;
-  events?: ResearchTimelineEvent[];
-  highlightedIndex?: number;
-  scenarios?: Scenario[];
-  highlightedScenario?: string;
-  thesis?: string;
-  conditions?: Array<string | ThesisBreakerCondition>;
-  canvasMode?: FinanceCanvasMode;
-  density?: FinanceDensity;
-  headerTreatment?: FinanceHeaderTreatment;
-  sourceTreatment?: FinanceSourceTreatment;
-  analystNote?: string;
-  evidenceIndex?: string;
-  complianceText?: string;
-  initialReveal?: boolean;
 }
 
 interface Overlay {
@@ -382,7 +325,6 @@ export interface ExplainerProps {
   audio?: AudioConfig;
   width?: number;
   height?: number;
-  brand?: { label?: string; series?: string; issue?: string };
 }
 
 // ---------------------------------------------------------------------------
@@ -603,7 +545,7 @@ const BackgroundVideoLayer: React.FC<{
   );
 };
 
-const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig; brand?: ExplainerProps["brand"] }> = ({ cut, theme, brand }) => {
+const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme }) => {
   // Wrap component with background video or image if specified
   const maybeWrapWithBg = (element: React.ReactElement) => {
     if (cut.backgroundVideo) {
@@ -691,111 +633,6 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig; brand?: ExplainerP
         steps={cut.screenshotSteps as ScreenshotStep[]}
         accentColor={accent}
         cursorStartAt={cut.cursorStartAt}
-      />
-    );
-  }
-
-  // --- Finance dossier types — deterministic evidence and reasoning visuals ---
-  const financeSource = {
-    period: cut.period,
-    sourceLabel: cut.sourceLabel,
-    sourceDate: cut.sourceDate,
-    sampleData: cut.sampleData,
-  };
-  const financeContext = {
-    ...financeSource,
-    theme,
-    brand,
-    canvasMode: cut.canvasMode,
-    density: cut.density,
-    headerTreatment: cut.headerTreatment,
-    sourceTreatment: cut.sourceTreatment,
-    analystNote: cut.analystNote,
-    evidenceIndex: cut.evidenceIndex,
-    complianceText: cut.complianceText,
-  };
-  const isPresent = <T,>(value: T | undefined | null): value is T => value !== undefined && value !== null;
-  if (cut.type === "evidence_card" && cut.label && isPresent(cut.primaryValue)) {
-    return (
-      <EvidenceCard
-        label={cut.label}
-        primaryValue={cut.primaryValue}
-        supportingMetrics={cut.supportingMetrics}
-        interpretation={cut.interpretation}
-        variant={(cut.variant as "hero-number" | "comparison" | "document" | "table") || "hero-number"}
-        initialReveal={cut.initialReveal}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "expectation_gap" && cut.metric && isPresent(cut.expectedValue) && isPresent(cut.actualValue) && isPresent(cut.delta)) {
-    return (
-      <ExpectationGap
-        metric={cut.metric}
-        expectedValue={cut.expectedValue}
-        actualValue={cut.actualValue}
-        delta={cut.delta}
-        unit={cut.unit}
-        interpretation={cut.interpretation}
-        variant={(cut.variant as "split" | "stacked" | "delta" | "reveal") || "split"}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "money_flow" && cut.nodes && cut.edges) {
-    return (
-      <MoneyFlow
-        title={cut.title}
-        nodes={cut.nodes as FlowNode[]}
-        edges={cut.edges as FlowEdge[]}
-        highlightedPath={cut.highlightedPath}
-        variant={(cut.variant as "vertical" | "horizontal" | "radial" | "split" | "sankey-lite") || "horizontal"}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "causal_chain" && cut.nodes && cut.edges) {
-    return (
-      <CausalChain
-        title={cut.title}
-        nodes={cut.nodes as CausalNode[]}
-        edges={cut.edges as CausalEdge[]}
-        activeNodeId={cut.activeNodeId}
-        hypothesis={cut.hypothesis}
-        variant={(cut.variant as "linear" | "branching") || "linear"}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "research_timeline" && cut.events) {
-    return (
-      <ResearchTimeline
-        title={cut.title}
-        events={cut.events}
-        highlightedIndex={cut.highlightedIndex}
-        variant={(cut.variant as "horizontal" | "vertical") || "vertical"}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "scenario_board" && cut.scenarios) {
-    return (
-      <ScenarioBoard
-        title={cut.title}
-        scenarios={cut.scenarios}
-        highlightedScenario={cut.highlightedScenario}
-        {...financeContext}
-      />
-    );
-  }
-  if (cut.type === "thesis_breaker" && cut.thesis && cut.conditions) {
-    return (
-      <ThesisBreaker
-        thesis={cut.thesis}
-        conditions={cut.conditions}
-        eyebrow={cut.label}
-        prompt={cut.title}
-        {...financeContext}
       />
     );
   }
@@ -965,7 +802,6 @@ export const Explainer: React.FC<ExplainerProps> = (props) => {
     captionBottomOffset,
     captionSidePadding,
     audio,
-    brand,
   } = props;
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -984,7 +820,7 @@ export const Explainer: React.FC<ExplainerProps> = (props) => {
 
         return (
           <Sequence key={cut.id} from={from} durationInFrames={duration}>
-            <SceneRenderer cut={cut} theme={theme} brand={brand} />
+            <SceneRenderer cut={cut} theme={theme} />
           </Sequence>
         );
       })}

@@ -48,18 +48,6 @@ export const THEMES: Record<string, ThemeConfig> = {
     springConfig: { damping: 18, stiffness: 60, mass: 1 }, transitionDuration: 1,
     captionHighlightColor: "#FFB347", captionBackgroundColor: "rgba(10, 10, 26, 0.8)",
   },
-  // Direct Studio/demo fallback. Production renders receive a resolved
-  // themeConfig from the active playbook and can override every token.
-  "finance-dossier": {
-    primaryColor: "#345C5B", accentColor: "#B44736", backgroundColor: "#F2EFE7",
-    surfaceColor: "#F8F5ED", textColor: "#171715", mutedTextColor: "#6C6860",
-    headingFont: '"Noto Sans SC", "Source Han Sans SC", "PingFang SC", sans-serif',
-    bodyFont: '"Noto Sans SC", "Source Han Sans SC", "PingFang SC", sans-serif',
-    monoFont: '"IBM Plex Mono", "SFMono-Regular", Consolas, monospace',
-    chartColors: ["#345C5B", "#B44736", "#C5A64A", "#171715", "#6C6860"],
-    springConfig: { damping: 200, stiffness: 100, mass: 1 }, transitionDuration: 0.3,
-    captionHighlightColor: "#B44736", captionBackgroundColor: "rgba(242, 239, 231, 0.92)",
-  },
 };
 
 export const DEFAULT_THEME = THEMES["flat-motion-graphics"];

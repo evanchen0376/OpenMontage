@@ -2,9 +2,8 @@
 
 Creative classification remains an agent decision. Once a production is marked
 as financial, however, the exact disclaimer is enforced here so a later stage
-cannot accidentally omit it. Finance Dossier may carry the text as native
-footer/overlay metadata on its editorial ending; legacy and explicitly required
-standalone end cards remain supported.
+cannot accidentally omit it. Native footer/overlay metadata and standalone end
+cards remain supported.
 """
 
 from __future__ import annotations

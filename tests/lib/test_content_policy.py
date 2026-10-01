@@ -51,7 +51,7 @@ def test_financial_scene_plan_requires_disclaimer_as_final_text_card():
     enforce_financial_disclaimer("scene_plan", artifacts)
 
 
-def test_finance_dossier_scene_plan_accepts_native_footer_on_editorial_ending():
+def test_financial_scene_plan_accepts_native_footer_on_editorial_ending():
     artifacts = _finance_context()
     artifacts["scene_plan"] = {
         "metadata": {
@@ -118,7 +118,7 @@ def test_financial_edit_requires_disclaimer_as_final_text_card_cut():
     enforce_financial_disclaimer("edit", artifacts)
 
 
-def test_finance_dossier_script_and_edit_accept_ending_compliance_metadata():
+def test_financial_script_and_edit_accept_ending_compliance_metadata():
     artifacts = _finance_context()
     artifacts["script"] = {
         "metadata": {
