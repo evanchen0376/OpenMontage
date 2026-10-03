@@ -2,22 +2,484 @@
   "version": "1.0",
   "project_id": "lump-sum-vs-dca-six-years",
   "decisions": [
-    {"decision_id": "d-001", "stage": "proposal", "category": "pipeline_selection", "subject": "Production pipeline", "options_considered": [{"option_id": "finance-dossier", "label": "Finance Dossier", "score": 0.95, "reason": "官方指数数据驱动的财经理解型短片。"}, {"option_id": "animated-explainer", "label": "Animated Explainer", "score": 0.7, "reason": "可做数据动画，但证据追踪与财经合规约束较弱。"}], "selected": "finance-dossier", "reason": "内容依赖可复核金融数据与口径。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-002", "stage": "proposal", "category": "concept_selection", "subject": "Narrative concept", "options_considered": [{"option_id": "c1", "label": "三条指数三种答案", "score": 0.95, "reason": "完整继承用户方案的段落顺序。"}, {"option_id": "c2", "label": "浮亏体验", "score": 0.82, "reason": "风险角度鲜明，但期末结果被后移。"}, {"option_id": "c3", "label": "资金入场时间", "score": 0.8, "reason": "机制清楚，但红利低波开场会改变原方案顺序。"}], "selected": "c1", "reason": "当前推荐，等待用户确认。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-003", "stage": "proposal", "category": "render_runtime_selection", "subject": "Composition runtime", "options_considered": [{"option_id": "remotion", "label": "Remotion", "score": 0.94, "reason": "可用；原生图表、金额和安全字幕适合本片。"}, {"option_id": "hyperframes", "label": "HyperFrames", "score": 0.76, "reason": "动态排版更自由；当前Node 18使其不可用，本机可切换到22/24。"}, {"option_id": "ffmpeg", "label": "FFmpeg", "score": 0.44, "reason": "可用；只适合简单拼接，难以呈现数据推理。"}], "selected": "remotion", "reason": "内容匹配度最高且预检已通过；当前仅为待用户确认的推荐。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-004", "stage": "proposal", "category": "composition_mode", "subject": "Composition authoring mode", "options_considered": [{"option_id": "templated", "label": "模板式", "score": 0.89, "reason": "日常数据短片的准确度、速度与费用较合适。"}, {"option_id": "atelier", "label": "手工定制", "score": 0.77, "reason": "更独特但需要更多设计与迭代。"}], "selected": "templated", "reason": "本片定位为可复核的日常数据短片；等待用户确认。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-005", "stage": "proposal", "category": "motion_commitment", "subject": "Visual coverage strategy", "options_considered": [{"option_id": "composition-only", "label": "全数据合成", "score": 0.93, "reason": "所有核心镜头需要准确日期、金额和曲线。"}, {"option_id": "light-hybrid", "label": "少量素材视频加数据合成", "score": 0.58, "reason": "没有必须由真实环境或人物动作解释的段落；素材大多装饰性。"}, {"option_id": "footage-led", "label": "素材视频主导", "score": 0.25, "reason": "会削弱可核对性与数据读数时间。"}], "selected": "composition-only", "reason": "没有真正的语义动作候选段落；建议把画面预算投到精确数据动画。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-006", "stage": "proposal", "category": "voice_selection", "subject": "Narration TTS provider", "options_considered": [{"option_id": "doubao-dayi-2", "label": "豆包大壹2.0", "score": 0.92, "reason": "持久用户默认且已配置，可分段合成。"}, {"option_id": "other-tts", "label": "其他TTS", "score": 0.5, "reason": "未配置且用户未要求改变声音。"}], "selected": "doubao-dayi-2", "reason": "继承用户既有配音偏好。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-007", "stage": "proposal", "category": "music_source", "subject": "Background music", "options_considered": [{"option_id": "none", "label": "无背景音乐", "score": 1, "reason": "继承用户持久设置；让数字解释与停顿更清晰。"}], "selected": "none", "reason": "用户持久设置明确关闭背景音乐。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-008", "stage": "proposal", "category": "playbook_selection", "subject": "Visual playbook", "options_considered": [{"option_id": "finance-dossier", "label": "Finance Dossier", "score": 0.94, "reason": "来源、注释与克制图表契合。"}, {"option_id": "premium-minimalist", "label": "Premium Minimalist", "score": 0.7, "reason": "干净，但来源处理较少。"}], "selected": "finance-dossier", "reason": "保持可核对的财经编辑风格。", "user_visible": true, "user_approved": false},
-    {"decision_id": "d-009", "stage": "proposal", "category": "render_runtime_selection", "subject": "Composition runtime", "options_considered": [{"option_id": "hyperframes", "label": "HyperFrames", "score": 0.94, "reason": "用户要求画面精美且内容完整；逐场手工设计的HTML/SVG/GSAP更适合。Node 22下已完成预检。"}, {"option_id": "remotion", "label": "Remotion", "score": 0.87, "reason": "精确数据能力强，手工定制也可达到高品质。", "rejected_because": "本次用户更重视逐场定制的镜头语言，且不希望沿用原模板式方案。"}, {"option_id": "ffmpeg", "label": "FFmpeg", "score": 0.35, "reason": "适合简单拼接。", "rejected_because": "无法承担本片的定制数据动画。"}], "selected": "hyperframes", "reason": "依据用户对原方案的修正改选；官方CLI 0.8.94在Node 22预检可运行，工具注册表显示render_runtime可用。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-010", "stage": "proposal", "category": "composition_mode", "subject": "Composition authoring mode", "options_considered": [{"option_id": "atelier", "label": "手工定制", "score": 0.95, "reason": "每场为内容任务单独设计，画面品质优先。"}, {"option_id": "templated", "label": "模板式", "score": 0.58, "reason": "较快较稳。", "rejected_because": "用户明确要求画面精美和完整呈现，原95秒模板方案已被修正。"}], "selected": "atelier", "reason": "用户要求质量优先；HyperFrames合成本身采用手工编排。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-011", "stage": "proposal", "category": "concept_selection", "subject": "Narrative concept", "options_considered": [{"option_id": "c1", "label": "三条指数三种答案，完整版", "score": 0.95, "reason": "用户认可内容方向；时长调整为约210至240秒，完整保留规则、结果、浮亏和边界。"}, {"option_id": "c2", "label": "浮亏体验", "score": 0.82, "reason": "风险角度突出。"}, {"option_id": "c3", "label": "资金入场时间", "score": 0.8, "reason": "机制角度突出。"}], "selected": "c1", "reason": "用户认可内容方向并明确要求取消时长压缩。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-012", "stage": "proposal", "category": "voice_selection", "subject": "Narration TTS provider", "options_considered": [{"option_id": "none", "label": "无旁白", "score": 1, "reason": "用户明确要求让滚动收益曲线承担叙事。"}, {"option_id": "doubao-dayi-2", "label": "豆包大壹2.0", "score": 0.1, "reason": "先前采用的持久默认。", "rejected_because": "用户本次明确要求不需要旁白，覆盖默认设置。"}], "selected": "none", "reason": "按用户本次修订取消全部旁白和TTS。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-013", "stage": "proposal", "category": "music_source", "subject": "Background music", "options_considered": [{"option_id": "pixabay_music", "label": "授权曲库无歌词节奏音乐", "score": 0.9, "reason": "用户要求合适背景节奏音；本地曲库为空、音乐生成API 0/3可用，Pixabay音乐搜索可用。"}, {"option_id": "user_supplied", "label": "用户提供曲目", "score": 0.7, "reason": "可在资产阶段替换为用户偏好的已授权音乐。"}, {"option_id": "none", "label": "无背景音乐", "score": 0.1, "reason": "先前持久默认。", "rejected_because": "用户本次明确要求加入背景节奏音乐，覆盖默认设置。"}], "selected": "pixabay_music", "reason": "选择无歌词、约90–110 BPM的稳健节奏音乐；具体曲目待试听与授权核验。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-014", "stage": "proposal", "category": "concept_selection", "subject": "Narrative concept", "options_considered": [{"option_id": "c1", "label": "滚动收益曲线主导的三指数比较", "score": 1, "reason": "延续三组内容但改为无旁白的时间滚动数据电影。"}, {"option_id": "voice_led", "label": "旁白主导完整版", "score": 0.1, "reason": "先前300秒脚本。", "rejected_because": "用户明确指出影片思路不符，要求用动态曲线而非旁白来讲述。"}], "selected": "c1", "reason": "按用户修订以真实收益曲线作为主体，并保留完整指标与边界。", "user_visible": true, "user_approved": true},
-    {"decision_id": "d-015", "stage": "proposal", "category": "visual_accuracy_check", "subject": "Backtest cutoff", "options_considered": [{"option_id": "2026-09-29", "label": "固定截至2026年9月29日", "score": 1, "reason": "已取得三条官方全收益序列，并覆盖2020年10月至2026年9月72次买入。"}, {"option_id": "2026-09-30", "label": "等待9月30日收盘", "score": 0.1, "reason": "原先临时计划。", "rejected_because": "用户明确要求不考虑今天9月30日。"}], "selected": "2026-09-29", "reason": "将已核验区间定为本片固定观察窗，不再标记为临时或等待更新。", "user_visible": true, "user_approved": true},
-    {"decision_id":"d-016","stage":"scene_plan","category":"concept_selection","subject":"Narrative concept","options_considered":[{"option_id":"curve_first_recut","label":"开头14秒后以三段真实曲线为主","score":1,"reason":"回应用户对主题明确、少信息卡、曲线占主要时间的反馈。"},{"option_id":"c1","label":"旧版32秒说明后进入曲线","score":0.3,"reason":"完整但解释过长。","rejected_because":"用户指出前几页太啰嗦且曲线应是核心。"}],"selected":"curve_first_recut","reason":"前14秒点题与口径，随后150秒三条曲线，末尾21秒汇总与边界。","user_visible":true,"user_approved":true},
-    {"decision_id":"d-017","stage":"compose","category":"music_source","subject":"Background music","options_considered":[{"option_id":"picture_only_music_pending","label":"先导出无音轨画面版","score":1,"reason":"用户要求先合成，未确认满意且可用的音乐文件。"},{"option_id":"pixabay_music","label":"Pixabay 音乐","score":0.1,"reason":"此前选定的获取渠道。","rejected_because":"获取被 HTTP 403 阻断，未取得可用曲目。"},{"option_id":"mixkit","label":"已下载试听曲目","score":0.1,"reason":"本地有试听文件。","rejected_because":"用户试听后认为不适合本片。"}],"selected":"picture_only_music_pending","reason":"仅本次画面版无音轨；最终背景音乐选择仍待解决，未将无音乐定为永久方案。","user_visible":true,"user_approved":true}
+    {
+      "decision_id": "d-001",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Production pipeline",
+      "options_considered": [
+        {
+          "option_id": "finance-dossier",
+          "label": "Finance Dossier",
+          "score": 0.95,
+          "reason": "官方指数数据驱动的财经理解型短片。"
+        },
+        {
+          "option_id": "animated-explainer",
+          "label": "Animated Explainer",
+          "score": 0.7,
+          "reason": "可做数据动画，但证据追踪与财经合规约束较弱。"
+        }
+      ],
+      "selected": "finance-dossier",
+      "reason": "内容依赖可复核金融数据与口径。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Narrative concept",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "三条指数三种答案",
+          "score": 0.95,
+          "reason": "完整继承用户方案的段落顺序。"
+        },
+        {
+          "option_id": "c2",
+          "label": "浮亏体验",
+          "score": 0.82,
+          "reason": "风险角度鲜明，但期末结果被后移。"
+        },
+        {
+          "option_id": "c3",
+          "label": "资金入场时间",
+          "score": 0.8,
+          "reason": "机制清楚，但红利低波开场会改变原方案顺序。"
+        }
+      ],
+      "selected": "c1",
+      "reason": "当前推荐，等待用户确认。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.94,
+          "reason": "可用；原生图表、金额和安全字幕适合本片。"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.76,
+          "reason": "动态排版更自由；当前Node 18使其不可用，本机可切换到22/24。"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg",
+          "score": 0.44,
+          "reason": "可用；只适合简单拼接，难以呈现数据推理。"
+        }
+      ],
+      "selected": "remotion",
+      "reason": "内容匹配度最高且预检已通过；当前仅为待用户确认的推荐。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "templated",
+          "label": "模板式",
+          "score": 0.89,
+          "reason": "日常数据短片的准确度、速度与费用较合适。"
+        },
+        {
+          "option_id": "atelier",
+          "label": "手工定制",
+          "score": 0.77,
+          "reason": "更独特但需要更多设计与迭代。"
+        }
+      ],
+      "selected": "templated",
+      "reason": "本片定位为可复核的日常数据短片；等待用户确认。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "proposal",
+      "category": "motion_commitment",
+      "subject": "Visual coverage strategy",
+      "options_considered": [
+        {
+          "option_id": "composition-only",
+          "label": "全数据合成",
+          "score": 0.93,
+          "reason": "所有核心镜头需要准确日期、金额和曲线。"
+        },
+        {
+          "option_id": "light-hybrid",
+          "label": "少量素材视频加数据合成",
+          "score": 0.58,
+          "reason": "没有必须由真实环境或人物动作解释的段落；素材大多装饰性。"
+        },
+        {
+          "option_id": "footage-led",
+          "label": "素材视频主导",
+          "score": 0.25,
+          "reason": "会削弱可核对性与数据读数时间。"
+        }
+      ],
+      "selected": "composition-only",
+      "reason": "没有真正的语义动作候选段落；建议把画面预算投到精确数据动画。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "doubao-dayi-2",
+          "label": "豆包大壹2.0",
+          "score": 0.92,
+          "reason": "持久用户默认且已配置，可分段合成。"
+        },
+        {
+          "option_id": "other-tts",
+          "label": "其他TTS",
+          "score": 0.5,
+          "reason": "未配置且用户未要求改变声音。"
+        }
+      ],
+      "selected": "doubao-dayi-2",
+      "reason": "继承用户既有配音偏好。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "无背景音乐",
+          "score": 1,
+          "reason": "继承用户持久设置；让数字解释与停顿更清晰。"
+        }
+      ],
+      "selected": "none",
+      "reason": "用户持久设置明确关闭背景音乐。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-008",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Visual playbook",
+      "options_considered": [
+        {
+          "option_id": "finance-dossier",
+          "label": "Finance Dossier",
+          "score": 0.94,
+          "reason": "来源、注释与克制图表契合。"
+        },
+        {
+          "option_id": "premium-minimalist",
+          "label": "Premium Minimalist",
+          "score": 0.7,
+          "reason": "干净，但来源处理较少。"
+        }
+      ],
+      "selected": "finance-dossier",
+      "reason": "保持可核对的财经编辑风格。",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-009",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.94,
+          "reason": "用户要求画面精美且内容完整；逐场手工设计的HTML/SVG/GSAP更适合。Node 22下已完成预检。"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.87,
+          "reason": "精确数据能力强，手工定制也可达到高品质。",
+          "rejected_because": "本次用户更重视逐场定制的镜头语言，且不希望沿用原模板式方案。"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg",
+          "score": 0.35,
+          "reason": "适合简单拼接。",
+          "rejected_because": "无法承担本片的定制数据动画。"
+        }
+      ],
+      "selected": "hyperframes",
+      "reason": "依据用户对原方案的修正改选；官方CLI 0.8.94在Node 22预检可运行，工具注册表显示render_runtime可用。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-010",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "手工定制",
+          "score": 0.95,
+          "reason": "每场为内容任务单独设计，画面品质优先。"
+        },
+        {
+          "option_id": "templated",
+          "label": "模板式",
+          "score": 0.58,
+          "reason": "较快较稳。",
+          "rejected_because": "用户明确要求画面精美和完整呈现，原95秒模板方案已被修正。"
+        }
+      ],
+      "selected": "atelier",
+      "reason": "用户要求质量优先；HyperFrames合成本身采用手工编排。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-011",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Narrative concept",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "三条指数三种答案，完整版",
+          "score": 0.95,
+          "reason": "用户认可内容方向；时长调整为约210至240秒，完整保留规则、结果、浮亏和边界。"
+        },
+        {
+          "option_id": "c2",
+          "label": "浮亏体验",
+          "score": 0.82,
+          "reason": "风险角度突出。"
+        },
+        {
+          "option_id": "c3",
+          "label": "资金入场时间",
+          "score": 0.8,
+          "reason": "机制角度突出。"
+        }
+      ],
+      "selected": "c1",
+      "reason": "用户认可内容方向并明确要求取消时长压缩。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-012",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "无旁白",
+          "score": 1,
+          "reason": "用户明确要求让滚动收益曲线承担叙事。"
+        },
+        {
+          "option_id": "doubao-dayi-2",
+          "label": "豆包大壹2.0",
+          "score": 0.1,
+          "reason": "先前采用的持久默认。",
+          "rejected_because": "用户本次明确要求不需要旁白，覆盖默认设置。"
+        }
+      ],
+      "selected": "none",
+      "reason": "按用户本次修订取消全部旁白和TTS。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-013",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pixabay_music",
+          "label": "授权曲库无歌词节奏音乐",
+          "score": 0.9,
+          "reason": "用户要求合适背景节奏音；本地曲库为空、音乐生成API 0/3可用，Pixabay音乐搜索可用。"
+        },
+        {
+          "option_id": "user_supplied",
+          "label": "用户提供曲目",
+          "score": 0.7,
+          "reason": "可在资产阶段替换为用户偏好的已授权音乐。"
+        },
+        {
+          "option_id": "none",
+          "label": "无背景音乐",
+          "score": 0.1,
+          "reason": "先前持久默认。",
+          "rejected_because": "用户本次明确要求加入背景节奏音乐，覆盖默认设置。"
+        }
+      ],
+      "selected": "pixabay_music",
+      "reason": "选择无歌词、约90–110 BPM的稳健节奏音乐；具体曲目待试听与授权核验。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-014",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Narrative concept",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "滚动收益曲线主导的三指数比较",
+          "score": 1,
+          "reason": "延续三组内容但改为无旁白的时间滚动数据电影。"
+        },
+        {
+          "option_id": "voice_led",
+          "label": "旁白主导完整版",
+          "score": 0.1,
+          "reason": "先前300秒脚本。",
+          "rejected_because": "用户明确指出影片思路不符，要求用动态曲线而非旁白来讲述。"
+        }
+      ],
+      "selected": "c1",
+      "reason": "按用户修订以真实收益曲线作为主体，并保留完整指标与边界。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-015",
+      "stage": "proposal",
+      "category": "visual_accuracy_check",
+      "subject": "Backtest cutoff",
+      "options_considered": [
+        {
+          "option_id": "2026-09-29",
+          "label": "固定截至2026年9月29日",
+          "score": 1,
+          "reason": "已取得三条官方全收益序列，并覆盖2020年10月至2026年9月72次买入。"
+        },
+        {
+          "option_id": "2026-09-30",
+          "label": "等待9月30日收盘",
+          "score": 0.1,
+          "reason": "原先临时计划。",
+          "rejected_because": "用户明确要求不考虑今天9月30日。"
+        }
+      ],
+      "selected": "2026-09-29",
+      "reason": "将已核验区间定为本片固定观察窗，不再标记为临时或等待更新。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-016",
+      "stage": "scene_plan",
+      "category": "concept_selection",
+      "subject": "Narrative concept",
+      "options_considered": [
+        {
+          "option_id": "curve_first_recut",
+          "label": "开头14秒后以三段真实曲线为主",
+          "score": 1,
+          "reason": "回应用户对主题明确、少信息卡、曲线占主要时间的反馈。"
+        },
+        {
+          "option_id": "c1",
+          "label": "旧版32秒说明后进入曲线",
+          "score": 0.3,
+          "reason": "完整但解释过长。",
+          "rejected_because": "用户指出前几页太啰嗦且曲线应是核心。"
+        }
+      ],
+      "selected": "curve_first_recut",
+      "reason": "前14秒点题与口径，随后150秒三条曲线，末尾21秒汇总与边界。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-017",
+      "stage": "compose",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "picture_only_music_pending",
+          "label": "先导出无音轨画面版",
+          "score": 1,
+          "reason": "用户要求先合成，未确认满意且可用的音乐文件。"
+        },
+        {
+          "option_id": "pixabay_music",
+          "label": "Pixabay 音乐",
+          "score": 0.1,
+          "reason": "此前选定的获取渠道。",
+          "rejected_because": "获取被 HTTP 403 阻断，未取得可用曲目。"
+        },
+        {
+          "option_id": "mixkit",
+          "label": "已下载试听曲目",
+          "score": 0.1,
+          "reason": "本地有试听文件。",
+          "rejected_because": "用户试听后认为不适合本片。"
+        }
+      ],
+      "selected": "picture_only_music_pending",
+      "reason": "仅本次画面版无音轨；最终背景音乐选择仍待解决，未将无音乐定为永久方案。",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-018",
+      "stage": "compose",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "etf-project-instrumental-minimal",
+          "label": "复用 etf-100k-four-fund-race-v2 的 Instrumental_Minimal.mp3",
+          "score": 1,
+          "reason": "用户明确指定该项目的背景音乐，文件与其成片使用的曲目校验值一致。"
+        },
+        {
+          "option_id": "picture_only_music_pending",
+          "label": "无音轨画面版",
+          "score": 0.1,
+          "reason": "上一版已交付供画面审看。",
+          "rejected_because": "用户现已指定曲目并要求配乐。"
+        }
+      ],
+      "selected": "etf-project-instrumental-minimal",
+      "reason": "按用户本次指示将既有曲目加入目标片，132 秒曲目交叉淡化循环到 185 秒，音量为 0.31，保留原画面流。",
+      "user_visible": true,
+      "user_approved": true
+    }
   ]
 }

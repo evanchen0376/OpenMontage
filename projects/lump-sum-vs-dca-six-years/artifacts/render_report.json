@@ -2,6 +2,17 @@
   "version": "1.0",
   "outputs": [
     {
+      "path": "renders/final.mp4",
+      "format": "mp4",
+      "codec": "h264",
+      "audio_codec": "aac",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "duration_seconds": 185,
+      "file_size_bytes": 20564124,
+      "platform_target": "portrait-social"
+    },
+    {
       "path": "renders/curve-first-picture-v2.mp4",
       "format": "mp4",
       "codec": "h264",
@@ -13,10 +24,24 @@
     }
   ],
   "render_time_seconds": 229,
-  "warnings": ["本版无音轨；背景音乐尚未确定，不能视为最终音频版。", "HyperFrames 有一条非阻断的嵌套结构 lint 警告。"],
-  "verification_notes": ["ffprobe 核对时长 185 秒、1080x1920、30 fps、H.264、无音轨。", "从实际 MP4 抽检第 0 秒、60 秒、110 秒、160 秒和 184 秒；主题、三组曲线、终点数值与片尾提示均可见。", "第 0 秒标题修正后重新渲染为 v2；v1 保留供回溯。"],
+  "warnings": [
+    "来源项目将曲目标记为 Pixabay Music，发布前需复核曲目页授权。"
+  ],
+  "verification_notes": [
+    "ffprobe 核对时长 185 秒、1080x1920、30 fps、H.264、无音轨。",
+    "从实际 MP4 抽检第 0 秒、60 秒、110 秒、160 秒和 184 秒；主题、三组曲线、终点数值与片尾提示均可见。",
+    "第 0 秒标题修正后重新渲染为 v2；v1 保留供回溯。",
+    "新增 AAC 48 kHz 双声道背景音乐；视频流 MD5 与画面版完全一致；音乐平均 -28.9 dBFS、峰值 -10.0 dBFS，无超过 1 秒的静音段。"
+  ],
   "render_grammar": "explainer-data",
   "decision_log_ref": "decision_log.json",
   "final_review_ref": "artifacts/final_review.json",
-  "metadata": {"runtime":"hyperframes@0.8.94","composition_mode":"atelier","audio_state":"picture_only_pending_approved_music","render_variant":"v2_first_frame_fixed"}
+  "metadata": {
+    "runtime": "hyperframes@0.8.94",
+    "composition_mode": "atelier",
+    "audio_state": "user_selected_music_added",
+    "render_variant": "v2_first_frame_fixed",
+    "music_source": "assets/music/Instrumental_Minimal.mp3",
+    "music_treatment": "4s loop crossfade, gain 0.31, 0.8s fade in, 4s fade out"
+  }
 }

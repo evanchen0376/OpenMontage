@@ -45,8 +45,9 @@ real market or business question. Preserve the feeling of discovery:
 - Keep only numbers that move the reasoning forward. Immediately translate each
   important number into ordinary language or a human-scale experience, and say
   plainly when a difference is small or inconclusive.
-- Close by answering the opening question with a more precise understanding.
-  Do not broaden the ending into life advice, a slogan, or an unsolicited CTA.
+- Close when the opening question has been answered. By default, do not add a
+  value-laden takeaway, a question for viewers to ponder, or a next-episode
+  teaser. Add a summary or closing hook only when the topic itself needs one.
 
 The reusable judgment method required below should feel like one natural,
 question-specific takeaway from the investigation. Do not turn it into a
@@ -99,7 +100,8 @@ Prefer this eight-beat structure when creating an original finance short:
 5. Key result — only the numbers needed to answer the question.
 6. Plain-language explanation — explain first, then name the technical term.
 7. Boundary conditions — where the conclusion does and does not apply.
-8. Reusable judgment method — what the viewer should check next time.
+8. Reusable judgment method — what the viewer should check next time, woven
+   into the answer rather than forced into a separate closing beat.
 
 The structure may be adapted for source-led, localization, or clip-selection
 pipelines, but the four requirements remain binding: evidence before conclusion,
@@ -116,8 +118,9 @@ Writing rules:
 - State probabilistic claims probabilistically. Include assumptions and scope.
   Do not use unsupported absolutes such as “一定”, “必赚”, “稳赚”, “千万别买”,
   “90%的人都会”, or “XX就是骗局”.
-- End the editorial content with a method the viewer can reuse, not merely the
-  creator's opinion.
+- Give the viewer a method they can reuse within the explanation. End when the
+  content is complete; add a summary or closing hook only if the question needs
+  it. Do not append a reflection question or next-episode teaser by default.
 
 For auditability, record these values under `script.metadata.finance_editorial`:
 
@@ -147,8 +150,9 @@ is compliance copy, not a substitute for boundary conditions.
 - Preserve units, baselines, time ranges, axes, and comparison definitions.
   Avoid truncated axes or visual scale choices that exaggerate the conclusion.
 - Remove any visual or number that does not advance the core question.
-- Keep the reusable judgment method or mode-appropriate decision as the final
-  editorial beat, followed by the selected pipeline's approved disclaimer presentation.
+- Include the reusable judgment method or mode-appropriate decision where it
+  naturally answers the question; do not force a separate closing beat. Follow
+  the editorial content with the selected pipeline's approved disclaimer presentation.
 
 ### Compose / Publish
 

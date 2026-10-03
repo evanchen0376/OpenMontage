@@ -1,26 +1,177 @@
 {
   "version": "1.0",
   "assets": [
-    {"id":"review-sc01","type":"image","path":"assets/review-stills-v2/frame-00-at-2.5s.png","source_tool":"hyperframes.snapshot","scene_id":"sc01","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.91},
-    {"id":"review-sc02","type":"image","path":"assets/review-stills-v2/frame-01-at-8s.png","source_tool":"hyperframes.snapshot","scene_id":"sc02","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.91},
-    {"id":"review-sc03","type":"image","path":"assets/review-stills-v2/frame-02-at-12.5s.png","source_tool":"hyperframes.snapshot","scene_id":"sc03","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.92},
-    {"id":"review-sc04-motion","type":"image","path":"assets/review-stills-v2/frame-03-at-35s.png","source_tool":"hyperframes.snapshot","scene_id":"sc04","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.91},
-    {"id":"review-sc04-result","type":"image","path":"assets/review-stills-v2/frame-04-at-60s.png","source_tool":"hyperframes.snapshot","scene_id":"sc04","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.9},
-    {"id":"review-sc05-motion","type":"image","path":"assets/review-stills-v2/frame-05-at-85s.png","source_tool":"hyperframes.snapshot","scene_id":"sc05","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.91},
-    {"id":"review-sc05-result","type":"image","path":"assets/review-stills-v2/frame-06-at-110s.png","source_tool":"hyperframes.snapshot","scene_id":"sc05","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.9},
-    {"id":"review-sc06-motion","type":"image","path":"assets/review-stills-v2/frame-07-at-135s.png","source_tool":"hyperframes.snapshot","scene_id":"sc06","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.92},
-    {"id":"review-sc06-result","type":"image","path":"assets/review-stills-v2/frame-08-at-160s.png","source_tool":"hyperframes.snapshot","scene_id":"sc06","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.9},
-    {"id":"review-sc07","type":"image","path":"assets/review-stills-v2/frame-09-at-168s.png","source_tool":"hyperframes.snapshot","scene_id":"sc07","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.9},
-    {"id":"review-sc08","type":"image","path":"assets/review-stills-v2/frame-10-at-176s.png","source_tool":"hyperframes.snapshot","scene_id":"sc08","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.9},
-    {"id":"review-sc09","type":"image","path":"assets/review-stills-v2/frame-11-at-182s.png","source_tool":"hyperframes.snapshot","scene_id":"sc09","provider":"HyperFrames","format":"png","resolution":"1080x1920","cost_usd":0,"quality_score":0.94}
+    {
+      "id": "review-sc01",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-00-at-2.5s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc01",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.91
+    },
+    {
+      "id": "review-sc02",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-01-at-8s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc02",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.91
+    },
+    {
+      "id": "review-sc03",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-02-at-12.5s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc03",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.92
+    },
+    {
+      "id": "review-sc04-motion",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-03-at-35s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc04",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.91
+    },
+    {
+      "id": "review-sc04-result",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-04-at-60s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc04",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.9
+    },
+    {
+      "id": "review-sc05-motion",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-05-at-85s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc05",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.91
+    },
+    {
+      "id": "review-sc05-result",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-06-at-110s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc05",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.9
+    },
+    {
+      "id": "review-sc06-motion",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-07-at-135s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc06",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.92
+    },
+    {
+      "id": "review-sc06-result",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-08-at-160s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc06",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.9
+    },
+    {
+      "id": "review-sc07",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-09-at-168s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc07",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.9
+    },
+    {
+      "id": "review-sc08",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-10-at-176s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc08",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.9
+    },
+    {
+      "id": "review-sc09",
+      "type": "image",
+      "path": "assets/review-stills-v2/frame-11-at-182s.png",
+      "source_tool": "hyperframes.snapshot",
+      "scene_id": "sc09",
+      "provider": "HyperFrames",
+      "format": "png",
+      "resolution": "1080x1920",
+      "cost_usd": 0,
+      "quality_score": 0.94
+    },
+    {
+      "id": "bgm-etf-project",
+      "type": "music",
+      "path": "assets/music/Instrumental_Minimal.mp3",
+      "source_tool": "existing_project_asset",
+      "scene_id": "sc01",
+      "provider": "Pixabay Music via etf-100k-four-fund-race-v2",
+      "format": "mp3",
+      "cost_usd": 0,
+      "quality_score": 0.9,
+      "subtype": "background",
+      "generation_summary": "Copied from etf-100k-four-fund-race-v2/public/music/Instrumental_Minimal.mp3; SHA-256 bcf7b26b208b4795d9f87adceefa14a3b1c07731b910e18b16d07fea68c9eb2c",
+      "original_url": "https://pixabay.com/music/id-522469/",
+      "license": "Pixabay source project record; publication license requires recheck"
+    }
   ],
   "total_cost_usd": 0,
   "metadata": {
     "status": "visual_assets_approved_for_picture_only_render",
     "visual_runtime": "HyperFrames 0.8.94",
     "visual_asset_source": "Deterministic SVG curves from fixed CSI total-return data through 2026-09-29; no AI-generated imagery",
-    "review_contact_sheets": ["assets/review-stills-v2/contact-sheet-1.jpg", "assets/review-stills-v2/contact-sheet-2.jpg"],
-    "music": "No approved music file yet; this render is picture-only, with soundtrack to be resolved separately",
-    "narration": "none_by_user_request"
+    "review_contact_sheets": [
+      "assets/review-stills-v2/contact-sheet-1.jpg",
+      "assets/review-stills-v2/contact-sheet-2.jpg"
+    ],
+    "music": "User-selected Instrumental_Minimal.mp3 from etf-100k-four-fund-race-v2",
+    "narration": "none_by_user_request",
+    "music_license_note": "Source project recorded Pixabay Music; verify track license before publication."
   }
 }
