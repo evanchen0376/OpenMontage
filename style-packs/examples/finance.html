@@ -1,16 +1,18 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>财经风格 · 绘制技术测试</title>
 <style>html,body{margin:0;background:#16181c;overflow:hidden}canvas{display:block;width:100vw;height:100vh}</style>
-<script type="importmap">{"imports":{"three":"/style-packs/node_modules/three/build/three.module.js"}}</script>
+<script type="importmap">{"imports":{"three":"/style-packs/node_modules/three/build/three.module.js","three/addons/":"/style-packs/node_modules/three/examples/jsm/"}}</script>
 </head><body><canvas id="stage"></canvas><script type="module">
 import {createSpecimen} from './specimens.js';
 const q=new URLSearchParams(location.search), canvas=document.querySelector('canvas');
 canvas.width=innerWidth;canvas.height=innerHeight;
 const pack=q.get('pack')||'lemo-dataviz';
 window.READY=false;window.DUR=8;
+try {
 const drawing=await createSpecimen(canvas,pack,{variant:q.get('variant')||'a'});
 window.render=t=>drawing.render(t);
 window.TEXTS=()=>drawing.texts||[];
 window.STYLE_PROOF={pack,technical_fixture:true,real_evidence_validated:false};
 window.render(4);window.READY=true;
-</script></body></html>
+}catch(e){window.STUDY_ERROR=e.stack||e.message;throw e;}
+</script><div id="native-stage" hidden></div></body></html>

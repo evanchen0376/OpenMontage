@@ -7,7 +7,7 @@ const names={'dataviz':'数据叙事','swiss-motion':'瑞士动态排版','iso-i
 
 export async function createSpecimen(canvas,id,{variant='a'}={}) {
   const slug=id.replace(/^lemo-/,''), portrait=canvas.height>canvas.width;
-  if(!names[slug])throw new Error('Unknown specimen '+id);
+  if(!names[slug])return (await import('./extended.js')).extendedSpecimen(canvas,id);
   const W=portrait?1080:1920,H=portrait?1920:1080;
   const cv=canvas2(W,H),g=cv.getContext('2d');
   const out=canvas.getContext('2d'), ink=['news-package','visual-investigation','satellite-briefing','blueprint'].includes(slug)?'#ECEAE4':'#232B2F';

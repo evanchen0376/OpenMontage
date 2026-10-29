@@ -1,17 +1,1605 @@
 {
   "version": "1.0",
   "packs": [
-    {"id":"lemo-dataviz","slug":"dataviz","name":"数据叙事","group":1,"finance_use":["通胀与估值","资产回报","行业趋势"],"visual_contract":"图表就是影片：纸张、铅笔和数据批注；转场由坐标增长、缩放和图形转换完成。","techniques":["drawPaper","pencilStroke","dataDot","inkShape","drawPencil"],"native_entry":"engine/engine.js","specimen":"dataviz","requires":[],"evidence":"published-data","avoid":"不把图表当背景，不扭曲数据轴；财经配色按指标含义指定，不能照搬样片的冷暖色值。"},
-    {"id":"lemo-swiss-motion","slug":"swiss-motion","name":"瑞士动态排版","group":1,"finance_use":["观点短评","关键数字","概念辨析"],"visual_contract":"严格网格、单一信号色、极端字号对比；遮罩揭示和运动准确落点，无弹跳。","techniques":["clipReveal","grid","cutLine","E"],"native_entry":"engine/primitives.js","specimen":"swiss","requires":[],"evidence":"claims-and-numbers","avoid":"装饰色块不能伪装为数据条；禁止默认淡入、弹簧和企业风渐变。"},
-    {"id":"lemo-iso-infographic","slug":"iso-infographic","name":"等距信息图","group":1,"finance_use":["产业链","商业模式","资金流转"],"visual_contract":"固定30度真等距投影，三面色阶，系统立于剖面底座，数量由相同图标构成。","techniques":["Iso","tri","pin","iconGrid"],"native_entry":"engine/engine.js","specimen":"iso","requires":[],"evidence":"schematic-or-measured","avoid":"不旋转为透视3D；无数据时，物件数量、速度和尺寸不能暗示精确资金流量。"},
-    {"id":"lemo-news-package","slug":"news-package","name":"电视新闻包装","group":1,"finance_use":["财经周报","政策发布","财报速览"],"visual_contract":"持续标题条、类别标签、翻牌数字、来源日期和统一栏目包装，单屏一个事实。","techniques":["strap","splitFlap","bandWipe","sourceLine"],"native_entry":"engine/primitives.js","specimen":"news","requires":[],"evidence":"dated-primary-sources","avoid":"新闻标签仅描述真实状态；原风格不烧字幕，改为竖屏字幕版必须明确记录变体。"},
-    {"id":"lemo-blueprint","slug":"blueprint","name":"蓝图／工程制图","group":2,"finance_use":["货币传导","杠杆结构","金融产品机制"],"visual_contract":"普鲁士蓝晒图纸、分级白线、制图顺序、尺寸和结构标记；一个纸面中的镜头。","techniques":["makePaper","line","dim","balloon","setCam"],"native_entry":"engine/draw.js","specimen":"blueprint","requires":["webgl2"],"evidence":"schematic-or-measured","avoid":"线条表示机制而非实测时标注示意；利率等抽象量不能冒充实物尺寸。"},
-    {"id":"lemo-whiteboard","slug":"whiteboard","name":"白板讲解","group":2,"finance_use":["债券久期","复利与费用","汇率机制"],"visual_contract":"真实马克笔逐笔绘制，浮动笔头，擦除残影、釉面反光和一张连续推理地图。","techniques":["Board","Timeline","Pen","Stroke","arrow","text"],"native_entry":"engine/engine/wb.js","specimen":"whiteboard","requires":[],"evidence":"assumptions-and-derivation","avoid":"手写字体轮廓不等于逐笔书写；中文需要覆盖实际文字的笔画数据，正文可用明确的排印注释。"},
-    {"id":"lemo-halftone-dossier","slug":"halftone-dossier","name":"复古半调案卷","group":2,"finance_use":["投资误区","金融骗局案例","公司案例"],"visual_contract":"印刷纸、可见半调网点、套印、编号证物和粗标题；印章是稀缺强调。","techniques":["paper","halftone","stamp","registration"],"native_entry":"engine/primitives.js","specimen":"dossier","requires":[],"evidence":"case-records","avoid":"案卷和印章不能把尚未证实的指控画成定罪；真实材料与编辑示意明确区分。"},
-    {"id":"lemo-visual-investigation","slug":"visual-investigation","name":"视觉调查","group":2,"finance_use":["暴雷复盘","事件时间线","公告与事实核对"],"visual_contract":"冷静暗色证据台，多源材料对齐同一时刻；原文高亮、冻结、放大和已知未知分离。","techniques":["evidenceFrame","highlight","clock","uncertainty"],"native_entry":"engine/primitives.js","specimen":"investigation","requires":["licensed-evidence"],"evidence":"independent-cross-checks","avoid":"时间先后不等于因果；没有真实材料时只交技术测试，不生成伪公告或假新闻图。"},
-    {"id":"lemo-data-physical","slug":"data-physical","name":"数据实物化","group":3,"finance_use":["债务规模","资产配置","财富分布","费用累积"],"visual_contract":"单位是可数的实体；精确堆叠、同尺度比较、物理材质、摄影棚照明和尺度回拉。","techniques":["physicalScene","stack","render"],"native_entry":"engine/primitives.js","specimen":"physical","requires":["three","webgl2"],"evidence":"published-data","avoid":"单位必须明示；景深和透视不能隐藏对比；不同系列共用一个单位和尺度。"},
-    {"id":"lemo-briefing-board","slug":"briefing-board","name":"工程简报板","group":3,"finance_use":["行业研究","产能分析","供应链约束"],"visual_contract":"真实白板墙上安装真实物件照片，配标签、磁铁和测量线；沿关系移动，结尾展示全墙。","techniques":["setScene","renderScene","camAt","sceneTexts"],"native_entry":"engine/kit/board.js","specimen":"briefing","requires":["licensed-object-photos"],"evidence":"real-objects-and-measurements","avoid":"生产必须加入真实对象照片；概念节点测试不等于完整工程简报片，不能由照片推断未测量产能。"},
-    {"id":"lemo-archive-lighttable","slug":"archive-lighttable","name":"档案灯台","group":3,"finance_use":["公司历史","金融史","招股书细读"],"visual_contract":"真实档案置于冷白背光台，保留原比例和色调，放大镜作为进入细节的通道。","techniques":["lightTable","archiveObject","loupe"],"native_entry":"engine/primitives.js","specimen":"archive","requires":["licensed-archive-scans"],"evidence":"catalogued-archive-objects","avoid":"不得生成仿古凭证充当档案；测试卡始终标注夹具，生产需要真实扫描件和档案号。"},
-    {"id":"lemo-satellite-briefing","slug":"satellite-briefing","name":"卫星简报","group":3,"finance_use":["港口物流","能源设施","地产开发","大宗商品供给"],"visual_contract":"真实地理影像与独立测量标记；嵌套分辨率、连续尺度变化和前后时相对照。","techniques":["Engine","makeCamera","project","unproject","kmPerPx"],"native_entry":"engine/engine.js","specimen":"satellite","requires":["webgl2","georeferenced-imagery"],"evidence":"dated-georeferenced-imagery","avoid":"技术网格不能当卫星照片；设施变化不直接等同于产量、收入或供给变化。"}
+    {
+      "id": "lemo-dataviz",
+      "slug": "dataviz",
+      "name": "数据叙事",
+      "group": 1,
+      "finance_use": [
+        "通胀与估值",
+        "资产回报",
+        "行业趋势"
+      ],
+      "visual_contract": "图表就是影片：纸张、铅笔和数据批注；转场由坐标增长、缩放和图形转换完成。",
+      "techniques": [
+        "drawPaper",
+        "pencilStroke",
+        "dataDot",
+        "inkShape",
+        "drawPencil"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "dataviz",
+      "requires": [],
+      "evidence": "published-data",
+      "avoid": "不把图表当背景，不扭曲数据轴；财经配色按指标含义指定，不能照搬样片的冷暖色值。"
+    },
+    {
+      "id": "lemo-swiss-motion",
+      "slug": "swiss-motion",
+      "name": "瑞士动态排版",
+      "group": 1,
+      "finance_use": [
+        "观点短评",
+        "关键数字",
+        "概念辨析"
+      ],
+      "visual_contract": "严格网格、单一信号色、极端字号对比；遮罩揭示和运动准确落点，无弹跳。",
+      "techniques": [
+        "clipReveal",
+        "grid",
+        "cutLine",
+        "E"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "swiss",
+      "requires": [],
+      "evidence": "claims-and-numbers",
+      "avoid": "装饰色块不能伪装为数据条；禁止默认淡入、弹簧和企业风渐变。"
+    },
+    {
+      "id": "lemo-iso-infographic",
+      "slug": "iso-infographic",
+      "name": "等距信息图",
+      "group": 1,
+      "finance_use": [
+        "产业链",
+        "商业模式",
+        "资金流转"
+      ],
+      "visual_contract": "固定30度真等距投影，三面色阶，系统立于剖面底座，数量由相同图标构成。",
+      "techniques": [
+        "Iso",
+        "tri",
+        "pin",
+        "iconGrid"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "iso",
+      "requires": [],
+      "evidence": "schematic-or-measured",
+      "avoid": "不旋转为透视3D；无数据时，物件数量、速度和尺寸不能暗示精确资金流量。"
+    },
+    {
+      "id": "lemo-news-package",
+      "slug": "news-package",
+      "name": "电视新闻包装",
+      "group": 1,
+      "finance_use": [
+        "财经周报",
+        "政策发布",
+        "财报速览"
+      ],
+      "visual_contract": "持续标题条、类别标签、翻牌数字、来源日期和统一栏目包装，单屏一个事实。",
+      "techniques": [
+        "strap",
+        "splitFlap",
+        "bandWipe",
+        "sourceLine"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "news",
+      "requires": [],
+      "evidence": "dated-primary-sources",
+      "avoid": "新闻标签仅描述真实状态；原风格不烧字幕，改为竖屏字幕版必须明确记录变体。"
+    },
+    {
+      "id": "lemo-blueprint",
+      "slug": "blueprint",
+      "name": "蓝图／工程制图",
+      "group": 2,
+      "finance_use": [
+        "货币传导",
+        "杠杆结构",
+        "金融产品机制"
+      ],
+      "visual_contract": "普鲁士蓝晒图纸、分级白线、制图顺序、尺寸和结构标记；一个纸面中的镜头。",
+      "techniques": [
+        "makePaper",
+        "line",
+        "dim",
+        "balloon",
+        "setCam"
+      ],
+      "native_entry": "engine/draw.js",
+      "specimen": "blueprint",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "schematic-or-measured",
+      "avoid": "线条表示机制而非实测时标注示意；利率等抽象量不能冒充实物尺寸。"
+    },
+    {
+      "id": "lemo-whiteboard",
+      "slug": "whiteboard",
+      "name": "白板讲解",
+      "group": 2,
+      "finance_use": [
+        "债券久期",
+        "复利与费用",
+        "汇率机制"
+      ],
+      "visual_contract": "真实马克笔逐笔绘制，浮动笔头，擦除残影、釉面反光和一张连续推理地图。",
+      "techniques": [
+        "Board",
+        "Timeline",
+        "Pen",
+        "Stroke",
+        "arrow",
+        "text"
+      ],
+      "native_entry": "engine/engine/wb.js",
+      "specimen": "whiteboard",
+      "requires": [],
+      "evidence": "assumptions-and-derivation",
+      "avoid": "手写字体轮廓不等于逐笔书写；中文需要覆盖实际文字的笔画数据，正文可用明确的排印注释。"
+    },
+    {
+      "id": "lemo-halftone-dossier",
+      "slug": "halftone-dossier",
+      "name": "复古半调案卷",
+      "group": 2,
+      "finance_use": [
+        "投资误区",
+        "金融骗局案例",
+        "公司案例"
+      ],
+      "visual_contract": "印刷纸、可见半调网点、套印、编号证物和粗标题；印章是稀缺强调。",
+      "techniques": [
+        "paper",
+        "halftone",
+        "stamp",
+        "registration"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "dossier",
+      "requires": [],
+      "evidence": "case-records",
+      "avoid": "案卷和印章不能把尚未证实的指控画成定罪；真实材料与编辑示意明确区分。"
+    },
+    {
+      "id": "lemo-visual-investigation",
+      "slug": "visual-investigation",
+      "name": "视觉调查",
+      "group": 2,
+      "finance_use": [
+        "暴雷复盘",
+        "事件时间线",
+        "公告与事实核对"
+      ],
+      "visual_contract": "冷静暗色证据台，多源材料对齐同一时刻；原文高亮、冻结、放大和已知未知分离。",
+      "techniques": [
+        "evidenceFrame",
+        "highlight",
+        "clock",
+        "uncertainty"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "investigation",
+      "requires": [
+        "licensed-evidence"
+      ],
+      "evidence": "independent-cross-checks",
+      "avoid": "时间先后不等于因果；没有真实材料时只交技术测试，不生成伪公告或假新闻图。"
+    },
+    {
+      "id": "lemo-data-physical",
+      "slug": "data-physical",
+      "name": "数据实物化",
+      "group": 3,
+      "finance_use": [
+        "债务规模",
+        "资产配置",
+        "财富分布",
+        "费用累积"
+      ],
+      "visual_contract": "单位是可数的实体；精确堆叠、同尺度比较、物理材质、摄影棚照明和尺度回拉。",
+      "techniques": [
+        "physicalScene",
+        "stack",
+        "render"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "physical",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "published-data",
+      "avoid": "单位必须明示；景深和透视不能隐藏对比；不同系列共用一个单位和尺度。"
+    },
+    {
+      "id": "lemo-briefing-board",
+      "slug": "briefing-board",
+      "name": "工程简报板",
+      "group": 3,
+      "finance_use": [
+        "行业研究",
+        "产能分析",
+        "供应链约束"
+      ],
+      "visual_contract": "真实白板墙上安装真实物件照片，配标签、磁铁和测量线；沿关系移动，结尾展示全墙。",
+      "techniques": [
+        "setScene",
+        "renderScene",
+        "camAt",
+        "sceneTexts"
+      ],
+      "native_entry": "engine/kit/board.js",
+      "specimen": "briefing",
+      "requires": [
+        "licensed-object-photos"
+      ],
+      "evidence": "real-objects-and-measurements",
+      "avoid": "生产必须加入真实对象照片；概念节点测试不等于完整工程简报片，不能由照片推断未测量产能。"
+    },
+    {
+      "id": "lemo-archive-lighttable",
+      "slug": "archive-lighttable",
+      "name": "档案灯台",
+      "group": 3,
+      "finance_use": [
+        "公司历史",
+        "金融史",
+        "招股书细读"
+      ],
+      "visual_contract": "真实档案置于冷白背光台，保留原比例和色调，放大镜作为进入细节的通道。",
+      "techniques": [
+        "lightTable",
+        "archiveObject",
+        "loupe"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "archive",
+      "requires": [
+        "licensed-archive-scans"
+      ],
+      "evidence": "catalogued-archive-objects",
+      "avoid": "不得生成仿古凭证充当档案；测试卡始终标注夹具，生产需要真实扫描件和档案号。"
+    },
+    {
+      "id": "lemo-satellite-briefing",
+      "slug": "satellite-briefing",
+      "name": "卫星简报",
+      "group": 3,
+      "finance_use": [
+        "港口物流",
+        "能源设施",
+        "地产开发",
+        "大宗商品供给"
+      ],
+      "visual_contract": "真实地理影像与独立测量标记；嵌套分辨率、连续尺度变化和前后时相对照。",
+      "techniques": [
+        "Engine",
+        "makeCamera",
+        "project",
+        "unproject",
+        "kmPerPx"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "satellite",
+      "requires": [
+        "webgl2",
+        "georeferenced-imagery"
+      ],
+      "evidence": "dated-georeferenced-imagery",
+      "avoid": "技术网格不能当卫星照片；设施变化不直接等同于产量、收入或供给变化。"
+    },
+    {
+      "id": "lemo-art-deco",
+      "slug": "art-deco",
+      "name": "装饰艺术",
+      "group": 4,
+      "category": "图形与排版",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "商业兴衰",
+        "财经历史",
+        "复古栏目片头"
+      ],
+      "visual_contract": "描金、金属扫光、对称几何与装饰字形",
+      "techniques": [
+        "engine/deco.js"
+      ],
+      "native_entry": "engine/engine/deco.js",
+      "specimen": "art-deco",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-ascii-crt",
+      "slug": "ascii-crt",
+      "name": "ASCII / CRT 终端",
+      "group": 4,
+      "category": "图形与排版",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "量化系统",
+        "科技产业",
+        "信息处理"
+      ],
+      "visual_contract": "字符网格、亮度编码和真实CRT荧光后处理",
+      "techniques": [
+        "term.js"
+      ],
+      "native_entry": "engine/term.js",
+      "specimen": "ascii-crt",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-backrooms",
+      "slug": "backrooms",
+      "name": "后室 / 新怪谈",
+      "group": 4,
+      "category": "电影与时代",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "风险隐喻",
+        "空置空间",
+        "商业悬疑"
+      ],
+      "visual_contract": "墙纸地毯材质、冷荧光空间和VHS噪声",
+      "techniques": [
+        "tex.js"
+      ],
+      "native_entry": "engine/tex.js",
+      "specimen": "backrooms",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-brick-toy",
+      "slug": "brick-toy",
+      "name": "积木玩具",
+      "group": 4,
+      "category": "材质与 3D",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "机制入门",
+        "产业搭建",
+        "供应链隐喻"
+      ],
+      "visual_contract": "真实凸点积木几何、塑料材质和逐格组装",
+      "techniques": [
+        "bricks.js"
+      ],
+      "native_entry": "engine/bricks.js",
+      "specimen": "brick-toy",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-caption-news",
+      "slug": "caption-news",
+      "name": "字幕新闻",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "财经快讯",
+        "政策摘要",
+        "静音阅读"
+      ],
+      "visual_contract": "实拍底图、分块大字幕、关键词强调",
+      "techniques": [
+        "captionChunks"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "caption-news",
+      "requires": [
+        "licensed-footage"
+      ],
+      "evidence": "licensed-footage",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-cel-anime-80s",
+      "slug": "cel-anime-80s",
+      "name": "80 年代赛璐璐动画",
+      "group": 4,
+      "category": "卡通与动画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "财经人物故事",
+        "时代产业",
+        "情绪叙事"
+      ],
+      "visual_contract": "两阶赛璐璐色块、手绘轮廓、有限动画和录像后处理",
+      "techniques": [
+        "cel.js"
+      ],
+      "native_entry": "engine/cel.js",
+      "specimen": "cel-anime-80s",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-city-symphony",
+      "slug": "city-symphony",
+      "name": "延时交响",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "城市经济",
+        "物流",
+        "产业观察"
+      ],
+      "visual_contract": "真实延时素材的节奏分段、加速与停顿",
+      "techniques": [
+        "cutAt",
+        "splitScreen"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "city-symphony",
+      "requires": [
+        "licensed-timelapse"
+      ],
+      "evidence": "licensed-timelapse",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-countdown",
+      "slug": "countdown",
+      "name": "实时倒计时分屏",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "政策发布",
+        "财报发布",
+        "事件同步"
+      ],
+      "visual_contract": "同一事件时钟、多机位分屏、真实时间对齐",
+      "techniques": [
+        "splitScreen",
+        "countdown"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "countdown",
+      "requires": [
+        "synchronized-event-footage"
+      ],
+      "evidence": "synchronized-event-footage",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-crayon-book",
+      "slug": "crayon-book",
+      "name": "蜡笔儿童绘本",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "财经启蒙",
+        "生活成本",
+        "风险寓言"
+      ],
+      "visual_contract": "纸齿阈值蜡笔附着、压力笔触和水彩抗蜡",
+      "techniques": [
+        "crayon.js"
+      ],
+      "native_entry": "engine/crayon.js",
+      "specimen": "crayon-book",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-dark-keynote",
+      "slug": "dark-keynote",
+      "name": "暗色科技发布",
+      "group": 4,
+      "category": "信息与发布",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "金融科技界面",
+        "产品功能",
+        "关键数字"
+      ],
+      "visual_contract": "暗色舞台、界面网格、光扫揭示和精确位移",
+      "techniques": [
+        "engine.js"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "dark-keynote",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-engraving",
+      "slug": "engraving",
+      "name": "铜版画",
+      "group": 4,
+      "category": "印刷与版画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "货币史",
+        "商业制度",
+        "研究插图"
+      ],
+      "visual_contract": "鼓胀细线、顺形排线、铜板与手工敷色",
+      "techniques": [
+        "engine/index.js"
+      ],
+      "native_entry": "engine/engine/index.js",
+      "specimen": "engraving",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-game-show",
+      "slug": "game-show",
+      "name": "综艺节奏扁平",
+      "group": 4,
+      "category": "游戏",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "概念辨析",
+        "财经知识问答",
+        "互动栏目"
+      ],
+      "visual_contract": "糖果色放射背景、夸张动作、节拍判断字",
+      "techniques": [
+        "rays",
+        "pixelActor"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "game-show",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-glass-product",
+      "slug": "glass-product",
+      "name": "玻璃质感产品",
+      "group": 4,
+      "category": "材质与 3D",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "金融科技产品",
+        "品牌概念",
+        "栏目片头"
+      ],
+      "visual_contract": "条形灯环境、玻璃/磨砂材质与镜面摄影棚",
+      "techniques": [
+        "studio.js"
+      ],
+      "native_entry": "engine/studio.js",
+      "specimen": "glass-product",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-hd-2d",
+      "slug": "hd-2d",
+      "name": "HD-2D",
+      "group": 4,
+      "category": "游戏",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "经济寓言",
+        "商业成长",
+        "人物旅程"
+      ],
+      "visual_contract": "像素纹理/纸片角色、真实3D灯光和景深",
+      "techniques": [
+        "px.js"
+      ],
+      "native_entry": "engine/px.js",
+      "specimen": "hd-2d",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-hologram-hud",
+      "slug": "hologram-hud",
+      "name": "科幻全息界面",
+      "group": 4,
+      "category": "信息与发布",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "科技产业结构",
+        "模型拆解",
+        "技术指标"
+      ],
+      "visual_contract": "线框扫描、局部展开、引线和滚动参数",
+      "techniques": [
+        "engine/holo.js"
+      ],
+      "native_entry": "engine/engine/holo.js",
+      "specimen": "hologram-hud",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-impasto",
+      "slug": "impasto",
+      "name": "油画厚涂",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "人物故事",
+        "财富情绪",
+        "产业场景"
+      ],
+      "visual_contract": "调色刀笔触、画布、油彩高度场和掠射光",
+      "techniques": [
+        "engine/impasto.js"
+      ],
+      "native_entry": "engine/engine/impasto.js",
+      "specimen": "impasto",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-ink-wash",
+      "slug": "ink-wash",
+      "name": "中国水墨",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "周期隐喻",
+        "长期主义",
+        "东方商业叙事"
+      ],
+      "visual_contract": "宣纸渗化、干湿笔锋、墨块和留白",
+      "techniques": [
+        "ink.js"
+      ],
+      "native_entry": "engine/ink.js",
+      "specimen": "ink-wash",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-kino-montage",
+      "slug": "kino-montage",
+      "name": "构成主义蒙太奇",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "财经历史",
+        "工业化",
+        "政策与社会变迁"
+      ],
+      "visual_contract": "真实档案、斜向画窗、黑红印刷构成",
+      "techniques": [
+        "montageWindow",
+        "captionChunks"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "kino-montage",
+      "requires": [
+        "licensed-archive"
+      ],
+      "evidence": "licensed-archive",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-lidar-survey",
+      "slug": "lidar-survey",
+      "name": "点云测绘",
+      "group": 4,
+      "category": "实证影像",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "资源测绘",
+        "基建",
+        "空间资产研究"
+      ],
+      "visual_contract": "真实米制点云、扫描平面、高程编码和截面",
+      "techniques": [
+        "pointSurvey"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "lidar-survey",
+      "requires": [
+        "three",
+        "webgl2",
+        "metric-point-cloud"
+      ],
+      "evidence": "metric-point-cloud",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-living-screencast",
+      "slug": "living-screencast",
+      "name": "活体实机录屏",
+      "group": 4,
+      "category": "信息与发布",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "金融工具教学",
+        "财务软件",
+        "操作演示"
+      ],
+      "visual_contract": "真实界面优先、原生清晰文字与低分辨率角色",
+      "techniques": [
+        "appWindow",
+        "pixelActor"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "living-screencast",
+      "requires": [
+        "actual-product-ui"
+      ],
+      "evidence": "actual-product-ui",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-lowpoly-island",
+      "slug": "lowpoly-island",
+      "name": "低多边形等距",
+      "group": 4,
+      "category": "材质与 3D",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "产业生态",
+        "城市发展",
+        "资产组合隐喻"
+      ],
+      "visual_contract": "正交低多边形世界、切面水体、逐块生长",
+      "techniques": [
+        "sea.js"
+      ],
+      "native_entry": "engine/sea.js",
+      "specimen": "lowpoly-island",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-microgame",
+      "slug": "microgame",
+      "name": "微游戏快闪",
+      "group": 4,
+      "category": "游戏",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "财经小测",
+        "风险识别",
+        "快节奏概念对比"
+      ],
+      "visual_contract": "短指令、回合倒计时、多种媒介切换",
+      "techniques": [
+        "toon.js"
+      ],
+      "native_entry": "engine/toon.js",
+      "specimen": "microgame",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-microscope",
+      "slug": "microscope",
+      "name": "显微叙事",
+      "group": 4,
+      "category": "实证影像",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "医药行业",
+        "检测成本",
+        "微观产业证据"
+      ],
+      "visual_contract": "真实扫描切片、多尺度ROI和校准测量",
+      "techniques": [
+        "scanPlate",
+        "scaleBar",
+        "roiBox"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "microscope",
+      "requires": [
+        "calibrated-scan"
+      ],
+      "evidence": "calibrated-scan",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-midcentury-toon",
+      "slug": "midcentury-toon",
+      "name": "50s 扁平卡通",
+      "group": 4,
+      "category": "卡通与动画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "家庭收支",
+        "消费选择",
+        "经济寓言"
+      ],
+      "visual_contract": "无轮廓平涂、非对称几何、1950年代图形角色",
+      "techniques": [
+        "engine/toon.js"
+      ],
+      "native_entry": "engine/engine/toon.js",
+      "specimen": "midcentury-toon",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-newsreel",
+      "slug": "newsreel",
+      "name": "1920s 新闻影片",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "金融史",
+        "商业史",
+        "历史事件回顾"
+      ],
+      "visual_contract": "真实档案投影门、新闻纸、银色调与胶片抖动",
+      "techniques": [
+        "filmGate"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "newsreel",
+      "requires": [
+        "licensed-archive"
+      ],
+      "evidence": "licensed-archive",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-one-line",
+      "slug": "one-line",
+      "name": "一笔画",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "经济联系",
+        "人物轨迹",
+        "连续关系隐喻"
+      ],
+      "visual_contract": "连续路径、速度控制线宽、纸张纹理与笔触积墨",
+      "techniques": [
+        "geom.js"
+      ],
+      "native_entry": "engine/geom.js",
+      "specimen": "one-line",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-paper-lantern",
+      "slug": "paper-lantern",
+      "name": "纸雕灯影",
+      "group": 4,
+      "category": "东方传统",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "生活经济",
+        "商业文化",
+        "节庆消费"
+      ],
+      "visual_contract": "多层纸雕、穿透光、投影和真实盒景深度",
+      "techniques": [
+        "src/paper.js"
+      ],
+      "native_entry": "engine/src/paper.js",
+      "specimen": "paper-lantern",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-paper-popup",
+      "slug": "paper-popup",
+      "name": "纸片立体书",
+      "group": 4,
+      "category": "材质与 3D",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "商业模式入门",
+        "公司故事",
+        "产业展开"
+      ],
+      "visual_contract": "书页铰链、纸片厚度、翻页曲面和折叠结构",
+      "techniques": [
+        "book.js"
+      ],
+      "native_entry": "engine/book.js",
+      "specimen": "paper-popup",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-papercut-red",
+      "slug": "papercut-red",
+      "name": "红色窗花剪纸",
+      "group": 4,
+      "category": "东方传统",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "节庆经济",
+        "消费文化",
+        "东方商业寓言"
+      ],
+      "visual_contract": "红纸镂空、纸边、剪口、对折和透光",
+      "techniques": [
+        "paper.js"
+      ],
+      "native_entry": "engine/paper.js",
+      "specimen": "papercut-red",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-pictogram-motion",
+      "slug": "pictogram-motion",
+      "name": "象形运动图形",
+      "group": 4,
+      "category": "图形与排版",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "行为分类",
+        "消费人群",
+        "概念快解"
+      ],
+      "visual_contract": "方格核心图形、圆端杆件图标与遮罩文字",
+      "techniques": [
+        "engine.js"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "pictogram-motion",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-pixel-rpg",
+      "slug": "pixel-rpg",
+      "name": "16-bit 像素 RPG",
+      "group": 4,
+      "category": "游戏",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "预算选择",
+        "复利旅程",
+        "风险决策寓言"
+      ],
+      "visual_contract": "320×180索引像素、有限调色板、菜单与对话框",
+      "techniques": [
+        "px.js"
+      ],
+      "native_entry": "engine/px.js",
+      "specimen": "pixel-rpg",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-risograph",
+      "slug": "risograph",
+      "name": "Risograph 孔版印刷",
+      "group": 4,
+      "category": "印刷与版画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "财经编辑插图",
+        "消费案例",
+        "轻叙事"
+      ],
+      "visual_contract": "分色密度板、透叠油墨、半调与套印偏移",
+      "techniques": [
+        "draw.js"
+      ],
+      "native_entry": "engine/draw.js",
+      "specimen": "risograph",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-rubber-hose",
+      "slug": "rubber-hose",
+      "name": "1930s 橡皮管卡通",
+      "group": 4,
+      "category": "卡通与动画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "投资行为偏差",
+        "生活财经",
+        "风险寓言"
+      ],
+      "visual_contract": "黑白胶管肢体、恒定墨线、线条抖动和胶片投影",
+      "techniques": [
+        "toon.js"
+      ],
+      "native_entry": "engine/toon.js",
+      "specimen": "rubber-hose",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-scifi-toon",
+      "slug": "scifi-toon",
+      "name": "科幻情景喜剧卡通",
+      "group": 4,
+      "category": "卡通与动画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "科技经济寓言",
+        "激励冲突",
+        "行为偏差"
+      ],
+      "visual_contract": "粗墨线、扁平色块、变形肢体和表演反差",
+      "techniques": [
+        "toon.js"
+      ],
+      "native_entry": "engine/toon.js",
+      "specimen": "scifi-toon",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-shadow-puppet",
+      "slug": "shadow-puppet",
+      "name": "皮影戏",
+      "group": 4,
+      "category": "东方传统",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "商业故事",
+        "传统产业",
+        "人物寓言"
+      ],
+      "visual_contract": "染色皮革、细密镂空、棉幕透光和关节铆钉",
+      "techniques": [
+        "carve.js"
+      ],
+      "native_entry": "engine/carve.js",
+      "specimen": "shadow-puppet",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-silent-film",
+      "slug": "silent-film",
+      "name": "1920s 默片",
+      "group": 4,
+      "category": "电影与时代",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "金融史",
+        "行为寓言",
+        "无旁白栏目"
+      ],
+      "visual_contract": "灰阶版画、字幕插卡、虹膜转场和胶片损伤",
+      "techniques": [
+        "engine/ink.js"
+      ],
+      "native_entry": "engine/engine/ink.js",
+      "specimen": "silent-film",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-silkscreen-poster",
+      "slug": "silkscreen-poster",
+      "name": "丝印旅行海报",
+      "group": 4,
+      "category": "印刷与版画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "地区产业",
+        "城市研究",
+        "文化消费"
+      ],
+      "visual_contract": "不透明平涂油墨、分版拉印、刮板与分级色带",
+      "techniques": [
+        "engine/silk.js"
+      ],
+      "native_entry": "engine/engine/silk.js",
+      "specimen": "silkscreen-poster",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-spy-titles",
+      "slug": "spy-titles",
+      "name": "60s 间谍片头",
+      "group": 4,
+      "category": "图形与排版",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "资金追踪",
+        "商业悬疑",
+        "调查片头"
+      ],
+      "visual_contract": "四色剪纸、切割字形、狭缝与轮廓转场",
+      "techniques": [
+        "paper.js"
+      ],
+      "native_entry": "engine/paper.js",
+      "specimen": "spy-titles",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-stained-glass",
+      "slug": "stained-glass",
+      "name": "彩色玻璃窗",
+      "group": 4,
+      "category": "图形与排版",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "历史制度",
+        "文化财经",
+        "长期结构隐喻"
+      ],
+      "visual_contract": "铅条分片、玻璃厚薄、背光透色和室内投影",
+      "techniques": [
+        "glass.js"
+      ],
+      "native_entry": "engine/glass.js",
+      "specimen": "stained-glass",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-teardown",
+      "slug": "teardown",
+      "name": "产品拆解",
+      "group": 4,
+      "category": "实证影像",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "制造业成本",
+        "硬件产业",
+        "产品结构"
+      ],
+      "visual_contract": "工程几何、可拆层级、局部细节和真实规格标注",
+      "techniques": [
+        "src/parts.js"
+      ],
+      "native_entry": "engine/src/parts.js",
+      "specimen": "teardown",
+      "requires": [
+        "three",
+        "webgl2",
+        "engineering-files"
+      ],
+      "evidence": "engineering-files",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-telestrator",
+      "slug": "telestrator",
+      "name": "体育战术板",
+      "group": 4,
+      "category": "剪辑与纪实",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "赛事商业",
+        "空间行为分析",
+        "实拍解释"
+      ],
+      "visual_contract": "冻结/回放、场地坐标、人物足下环和路径标记",
+      "techniques": [
+        "telestrate"
+      ],
+      "native_entry": "engine/primitives.js",
+      "specimen": "telestrator",
+      "requires": [
+        "licensed-footage-and-calibration"
+      ],
+      "evidence": "licensed-footage-and-calibration",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "adapted-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-tilt-shift",
+      "slug": "tilt-shift",
+      "name": "移轴微缩",
+      "group": 4,
+      "category": "材质与 3D",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "城市经济",
+        "物流",
+        "地产和产业场景"
+      ],
+      "visual_contract": "微缩景深、真实光照、高机位和时间压缩",
+      "techniques": [
+        "post.js"
+      ],
+      "native_entry": "engine/post.js",
+      "specimen": "tilt-shift",
+      "requires": [
+        "three",
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-ukiyoe",
+      "slug": "ukiyoe",
+      "name": "浮世绘",
+      "group": 4,
+      "category": "东方传统",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "贸易史",
+        "东方商业",
+        "周期叙事"
+      ],
+      "visual_contract": "分色木版、木纹、晕染天色、刻线和长卷",
+      "techniques": [
+        "print.js"
+      ],
+      "native_entry": "engine/print.js",
+      "specimen": "ukiyoe",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-urban-sketch",
+      "slug": "urban-sketch",
+      "name": "钢笔淡彩",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "城市商业",
+        "街区消费",
+        "生活观察"
+      ],
+      "visual_contract": "钢笔飞线、透明水彩、颜色抵达场与现场纸张",
+      "techniques": [
+        "engine.js"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "urban-sketch",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-watercolor",
+      "slug": "watercolor",
+      "name": "水彩笔刷",
+      "group": 4,
+      "category": "手绘与绘画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "生活财经",
+        "环境经济",
+        "人物故事"
+      ],
+      "visual_contract": "透明笔刷、飞白、湿边、棉纸和分层洗染",
+      "techniques": [
+        "engine.js"
+      ],
+      "native_entry": "engine/engine.js",
+      "specimen": "watercolor",
+      "requires": [],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-white-model",
+      "slug": "white-model",
+      "name": "白模投影",
+      "group": 4,
+      "category": "实证影像",
+      "finance_fit": "specialist",
+      "finance_use": [
+        "地产研究",
+        "城市更新",
+        "区域数据"
+      ],
+      "visual_contract": "真实白色体块、固定投影灯与表面数据映射",
+      "techniques": [
+        "studio.js"
+      ],
+      "native_entry": "engine/studio.js",
+      "specimen": "white-model",
+      "requires": [
+        "three",
+        "webgl2",
+        "real-massing-model"
+      ],
+      "evidence": "real-massing-model",
+      "avoid": "必须使用与当前项目对应的真实授权材料；工程夹具不能当作事实证据。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    },
+    {
+      "id": "lemo-woodcut",
+      "slug": "woodcut",
+      "name": "木刻版画",
+      "group": 4,
+      "category": "印刷与版画",
+      "finance_fit": "supporting",
+      "finance_use": [
+        "金融史",
+        "产业劳动",
+        "制度叙事"
+      ],
+      "visual_contract": "黑木块、顺形刀刻排线、刀口毛边和分版印刷",
+      "techniques": [
+        "engine/index.js"
+      ],
+      "native_entry": "engine/engine/index.js",
+      "specimen": "woodcut",
+      "requires": [
+        "webgl2"
+      ],
+      "evidence": "illustration-or-explicit-schematic",
+      "avoid": "形象化表达不能替代事实证据；数字、来源和精确文字由原生排版承担。",
+      "implementation": "native-techniques",
+      "support_files": [
+        "vendor"
+      ]
+    }
   ]
 }

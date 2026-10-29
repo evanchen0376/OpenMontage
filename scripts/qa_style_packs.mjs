@@ -15,10 +15,13 @@ const modules=path.resolve(arg('--modules',path.join(ROOT,'style-packs/node_modu
 const out=path.resolve(arg('--out',path.join(ROOT,'projects/style-pack-qa')));
 const require=createRequire(path.join(modules,'package.json'));
 const {chromium}=require('playwright-core');
-const packs=JSON.parse(fs.readFileSync(path.join(ROOT,'style-packs/catalog.json'))).packs;
+const allPacks=JSON.parse(fs.readFileSync(path.join(ROOT,'style-packs/catalog.json'))).packs;
+const selected=arg('--pack','').split(',').filter(Boolean);
+const packs=allPacks.filter(p=>(!process.argv.includes('--new')||p.group===4)&&(!selected.length||selected.includes(p.id)||selected.includes(p.slug)));
+if(!packs.length)throw new Error('No matching styles');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 function writeIndex(report) {
-  const cards=packs.map(pack=>{
+  const cards=allPacks.filter(p=>report.checks.some(r=>r.pack===p.id)).map(pack=>{
     const row=report.checks.find(r=>r.pack===pack.id&&r.format==='landscape');
     return `<article><h2>${pack.name}</h2><p>${pack.visual_contract}</p>${row?.clip_info?`<video controls preload="none" poster="${pack.id}-landscape-6.5.png" src="${row.clip}"></video>`:`<img src="${pack.id}-landscape-6.5.png" alt="${pack.name}">`}<p><a href="${pack.id}-portrait-6.5.png">竖屏关键帧</a> · ${row?.passed?'技术检查通过':'检查未通过'}</p></article>`;
   }).join('');
@@ -73,7 +76,8 @@ try {
     page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});
     const row={pack:pack.id,format,frames:[],passed:false};
     try {
-      await page.goto(`${url}?pack=${pack.id}`);await page.waitForFunction(()=>window.READY===true,{},{timeout:45000});
+      await page.goto(`${url}?pack=${pack.id}`);await page.waitForFunction(()=>window.READY===true||window.STUDY_ERROR,{},{timeout:45000});
+      const studyError=await page.evaluate(()=>window.STUDY_ERROR);if(studyError)throw new Error(studyError);
       const hashes=[];
       for(const time of [.6,2.5,6.5]){
         await page.evaluate(t=>window.render(t),time);

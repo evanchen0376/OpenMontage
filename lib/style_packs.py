@@ -51,6 +51,8 @@ def reference(pack_id: str) -> dict[str, str]:
     digest.update(json.dumps({k: v for k, v in pack.items() if k != "directory"}, sort_keys=True).encode())
     paths = [*sorted((PACKS / "shared").rglob("*")),
              *sorted(Path(pack["directory"]).rglob("*"))]
+    for directory in pack.get("support_files", []):
+        paths.extend(sorted(_inside(PACKS, directory).rglob("*")))
     for path in paths:
         if path.is_file() and "reference" not in path.relative_to(PACKS).parts:
             digest.update(path.relative_to(PACKS).as_posix().encode())
@@ -118,6 +120,8 @@ def materialize(pack_id: str, output_path: Path, *, selection: dict[str, Any] | 
         staged = Path(temp) / "library"
         staged.mkdir()
         shutil.copytree(PACKS / "shared", staged / "shared")
+        for directory in pack.get("support_files", []):
+            shutil.copytree(_inside(PACKS, directory), staged / directory)
         base = staged / pack["slug"]
         base.mkdir()
         for name in ["STYLE.md", "FINANCE.md", "TECHNIQUES.md"]:
