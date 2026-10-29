@@ -119,3 +119,13 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 6. Let discovery happen through `tools/tool_registry.py`; do not depend on ad hoc imports
 7. Add a JSON schema in `schemas/tools/` if the tool has complex I/O
 8. Add tests only after the runtime path is correct
+
+## Finance Visual Style Packs
+
+`style-packs/catalog.json` indexes twelve Lemo-derived drawing libraries.
+`lib/style_packs.py` handles discovery, provenance, version identity and
+materialization; `tools/graphics/style_pack.py` exposes it through the registry.
+`skills/core/style-packs.md` defines creative integration and scoped atelier
+reuse. Versioned selections travel through canonical artifacts. Runtime
+choice and production orchestration remain unchanged. See
+`docs/FINANCE_STYLE_PACKS.md` for validation evidence and current limitations.

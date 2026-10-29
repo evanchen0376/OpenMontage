@@ -1,0 +1,687 @@
+{
+  "repository": "https://github.com/lemomo-ai/lemo-opuscar",
+  "revision": "ef1954e27faf9b5230f8492571b83c7c010e0748",
+  "code_license": "MIT",
+  "reference_media_license": "CC-BY-4.0 (no reference media imported)",
+  "files": [
+    {
+      "source": "LICENSE",
+      "path": "LICENSE.lemo",
+      "source_sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33",
+      "sha256": "14c9ff6f14bfb2391e74fedb01c256891d2a3bba1c2acf5789901bdf77e54e33",
+      "modification": "none"
+    },
+    {
+      "source": "core/lib.js",
+      "path": "shared/lib.js",
+      "source_sha256": "f6aafa10a156d52b066a39b9445b4d23f3261b326042a92b95bdea4ba71bac24",
+      "sha256": "f6aafa10a156d52b066a39b9445b4d23f3261b326042a92b95bdea4ba71bac24",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/STYLE.md",
+      "path": "dataviz/STYLE.md",
+      "source_sha256": "e94013d5a7c548c8844598a671ff0b49bc78770696cbca0d8d00846336f3c67f",
+      "sha256": "e94013d5a7c548c8844598a671ff0b49bc78770696cbca0d8d00846336f3c67f",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/DEMO.md",
+      "path": "dataviz/reference/DEMO.md",
+      "source_sha256": "997cf8707a29ba6fee86b07db7745769e58c2c3fe23093164fb2e774cabf0d24",
+      "sha256": "997cf8707a29ba6fee86b07db7745769e58c2c3fe23093164fb2e774cabf0d24",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/CREDITS",
+      "path": "dataviz/reference/CREDITS",
+      "source_sha256": "4d166a53e97424f4d804ccb65a3b7877b0061dad4be36eb71056f03d70dcd8b1",
+      "sha256": "4d166a53e97424f4d804ccb65a3b7877b0061dad4be36eb71056f03d70dcd8b1",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/engine.js",
+      "path": "dataviz/engine/engine.js",
+      "source_sha256": "d4e4a84552a81eb8bc75c7031783ba7c42dad5376c787b48cf9d44a6ffde2bb2",
+      "sha256": "b074eabbf026631b59f11bbaf2e5ba4a6450439605f72b218b9e6b971c1f4496",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/dataviz/demo/engine.js",
+      "path": "dataviz/reference/source/engine.js",
+      "source_sha256": "d4e4a84552a81eb8bc75c7031783ba7c42dad5376c787b48cf9d44a6ffde2bb2",
+      "sha256": "d4e4a84552a81eb8bc75c7031783ba7c42dad5376c787b48cf9d44a6ffde2bb2",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/film.js",
+      "path": "dataviz/reference/source/film.js",
+      "source_sha256": "f8867fdbb6e4eb0344696194e36d063682111183043f16a74e0244c73da2608e",
+      "sha256": "f8867fdbb6e4eb0344696194e36d063682111183043f16a74e0244c73da2608e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/index.html",
+      "path": "dataviz/reference/source/index.html",
+      "source_sha256": "fe206672f628e7de94bb7d19342562a1ee3bcc9d95254a518691f4ddc01ab944",
+      "sha256": "fe206672f628e7de94bb7d19342562a1ee3bcc9d95254a518691f4ddc01ab944",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/main.js",
+      "path": "dataviz/reference/source/main.js",
+      "source_sha256": "202394f113e84b32d17ab0a29e1b9209998b26b4cc0f7d36c9b5dd1cba5846d9",
+      "sha256": "202394f113e84b32d17ab0a29e1b9209998b26b4cc0f7d36c9b5dd1cba5846d9",
+      "modification": "none"
+    },
+    {
+      "source": "styles/dataviz/demo/timeline.js",
+      "path": "dataviz/reference/source/timeline.js",
+      "source_sha256": "0f89acb53897c39a3fa779966c4481b690d156eb08086974071969f72aff6151",
+      "sha256": "0f89acb53897c39a3fa779966c4481b690d156eb08086974071969f72aff6151",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/STYLE.md",
+      "path": "swiss-motion/STYLE.md",
+      "source_sha256": "14ddeb6dc495e691a220497069a2ee4827d820f9ee7a3173de5846489ef41f57",
+      "sha256": "14ddeb6dc495e691a220497069a2ee4827d820f9ee7a3173de5846489ef41f57",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/DEMO.md",
+      "path": "swiss-motion/reference/DEMO.md",
+      "source_sha256": "989c763362af45379b52a0a8e683fba27efad968e7aa438a3acc9d21d03d3a4e",
+      "sha256": "989c763362af45379b52a0a8e683fba27efad968e7aa438a3acc9d21d03d3a4e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/demo/CREDITS",
+      "path": "swiss-motion/reference/CREDITS",
+      "source_sha256": "129d4de51e31753c890d6452f0429676432c5b6a47f2c6061de27bf279d55dc5",
+      "sha256": "129d4de51e31753c890d6452f0429676432c5b6a47f2c6061de27bf279d55dc5",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/demo/ease.js",
+      "path": "swiss-motion/engine/ease.js",
+      "source_sha256": "81fc5d6aa1d69e6fb2e900143b9c209929c1bc371e43a4481098ad1f16767d05",
+      "sha256": "81fc5d6aa1d69e6fb2e900143b9c209929c1bc371e43a4481098ad1f16767d05",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/swiss-motion/demo/ease.js",
+      "path": "swiss-motion/reference/source/ease.js",
+      "source_sha256": "81fc5d6aa1d69e6fb2e900143b9c209929c1bc371e43a4481098ad1f16767d05",
+      "sha256": "81fc5d6aa1d69e6fb2e900143b9c209929c1bc371e43a4481098ad1f16767d05",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/demo/film.js",
+      "path": "swiss-motion/reference/source/film.js",
+      "source_sha256": "3207a8dd264de6b1c1f6000e804d0edefcdd8e37f9080e4330614faf017b1994",
+      "sha256": "3207a8dd264de6b1c1f6000e804d0edefcdd8e37f9080e4330614faf017b1994",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/demo/index.html",
+      "path": "swiss-motion/reference/source/index.html",
+      "source_sha256": "ad41b5fbbb455619aa254be566f25b84d27f5a98f5c438a8d54a933952e5ed59",
+      "sha256": "ad41b5fbbb455619aa254be566f25b84d27f5a98f5c438a8d54a933952e5ed59",
+      "modification": "none"
+    },
+    {
+      "source": "styles/swiss-motion/demo/main.js",
+      "path": "swiss-motion/reference/source/main.js",
+      "source_sha256": "fb7ad0b24ac2744ac98d2ff94e92467d2a7dfcc6910113808e08dba0de2b4adc",
+      "sha256": "fb7ad0b24ac2744ac98d2ff94e92467d2a7dfcc6910113808e08dba0de2b4adc",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/STYLE.md",
+      "path": "iso-infographic/STYLE.md",
+      "source_sha256": "a3bf89913255043ff2c8616bff9be9f9536efe1eb7a3b98c755cb4189bd7dff1",
+      "sha256": "a3bf89913255043ff2c8616bff9be9f9536efe1eb7a3b98c755cb4189bd7dff1",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/DEMO.md",
+      "path": "iso-infographic/reference/DEMO.md",
+      "source_sha256": "8b93a8caa338a0e4073e6233ebea27652a10cfa6b71a67744badad802d19b2b3",
+      "sha256": "8b93a8caa338a0e4073e6233ebea27652a10cfa6b71a67744badad802d19b2b3",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/CREDITS",
+      "path": "iso-infographic/reference/CREDITS",
+      "source_sha256": "a82eee2c6b3bd6470bf13879ae95a243c26b8049168eec472551c2027325644f",
+      "sha256": "a82eee2c6b3bd6470bf13879ae95a243c26b8049168eec472551c2027325644f",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/engine.js",
+      "path": "iso-infographic/engine/engine.js",
+      "source_sha256": "0c2fd6fb834acda6bbe708caa3360e59e4c1573e34bf3d5edb6f624c9f2a3eae",
+      "sha256": "0c2fd6fb834acda6bbe708caa3360e59e4c1573e34bf3d5edb6f624c9f2a3eae",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/iso-infographic/demo/engine.js",
+      "path": "iso-infographic/reference/source/engine.js",
+      "source_sha256": "0c2fd6fb834acda6bbe708caa3360e59e4c1573e34bf3d5edb6f624c9f2a3eae",
+      "sha256": "0c2fd6fb834acda6bbe708caa3360e59e4c1573e34bf3d5edb6f624c9f2a3eae",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/film.js",
+      "path": "iso-infographic/reference/source/film.js",
+      "source_sha256": "7104ea60548f7db397483d20d99b9c1db718451ed854f06846759216ae474008",
+      "sha256": "7104ea60548f7db397483d20d99b9c1db718451ed854f06846759216ae474008",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/hero.js",
+      "path": "iso-infographic/reference/source/hero.js",
+      "source_sha256": "3865cd23a64f4c8a2498f48f9c84320f3892777eb4be8a173a06e560a0a01b0f",
+      "sha256": "3865cd23a64f4c8a2498f48f9c84320f3892777eb4be8a173a06e560a0a01b0f",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/index.html",
+      "path": "iso-infographic/reference/source/index.html",
+      "source_sha256": "ec5d3523a7912ef5722c6db6592b3008927816a40c2927859ec6ac3ee930d614",
+      "sha256": "ec5d3523a7912ef5722c6db6592b3008927816a40c2927859ec6ac3ee930d614",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/main.js",
+      "path": "iso-infographic/reference/source/main.js",
+      "source_sha256": "84dee292534d5441dce1c20477cacd749aa2e6f8e678a39c153a36da6eaaec10",
+      "sha256": "84dee292534d5441dce1c20477cacd749aa2e6f8e678a39c153a36da6eaaec10",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/tests.js",
+      "path": "iso-infographic/reference/source/tests.js",
+      "source_sha256": "b5274803b52b7e56b90198d43e55f9530cc2400865d270847b49b88631dd6d6a",
+      "sha256": "b5274803b52b7e56b90198d43e55f9530cc2400865d270847b49b88631dd6d6a",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/timeline.js",
+      "path": "iso-infographic/reference/source/timeline.js",
+      "source_sha256": "7b96865c9cf886581353818fe7c96e0a2273117d78fbc4ac9759a9fc1b742e79",
+      "sha256": "7b96865c9cf886581353818fe7c96e0a2273117d78fbc4ac9759a9fc1b742e79",
+      "modification": "none"
+    },
+    {
+      "source": "styles/iso-infographic/demo/world.js",
+      "path": "iso-infographic/reference/source/world.js",
+      "source_sha256": "d4396537628d37e1fd3209871ff854fb31b1e5b73572e3e36cbac4a3cca5aa6d",
+      "sha256": "d4396537628d37e1fd3209871ff854fb31b1e5b73572e3e36cbac4a3cca5aa6d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/news-package/STYLE.md",
+      "path": "news-package/STYLE.md",
+      "source_sha256": "6f9d1b6a04878229260ea542fe71f2b77c560ed8e40df68b68e80ac4e21710ce",
+      "sha256": "6f9d1b6a04878229260ea542fe71f2b77c560ed8e40df68b68e80ac4e21710ce",
+      "modification": "none"
+    },
+    {
+      "source": "styles/news-package/DEMO.md",
+      "path": "news-package/reference/DEMO.md",
+      "source_sha256": "c43b1339571723881b1b16904a2908c9e7c1d94ca9d2cebfc8de6a82bfca4298",
+      "sha256": "c43b1339571723881b1b16904a2908c9e7c1d94ca9d2cebfc8de6a82bfca4298",
+      "modification": "none"
+    },
+    {
+      "source": "styles/news-package/demo/CREDITS",
+      "path": "news-package/reference/CREDITS",
+      "source_sha256": "2bb8888eb6edcca3464faa9906831bb4b391181e10cf44fcb14b41e20641ca52",
+      "sha256": "2bb8888eb6edcca3464faa9906831bb4b391181e10cf44fcb14b41e20641ca52",
+      "modification": "none"
+    },
+    {
+      "source": "styles/news-package/demo/index.html",
+      "path": "news-package/reference/source/index.html",
+      "source_sha256": "fff39fbb2d3b243d0373ac587d5581a047c5eb3479602e986b5f97d851536b6f",
+      "sha256": "fff39fbb2d3b243d0373ac587d5581a047c5eb3479602e986b5f97d851536b6f",
+      "modification": "none"
+    },
+    {
+      "source": "styles/news-package/demo/main.js",
+      "path": "news-package/reference/source/main.js",
+      "source_sha256": "0a5dd5dab077cdda472af61d0f11aba8e8ce3efd814a4a6cf167700cf0f8ef81",
+      "sha256": "0a5dd5dab077cdda472af61d0f11aba8e8ce3efd814a4a6cf167700cf0f8ef81",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/STYLE.md",
+      "path": "blueprint/STYLE.md",
+      "source_sha256": "de01fc7fcb38b17b58eb017c9cdbcb36b9242b029435a33587614c93088e1717",
+      "sha256": "de01fc7fcb38b17b58eb017c9cdbcb36b9242b029435a33587614c93088e1717",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/DEMO.md",
+      "path": "blueprint/reference/DEMO.md",
+      "source_sha256": "5ea1681271e44d4d4fe88fd5d7ef907c320b0979cf53dfb93070ab6d0edb61b4",
+      "sha256": "5ea1681271e44d4d4fe88fd5d7ef907c320b0979cf53dfb93070ab6d0edb61b4",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/CREDITS",
+      "path": "blueprint/reference/CREDITS",
+      "source_sha256": "5592e99396f88f9b2cf2353fb97df8b8607eb0861a17568810cb2bbdffa5027e",
+      "sha256": "5592e99396f88f9b2cf2353fb97df8b8607eb0861a17568810cb2bbdffa5027e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/draw.js",
+      "path": "blueprint/engine/draw.js",
+      "source_sha256": "a1a6b0f3f78bca6cfe0e11dbe1a93dd747439a3a4ea6a8cdd12a4ceca2fb3dee",
+      "sha256": "a1a6b0f3f78bca6cfe0e11dbe1a93dd747439a3a4ea6a8cdd12a4ceca2fb3dee",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/blueprint/demo/paper.js",
+      "path": "blueprint/engine/paper.js",
+      "source_sha256": "3843e20887221146a86fb66ed2d9b7d6117c77202019cfcf728ca6b7cfffa691",
+      "sha256": "3843e20887221146a86fb66ed2d9b7d6117c77202019cfcf728ca6b7cfffa691",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/blueprint/demo/draw.js",
+      "path": "blueprint/reference/source/draw.js",
+      "source_sha256": "a1a6b0f3f78bca6cfe0e11dbe1a93dd747439a3a4ea6a8cdd12a4ceca2fb3dee",
+      "sha256": "a1a6b0f3f78bca6cfe0e11dbe1a93dd747439a3a4ea6a8cdd12a4ceca2fb3dee",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/film.js",
+      "path": "blueprint/reference/source/film.js",
+      "source_sha256": "3d146a7cd7373b0d07ecb27fad43d19cd2163fc68fc91d9ad0c1fb1557b1b340",
+      "sha256": "3d146a7cd7373b0d07ecb27fad43d19cd2163fc68fc91d9ad0c1fb1557b1b340",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/index.html",
+      "path": "blueprint/reference/source/index.html",
+      "source_sha256": "363656cc02058402df3a02546fd24fd07437985fad3c53f8d9a7efa325577d1e",
+      "sha256": "363656cc02058402df3a02546fd24fd07437985fad3c53f8d9a7efa325577d1e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/machine.js",
+      "path": "blueprint/reference/source/machine.js",
+      "source_sha256": "4d436ac9f4df915096817eafc160e7fa56b43a89057b275a4c2d42ea30ff4f78",
+      "sha256": "4d436ac9f4df915096817eafc160e7fa56b43a89057b275a4c2d42ea30ff4f78",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/main.js",
+      "path": "blueprint/reference/source/main.js",
+      "source_sha256": "662340c1776db54bec35bb651c599c258eef0f92cc51d1999f1b07311d80f246",
+      "sha256": "662340c1776db54bec35bb651c599c258eef0f92cc51d1999f1b07311d80f246",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/paper.js",
+      "path": "blueprint/reference/source/paper.js",
+      "source_sha256": "3843e20887221146a86fb66ed2d9b7d6117c77202019cfcf728ca6b7cfffa691",
+      "sha256": "3843e20887221146a86fb66ed2d9b7d6117c77202019cfcf728ca6b7cfffa691",
+      "modification": "none"
+    },
+    {
+      "source": "styles/blueprint/demo/sheet.js",
+      "path": "blueprint/reference/source/sheet.js",
+      "source_sha256": "c5314a1669e2f65779bb218c0d2388e8e53a9b5eab1c2cc2b097fb71f3ed8ce3",
+      "sha256": "c5314a1669e2f65779bb218c0d2388e8e53a9b5eab1c2cc2b097fb71f3ed8ce3",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/STYLE.md",
+      "path": "whiteboard/STYLE.md",
+      "source_sha256": "19f66326257bcafb8aca18af3e209d1fee31d9e23902ce1708bbb606cbf4b718",
+      "sha256": "19f66326257bcafb8aca18af3e209d1fee31d9e23902ce1708bbb606cbf4b718",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/DEMO.md",
+      "path": "whiteboard/reference/DEMO.md",
+      "source_sha256": "801b933f71403ab1b51b1e27f235fa5ec3efeda607afed465d59eb9a8e81a877",
+      "sha256": "801b933f71403ab1b51b1e27f235fa5ec3efeda607afed465d59eb9a8e81a877",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/CREDITS",
+      "path": "whiteboard/reference/CREDITS",
+      "source_sha256": "56a2e11ff6121d7f00d4f7c6e08ff24930dc8ca7f7b4077ff8125b1b256a54d3",
+      "sha256": "56a2e11ff6121d7f00d4f7c6e08ff24930dc8ca7f7b4077ff8125b1b256a54d3",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/engine/wb.js",
+      "path": "whiteboard/engine/engine/wb.js",
+      "source_sha256": "66c01b55e1b07c13bf0f2edaee00a7ae73510e9151c1364400d63a2e97789a85",
+      "sha256": "4853e230dab7516a55ba53bd090f71e2bd53084056eb4a87d7c462c86243c61c",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/whiteboard/demo/fonts/EMSTech.json",
+      "path": "whiteboard/engine/fonts/EMSTech.json",
+      "source_sha256": "33f85da146a78017a2305776d2a5fd6fc2fd13373f852d24dad4fa4ced5b016d",
+      "sha256": "33f85da146a78017a2305776d2a5fd6fc2fd13373f852d24dad4fa4ced5b016d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/fonts/OFL-ArchitectsDaughter.txt",
+      "path": "whiteboard/engine/fonts/OFL-ArchitectsDaughter.txt",
+      "source_sha256": "0e441ae9f18ad0c294cc5b6ae3974c2db1614cab220598578b1b58c4cc334485",
+      "sha256": "1d3dfa53acd63b2e501101356107b0f996877b678e2dba800918a6887afc4c88",
+      "modification": "trailing whitespace trimmed; licence wording unchanged"
+    },
+    {
+      "source": "styles/whiteboard/demo/engine/wb.js",
+      "path": "whiteboard/reference/source/engine/wb.js",
+      "source_sha256": "66c01b55e1b07c13bf0f2edaee00a7ae73510e9151c1364400d63a2e97789a85",
+      "sha256": "66c01b55e1b07c13bf0f2edaee00a7ae73510e9151c1364400d63a2e97789a85",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/film.js",
+      "path": "whiteboard/reference/source/film.js",
+      "source_sha256": "7bddcbd94a689f63f65e69277dd048c9d0345a1c51455abb7ab265490863d08e",
+      "sha256": "7bddcbd94a689f63f65e69277dd048c9d0345a1c51455abb7ab265490863d08e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/index.html",
+      "path": "whiteboard/reference/source/index.html",
+      "source_sha256": "f62391ea1ed557200231d6dfdf0d38bbb319b13c900b2523d9ff5e5e49e8a092",
+      "sha256": "f62391ea1ed557200231d6dfdf0d38bbb319b13c900b2523d9ff5e5e49e8a092",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/main.js",
+      "path": "whiteboard/reference/source/main.js",
+      "source_sha256": "c1784ce55beffdf2c8bf94e08ab66bd35fe0087015e8097ebda24374afb0b2eb",
+      "sha256": "c1784ce55beffdf2c8bf94e08ab66bd35fe0087015e8097ebda24374afb0b2eb",
+      "modification": "none"
+    },
+    {
+      "source": "styles/whiteboard/demo/test.js",
+      "path": "whiteboard/reference/source/test.js",
+      "source_sha256": "4a7888da2f70485356912c8806d457106e90c56aa695965f9b7143019df85a3e",
+      "sha256": "4a7888da2f70485356912c8806d457106e90c56aa695965f9b7143019df85a3e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/halftone-dossier/STYLE.md",
+      "path": "halftone-dossier/STYLE.md",
+      "source_sha256": "71b4b8f089836d95f6bd8fc3719ae184cbf2be4a04ecd935c6d55d89a5bb558d",
+      "sha256": "71b4b8f089836d95f6bd8fc3719ae184cbf2be4a04ecd935c6d55d89a5bb558d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/halftone-dossier/DEMO.md",
+      "path": "halftone-dossier/reference/DEMO.md",
+      "source_sha256": "df31e79c29547ed3753c68239824bc290cda83cf75e8a6b3f35f25f5484778ab",
+      "sha256": "df31e79c29547ed3753c68239824bc290cda83cf75e8a6b3f35f25f5484778ab",
+      "modification": "none"
+    },
+    {
+      "source": "styles/halftone-dossier/demo/CREDITS",
+      "path": "halftone-dossier/reference/CREDITS",
+      "source_sha256": "46bbb803df4efe47289fbea38c9ab7e0ba0515447d1d12d018adc62ccb9c8c39",
+      "sha256": "46bbb803df4efe47289fbea38c9ab7e0ba0515447d1d12d018adc62ccb9c8c39",
+      "modification": "none"
+    },
+    {
+      "source": "styles/halftone-dossier/demo/index.html",
+      "path": "halftone-dossier/reference/source/index.html",
+      "source_sha256": "8bdb9bc18bed5f1a044af1be8db9bcad8c10dd58ebbe32a7dd4881b183c48511",
+      "sha256": "8bdb9bc18bed5f1a044af1be8db9bcad8c10dd58ebbe32a7dd4881b183c48511",
+      "modification": "none"
+    },
+    {
+      "source": "styles/visual-investigation/STYLE.md",
+      "path": "visual-investigation/STYLE.md",
+      "source_sha256": "9b39ebaa00c3d77ae544d7453e99b79caf4dfaae1d37798b1f995a5578aac30b",
+      "sha256": "9b39ebaa00c3d77ae544d7453e99b79caf4dfaae1d37798b1f995a5578aac30b",
+      "modification": "none"
+    },
+    {
+      "source": "styles/visual-investigation/DEMO.md",
+      "path": "visual-investigation/reference/DEMO.md",
+      "source_sha256": "b6032198b7371fd353f283685949ac38a652e4609b6bab62efe3dbc15a4d3887",
+      "sha256": "b6032198b7371fd353f283685949ac38a652e4609b6bab62efe3dbc15a4d3887",
+      "modification": "none"
+    },
+    {
+      "source": "styles/visual-investigation/demo/CREDITS",
+      "path": "visual-investigation/reference/CREDITS",
+      "source_sha256": "756b79f879abf4240712d9a2cef405b9e0962536b351f293524f5d777cc029cb",
+      "sha256": "756b79f879abf4240712d9a2cef405b9e0962536b351f293524f5d777cc029cb",
+      "modification": "none"
+    },
+    {
+      "source": "styles/visual-investigation/demo/index.html",
+      "path": "visual-investigation/reference/source/index.html",
+      "source_sha256": "97ab672f706d9cbb1f4ffaf2601f9252679545977bbfbf3da6cd75ff08ba6700",
+      "sha256": "97ab672f706d9cbb1f4ffaf2601f9252679545977bbfbf3da6cd75ff08ba6700",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/STYLE.md",
+      "path": "data-physical/STYLE.md",
+      "source_sha256": "2d2e6685b0dcf8a1e2ba2ff904ab02d51aede1f5dbb246fd2f6e81c8d146f208",
+      "sha256": "2d2e6685b0dcf8a1e2ba2ff904ab02d51aede1f5dbb246fd2f6e81c8d146f208",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/DEMO.md",
+      "path": "data-physical/reference/DEMO.md",
+      "source_sha256": "004d37ca8a4fa1325f67698efee4678599011558f433d36550e8eae2d4eceb04",
+      "sha256": "004d37ca8a4fa1325f67698efee4678599011558f433d36550e8eae2d4eceb04",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/CREDITS",
+      "path": "data-physical/reference/CREDITS",
+      "source_sha256": "9e6a35d2396eca890e1b0145e6aa4110e6a5f8efb57556040863c19e99b6fd61",
+      "sha256": "9e6a35d2396eca890e1b0145e6aa4110e6a5f8efb57556040863c19e99b6fd61",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/data.js",
+      "path": "data-physical/reference/source/data.js",
+      "source_sha256": "44bb5f42cd020bbcaeb7cb1f24edb77ebf8e570e85d511501518e1d8ced151f2",
+      "sha256": "44bb5f42cd020bbcaeb7cb1f24edb77ebf8e570e85d511501518e1d8ced151f2",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/film.js",
+      "path": "data-physical/reference/source/film.js",
+      "source_sha256": "d058dae63e6d05d32bc3bba0f7083c3a5404a13637c5c8f2539e60a8ee08f5aa",
+      "sha256": "d058dae63e6d05d32bc3bba0f7083c3a5404a13637c5c8f2539e60a8ee08f5aa",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/index.html",
+      "path": "data-physical/reference/source/index.html",
+      "source_sha256": "3c8a673b76de51ff1bde1ba522e67254f5d364b371fa0ddaa67fb7b7caa0963e",
+      "sha256": "3c8a673b76de51ff1bde1ba522e67254f5d364b371fa0ddaa67fb7b7caa0963e",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/set.js",
+      "path": "data-physical/reference/source/set.js",
+      "source_sha256": "c8aa0417d43c25b1719b603f0213dbe62bcbe65c2dc559bbbe1b7bc3d03237e6",
+      "sha256": "c8aa0417d43c25b1719b603f0213dbe62bcbe65c2dc559bbbe1b7bc3d03237e6",
+      "modification": "none"
+    },
+    {
+      "source": "styles/data-physical/demo/timeline.js",
+      "path": "data-physical/reference/source/timeline.js",
+      "source_sha256": "4dc07455d0ee14c4d16988cad3e3c84dd44e44b2c54e955d63b0996c01cbe9f9",
+      "sha256": "4dc07455d0ee14c4d16988cad3e3c84dd44e44b2c54e955d63b0996c01cbe9f9",
+      "modification": "none"
+    },
+    {
+      "source": "styles/briefing-board/STYLE.md",
+      "path": "briefing-board/STYLE.md",
+      "source_sha256": "44669da808da4ed37e2a4a0f6e5d2b23008775a3c4870add04641d714e9f323d",
+      "sha256": "44669da808da4ed37e2a4a0f6e5d2b23008775a3c4870add04641d714e9f323d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/briefing-board/DEMO.md",
+      "path": "briefing-board/reference/DEMO.md",
+      "source_sha256": "5937681709e7ceb206a881351550d6c98932aaa82dec00f344ff4c5f38754be1",
+      "sha256": "5937681709e7ceb206a881351550d6c98932aaa82dec00f344ff4c5f38754be1",
+      "modification": "none"
+    },
+    {
+      "source": "styles/briefing-board/demo/CREDITS",
+      "path": "briefing-board/reference/CREDITS",
+      "source_sha256": "433945227ee6f6d215c9682fe981f80c876793b50daa78128c5a0b5c30a64c8d",
+      "sha256": "433945227ee6f6d215c9682fe981f80c876793b50daa78128c5a0b5c30a64c8d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/briefing-board/demo/kit/board.js",
+      "path": "briefing-board/engine/kit/board.js",
+      "source_sha256": "e777d06361e4c29ac6936d2f28c5c9f51a43902300cbac400437fa18baa60d80",
+      "sha256": "edd584d30be6c6fb65b28d5f2c70232b269076ea78c98e89283298f2d4c54737",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/briefing-board/demo/index.html",
+      "path": "briefing-board/reference/source/index.html",
+      "source_sha256": "427d793fdd0fa53463d3b5c2fe5b667b0f29623671061a9b8fa9ae5244123912",
+      "sha256": "427d793fdd0fa53463d3b5c2fe5b667b0f29623671061a9b8fa9ae5244123912",
+      "modification": "none"
+    },
+    {
+      "source": "styles/briefing-board/demo/kit/board.js",
+      "path": "briefing-board/reference/source/kit/board.js",
+      "source_sha256": "e777d06361e4c29ac6936d2f28c5c9f51a43902300cbac400437fa18baa60d80",
+      "sha256": "e777d06361e4c29ac6936d2f28c5c9f51a43902300cbac400437fa18baa60d80",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/STYLE.md",
+      "path": "archive-lighttable/STYLE.md",
+      "source_sha256": "2f18ac9a42822b7a9941866c42b0642e5417dea5431d61f141f6e11b29c1ec14",
+      "sha256": "2f18ac9a42822b7a9941866c42b0642e5417dea5431d61f141f6e11b29c1ec14",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/DEMO.md",
+      "path": "archive-lighttable/reference/DEMO.md",
+      "source_sha256": "5363416d85aec1207d9e631e7660afb30a4c80aabc59f7703fe3d6c5636d88b8",
+      "sha256": "5363416d85aec1207d9e631e7660afb30a4c80aabc59f7703fe3d6c5636d88b8",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/demo/CREDITS",
+      "path": "archive-lighttable/reference/CREDITS",
+      "source_sha256": "cbac3c457feabe2f9524c8fab0a65b30f6a61c8ee376150e570dc88f9fd030ac",
+      "sha256": "cbac3c457feabe2f9524c8fab0a65b30f6a61c8ee376150e570dc88f9fd030ac",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/demo/film.js",
+      "path": "archive-lighttable/reference/source/film.js",
+      "source_sha256": "7bbae48890418497baa15472d0fd793127f1145b55cc8769077168a0444a8ba5",
+      "sha256": "7bbae48890418497baa15472d0fd793127f1145b55cc8769077168a0444a8ba5",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/demo/index.html",
+      "path": "archive-lighttable/reference/source/index.html",
+      "source_sha256": "6daf642d7e8274f6e3cb1c6ef9d3a48bdcde4a48e8a045c47c3490e5afdc419a",
+      "sha256": "6daf642d7e8274f6e3cb1c6ef9d3a48bdcde4a48e8a045c47c3490e5afdc419a",
+      "modification": "none"
+    },
+    {
+      "source": "styles/archive-lighttable/demo/timeline.js",
+      "path": "archive-lighttable/reference/source/timeline.js",
+      "source_sha256": "dc7e95d5202d9b6f29518afa09ecf78eec006bd62b7225b4c03f9dcc8de12606",
+      "sha256": "dc7e95d5202d9b6f29518afa09ecf78eec006bd62b7225b4c03f9dcc8de12606",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/STYLE.md",
+      "path": "satellite-briefing/STYLE.md",
+      "source_sha256": "39fec0c7fda13600de04f1a9631ca636dc8850429033c1f65bb6d3283ec2988d",
+      "sha256": "39fec0c7fda13600de04f1a9631ca636dc8850429033c1f65bb6d3283ec2988d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/DEMO.md",
+      "path": "satellite-briefing/reference/DEMO.md",
+      "source_sha256": "fb0ec22360d381cddb84cdc6f640ccfe1dff6ad34a812bd32f3ef3c5cc1f72dd",
+      "sha256": "fb0ec22360d381cddb84cdc6f640ccfe1dff6ad34a812bd32f3ef3c5cc1f72dd",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/CREDITS",
+      "path": "satellite-briefing/reference/CREDITS",
+      "source_sha256": "46c37f902916ad5f411ca934f4a01a8625e15ca1c3b37c32bee650d58953ba5b",
+      "sha256": "46c37f902916ad5f411ca934f4a01a8625e15ca1c3b37c32bee650d58953ba5b",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/engine.js",
+      "path": "satellite-briefing/engine/engine.js",
+      "source_sha256": "1615796413faf9070a594645b0e52c67a3bde7dbc37ce54d2c4ba4882338247a",
+      "sha256": "1615796413faf9070a594645b0e52c67a3bde7dbc37ce54d2c4ba4882338247a",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/overlay.js",
+      "path": "satellite-briefing/engine/overlay.js",
+      "source_sha256": "1f0ef6bd019c023692d9ea5a688826e3bdce30b5469ea00028f6a747bbfeeedc",
+      "sha256": "1f0ef6bd019c023692d9ea5a688826e3bdce30b5469ea00028f6a747bbfeeedc",
+      "modification": "portable helper imports; board supports project-owned asset base"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/engine.js",
+      "path": "satellite-briefing/reference/source/engine.js",
+      "source_sha256": "1615796413faf9070a594645b0e52c67a3bde7dbc37ce54d2c4ba4882338247a",
+      "sha256": "1615796413faf9070a594645b0e52c67a3bde7dbc37ce54d2c4ba4882338247a",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/film.js",
+      "path": "satellite-briefing/reference/source/film.js",
+      "source_sha256": "ca640caa3b9c702beb8fc7e9518ef28213581dc51e6c2fa6efca6fc7db08e433",
+      "sha256": "ca640caa3b9c702beb8fc7e9518ef28213581dc51e6c2fa6efca6fc7db08e433",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/index.html",
+      "path": "satellite-briefing/reference/source/index.html",
+      "source_sha256": "07cf49ec3bf6c42e63fd31474e7119a195eed5a02c162e815cf64d3ee39c1d2d",
+      "sha256": "07cf49ec3bf6c42e63fd31474e7119a195eed5a02c162e815cf64d3ee39c1d2d",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/overlay.js",
+      "path": "satellite-briefing/reference/source/overlay.js",
+      "source_sha256": "1f0ef6bd019c023692d9ea5a688826e3bdce30b5469ea00028f6a747bbfeeedc",
+      "sha256": "1f0ef6bd019c023692d9ea5a688826e3bdce30b5469ea00028f6a747bbfeeedc",
+      "modification": "none"
+    },
+    {
+      "source": "styles/satellite-briefing/demo/timeline.js",
+      "path": "satellite-briefing/reference/source/timeline.js",
+      "source_sha256": "f220d09e6c24dc6112c9b33048597c61aaebe6250f5aa038db6d95899910357a",
+      "sha256": "f220d09e6c24dc6112c9b33048597c61aaebe6250f5aa038db6d95899910357a",
+      "modification": "none"
+    }
+  ]
+}

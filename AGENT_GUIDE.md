@@ -247,6 +247,28 @@ Orthogonal to *runtime* is *authoring mode*: **how** the composition is built. P
 
 **Default to atelier for hero work** — marketing, launches, brand pieces, any single-deliverable explainer that must impress. The deciding rule: *reuse engine knowledge, never creative components.* In atelier mode the stock scene-type catalog, `hyperframes-registry` blocks, fixtures, and finished components are **off-limits** — they are frozen looks that reintroduce sameness. Before building, route through **`skills/meta/taste-direction.md`** to set the design read and taste dials, then **`skills/meta/bespoke-composition.md`**, which sequences: art direction (`visual-style`) → motion principles (Disney 12 via `framer-motion`/`lottie-bodymovin`) → engine mechanics (`remotion-best-practices` + the stock components read *only as a mechanics codex*) → render via the atelier path. Close with a **distinctness review**: *could this be any other product's video? does it reuse a look I've made before?* — the inverse of "does it match the reference." Atelier costs more tokens and iteration than templated; say so at proposal so the user opts in knowingly.
 
+### Named Visual Style Packs (Approved Library Reuse)
+
+For named visual styles, read `skills/core/style-packs.md`. The twelve finance
+style packs under `style-packs/` add drawing engines, material techniques,
+camera/motion grammar and finance overlays to existing pipelines. Discover
+them through `style_pack`; do not reduce them to palette YAML or run their
+reference demo stories as new films.
+
+When a style pack is explicitly selected, its approved engine, materials,
+projection and motion grammar may be reused in atelier. This is an exception
+to the blanket creative-component prohibition above: each film still authors
+its own story, layouts, shots and timeline. A continuous chart, sheet or board
+may remain the visual subject across beats when the style calls for it; assess
+meaningful visual progression instead of forcing a different subject each scene.
+Generic spring/fade/card defaults must not override the selected style.
+
+Carry the versioned style_pack selection through proposal, scene plan, assets,
+edit and render. Prove three frames and a continuous motion sample using real
+drawing code at the existing gates. Library availability is not proof of GPU,
+font or source-evidence readiness. Audio defaults, exact text, caption safety,
+cover requirements and runtime approvals retain their existing authority.
+
 ### Escalate Blockers Explicitly
 
 When a blocker occurs, the agent must surface it immediately using this structure:

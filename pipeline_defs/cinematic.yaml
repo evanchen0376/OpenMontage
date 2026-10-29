@@ -89,7 +89,7 @@ stages:
     produces:
       - proposal_packet
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -150,6 +150,7 @@ stages:
       - frame_sampler
       - scene_detect
     tools_available:
+      - style_pack
       - frame_sampler
       - scene_detect
     checkpoint_required: true
@@ -180,6 +181,7 @@ stages:
       - freesound_music
       - music_gen
     tools_available:
+      - style_pack
       - subtitle_gen
       - audio_enhance
       - image_selector
@@ -207,7 +209,7 @@ stages:
       - script
     produces:
       - edit_decisions
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: false
     review_focus:
@@ -237,6 +239,7 @@ stages:
       - color_grade
       - audio_enhance
     tools_available:
+      - style_pack
       - video_compose
       - hyperframes_compose
       - audio_mixer

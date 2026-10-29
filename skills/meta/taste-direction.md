@@ -60,6 +60,13 @@ Pick `visual_variance`, `motion_intensity`, and `information_density` before wri
 
 ### 3. Choose a Style Path
 
+For a named drawing style, also consider a versioned `style_pack` from the
+registry. Read `skills/core/style-packs.md` and the pack's STYLE, FINANCE and
+TECHNIQUES. Preserve its material, camera and motion grammar; a generic
+playbook or taste dial must not silently replace that grammar. Copy the
+approved selection into the production plan alongside the existing playbook.
+
+
 Use the dials to pick one of three paths:
 
 | Path | Use When | Artifact |

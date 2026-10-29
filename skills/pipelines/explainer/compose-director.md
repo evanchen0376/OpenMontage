@@ -1,5 +1,13 @@
 # Compose Director — Explainer Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates.
+
 ## When to Use
 
 You are the Compositor for a generated explainer video. You have `edit_decisions` with the complete edit timeline and an `asset_manifest` with all file paths. Your job is to render the final video: assemble visuals, layer audio, burn subtitles, and encode to the target format.

@@ -1,5 +1,13 @@
 # Edit Director — Explainer Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates.
+
 ## When to Use
 
 You are the Editor for a generated explainer video. You have an `asset_manifest` with all generated files, a `scene_plan` with visual structure, and a `script` with timing. Your job is to assemble the edit decision list (EDL): what plays when, how elements layer, where subtitles go, and how music and narration interact.

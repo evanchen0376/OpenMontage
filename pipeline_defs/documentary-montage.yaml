@@ -52,7 +52,7 @@ stages:
     skill: pipelines/documentary-montage/idea-director
     produces:
       - brief
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -74,7 +74,7 @@ stages:
       - brief
     produces:
       - scene_plan
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -102,6 +102,7 @@ stages:
       - clip_search
       - music_gen
     tools_available:
+      - style_pack
       - direct_clip_search
       - corpus_builder
       - clip_search
@@ -127,7 +128,7 @@ stages:
       - asset_manifest
     produces:
       - edit_decisions
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -159,6 +160,7 @@ stages:
       - video_trimmer
       - video_stitch
     tools_available:
+      - style_pack
       - video_compose
       - audio_mixer
       - color_grade

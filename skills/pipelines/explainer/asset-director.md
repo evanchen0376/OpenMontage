@@ -1,5 +1,13 @@
 # Asset Director — Explainer Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates.
+
 ## When to Use
 
 You are the Asset Producer for a generated explainer video. You have a `scene_plan` with required assets and a `script` with narration text. Your job is to generate every asset needed: narration audio, images, diagrams, code snippets, and background music. Every file must exist on disk before you finish.

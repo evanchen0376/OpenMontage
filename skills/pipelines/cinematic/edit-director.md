@@ -1,5 +1,13 @@
 # Edit Director - Cinematic Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates.
+
 ## When To Use
 
 This stage turns the beat map into a paced cinematic timeline. Rhythm and restraint matter more than effect count.

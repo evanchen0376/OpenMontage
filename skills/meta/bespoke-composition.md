@@ -12,6 +12,18 @@ need so that what you build is correct, and distinct.
 > components.** How Remotion resolves an asset is engine knowledge — reuse it freely. How a
 > previous video looked is a creative decision — never reuse it.
 
+## Selected style-pack exception
+
+When a project selects a versioned `style_pack`, follow
+[`skills/core/style-packs.md`](../core/style-packs.md). Its approved drawing
+engine, material language and motion/camera grammar are reusable in atelier.
+The fresh work is the film's story, framing, layout, visual argument and
+timeline. Do not copy a reference film or a finished creative scene. A chart
+or continuous board can recur as the subject when the style depends on it;
+review progression and composition variety, rather than treating recurrence
+itself as a critical failure. This scoped exception overrides the absolute
+no-reuse and no-repeated-subject statements below for selected packs only.
+
 ## When to use this skill (authoring mode is a proposal decision)
 
 OpenMontage separates three orthogonal axes, all locked at proposal:

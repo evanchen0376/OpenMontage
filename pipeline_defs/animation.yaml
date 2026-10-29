@@ -92,7 +92,7 @@ stages:
     produces:
       - proposal_packet
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -159,7 +159,7 @@ stages:
       - proposal_packet
     produces:
       - scene_plan
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -190,6 +190,7 @@ stages:
       - code_snippet
       - music_gen
     tools_available:
+      - style_pack
       - tts_selector
       - image_selector
       - video_selector
@@ -223,7 +224,7 @@ stages:
       - script
     produces:
       - edit_decisions
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: false
     review_focus:
@@ -251,6 +252,7 @@ stages:
     optional_tools:
       - video_stitch
     tools_available:
+      - style_pack
       - video_compose
       - hyperframes_compose
       - audio_mixer

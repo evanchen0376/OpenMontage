@@ -1,5 +1,13 @@
 # Compose Director - Cinematic Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates.
+
 ## When To Use
 
 Render the cinematic piece with careful attention to grade, audio dynamics, and frame treatment. This is not a generic export step.

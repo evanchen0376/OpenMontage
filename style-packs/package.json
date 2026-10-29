@@ -1,0 +1,8 @@
+{
+  "name": "openmontage-finance-style-packs",
+  "private": true,
+  "type": "module",
+  "scripts": {"qa": "node ../scripts/qa_style_packs.mjs"},
+  "dependencies": {"three": "^0.170.0", "gsap": "^3.14.0"},
+  "devDependencies": {"playwright-core": "^1.63.0"}
+}

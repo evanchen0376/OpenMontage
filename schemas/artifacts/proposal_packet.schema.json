@@ -73,6 +73,7 @@
       "type": "object",
       "required": ["pipeline", "stages", "render_runtime"],
       "properties": {
+        "style_pack": {"type": "object","required": ["id","upstream_revision","digest"],"additionalProperties": false,"properties": {"id": {"type": "string","pattern": "^lemo-[a-z0-9-]+$"},"upstream_revision": {"type": "string","pattern": "^[0-9a-f]{40}$"},"digest": {"type": "string","pattern": "^[0-9a-f]{64}$"},"variant": {"type": "string"},"overrides": {"type": "array","items": {"type": "string"}},"note": {"type": "string"}},"description": "Optional approved drawing-library identity. Carry unchanged across planning, assets, edit and render; palette/motion overrides are explicit. Independent of render_runtime and playbook."},
         "pipeline": { "type": "string", "description": "Pipeline manifest name, e.g., 'animated-explainer'" },
         "playbook": { "type": "string", "description": "Selected style playbook" },
         "stages": {

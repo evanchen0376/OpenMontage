@@ -355,6 +355,9 @@ class VideoCompose(BaseTool):
             return ToolResult(success=False, error=str(e))
 
         result.duration_seconds = round(time.time() - start, 2)
+        selection = (inputs.get("edit_decisions") or {}).get("style_pack")
+        if selection and operation == "render":
+            result.data["style_pack"] = selection
         return result
 
     _IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".tif", ".webp"}
@@ -1357,6 +1360,13 @@ class VideoCompose(BaseTool):
         asset_manifest = inputs.get("asset_manifest")
         if not edit_decisions:
             return ToolResult(success=False, error="edit_decisions required for render")
+
+        from lib.style_packs import validate_render_binding
+
+        try:
+            validate_render_binding(inputs)
+        except (ValueError, OSError) as exc:
+            return ToolResult(success=False, error=f"Style-pack contract: {exc}")
 
         # --- Runtime routing: honor render_runtime locked at proposal ---
         # Silent swaps are forbidden by governance. Resolve this before any

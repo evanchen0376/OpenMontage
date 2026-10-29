@@ -448,3 +448,17 @@ The templated→atelier inversion (`AGENT_GUIDE.md` → "Composition Authoring M
 
 ### At publish stage (when composition_mode == "atelier"):
 1. All six atelier compose-stage checks above (existence of `atelier` block, stock_reuse, art_direction_declared, scene_distinctness, captions/text dedup, human distinctness review) must show `resolved` in the review record. Any unresolved: **CRITICAL** — "Cannot publish atelier piece with unresolved doctrine or distinctness findings."
+
+
+## Selected Style-Pack Review
+
+When artifacts contain `style_pack`, read `skills/core/style-packs.md`. Check
+selection/version continuity, declared overrides, actual material/type/motion
+fidelity and project-specific shot design. Approved engine/technique reuse is
+allowed in atelier; a continuous chart/board can recur when its visual
+progression carries the story. Reference demo stories and finished scene
+copying remain disallowed. Do not apply a blanket repeated-subject failure to
+a style whose essence is one continuous sheet. Require real-code frames and
+a continuous sample, and disclose missing advanced effects or source evidence.
+Synthetic QA cards, documents and geographic grids never count as real proof
+of financial facts or as real archives/satellite imagery.

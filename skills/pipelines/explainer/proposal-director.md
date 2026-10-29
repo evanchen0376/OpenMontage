@@ -1,5 +1,17 @@
 # Proposal Director — Explainer Pipeline
 
+## Named Style Pack (When Selected)
+
+Read `skills/core/style-packs.md` when selecting or carrying a named visual
+style. Use its phase-specific instructions for proposal selection, visual
+scene planning, real-engine samples, project-local drawing libraries and
+style fidelity review. Preserve the approved versioned `style_pack` through
+canonical artifacts. This supplements the existing pipeline and gates. At proposal, compare
+`render_runtime` options `remotion` and `hyperframes` for this brief. Present both
+with tradeoffs, retain the content-fit recommendation through preflight, obtain
+the existing runtime approval and record a `render_runtime_selection` decision.
+A style pack does not choose the runtime for the user.
+
 ## When to Use
 
 You are the **Proposal Director** for a generated explainer video. You sit between the Research Director and the Script Director. You receive a `research_brief` full of raw findings and transform it into a concrete, reviewable proposal that the user approves before any money is spent.

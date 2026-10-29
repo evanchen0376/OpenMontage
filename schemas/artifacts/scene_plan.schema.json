@@ -6,6 +6,7 @@
   "type": "object",
   "required": ["version", "scenes"],
   "properties": {
+    "style_pack": {"type": "object","required": ["id","upstream_revision","digest"],"additionalProperties": false,"properties": {"id": {"type": "string","pattern": "^lemo-[a-z0-9-]+$"},"upstream_revision": {"type": "string","pattern": "^[0-9a-f]{40}$"},"digest": {"type": "string","pattern": "^[0-9a-f]{64}$"},"variant": {"type": "string"},"overrides": {"type": "array","items": {"type": "string"}},"note": {"type": "string"}},"description": "Optional approved drawing-library identity. Carry unchanged across planning, assets, edit and render; palette/motion overrides are explicit. Independent of render_runtime and playbook."},
     "version": { "type": "string", "const": "1.0" },
     "style_playbook": { "type": "string", "description": "Name of the active style playbook" },
     "scenes": {
