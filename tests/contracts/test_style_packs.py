@@ -26,13 +26,19 @@ def test_materialization_is_self_contained_and_has_no_demo_story(pack, tmp_path)
     assert json.loads((destination / "selection.json").read_text()) == selection
     assert (destination / "LICENSE.lemo").is_file()
     assert not list(destination.rglob("reference"))
-    assert not list(destination.rglob("film.js"))
+    assert not list(destination.rglob("DEMO.md"))
     assert not list(destination.rglob("*.mp3"))
     assert not list(destination.rglob("*.mp4"))
+    if pack["slug"] == "paper-popup":
+        assert "coverCanvases" not in (destination / "paper-popup/engine/book.js").read_text()
     # Native helper imports must resolve inside the copied library, not donor checkout.
     import re
     for file in destination.rglob("*.js"):
+        # Some native material engines are legitimately named film.js (grain
+        # and scratches). Reject actual demo entry code, not that filename.
+        assert not re.search(r"window\.render\s*=", file.read_text()), file
         for spec in re.findall(r"from\s+['\"]([^'\"]+)['\"]", file.read_text()):
+            assert not spec.startswith("/core/"), (file, spec)
             if spec.startswith("."):
                 target = (file.parent / spec).resolve()
                 assert target.is_relative_to(destination.resolve())
@@ -131,7 +137,44 @@ def test_registry_discovers_drawing_library_without_enabling_a_generator():
 
 def test_tool_reports_materialization_errors_without_a_fake_success(tmp_path):
     tool = StylePack()
-    assert len(tool.execute({"operation": "catalog"}).data["packs"]) == 12
+    assert len(tool.execute({"operation": "catalog"}).data["packs"]) == 59
     failed = tool.execute({"operation": "materialize", "pack_id": "lemo-dataviz"})
     assert not failed.success
     assert not list(tmp_path.iterdir())
+
+
+def test_catalog_matches_the_entire_published_index_without_template():
+    lock = json.loads((PACKS / "upstream-lock.json").read_text())
+    assert len(lock["formal_styles"]) == 59
+    assert {p["slug"] for p in catalog()} == set(lock["formal_styles"])
+    assert "_template" not in lock["formal_styles"]
+    assert len([p for p in catalog() if p["group"] == 4]) == 47
+
+
+def test_first_wave_selections_keep_their_approved_identity():
+    baseline = json.loads((Path(__file__).parent / "fixtures/style_pack_first_wave.json").read_text())
+    assert len(baseline) == 12
+    assert {key: reference(key) for key in baseline} == baseline
+
+
+def test_declared_support_code_is_hashed_and_copied(monkeypatch, tmp_path):
+    import shutil
+    import lib.style_packs as library
+
+    mirror = tmp_path / "packs"
+    mirror.mkdir()
+    for name in ("shared", "vendor", "microscope"):
+        shutil.copytree(PACKS / name, mirror / name)
+    for name in ("catalog.json", "upstream-lock.json", "package.json", "LICENSE.lemo"):
+        shutil.copy2(PACKS / name, mirror / name)
+    monkeypatch.setattr(library, "PACKS", mirror)
+    before = reference("lemo-microscope")
+    target = tmp_path / "materialized"
+    result = materialize("lemo-microscope", target, selection=before)
+    assert (target / "vendor/microscope.js").is_file()
+    assert Path(result["entry"]).is_file()
+    support = mirror / "vendor/microscope.js"
+    support.write_text(support.read_text() + "\n// changed calibration mechanics\n")
+    assert reference("lemo-microscope")["digest"] != before["digest"]
+    with pytest.raises(ValueError, match="drift"):
+        verify_reference(before)

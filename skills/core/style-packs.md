@@ -7,7 +7,12 @@ existing pipeline; it does not select a provider, renderer, or approval policy.
 ## Select and lock
 
 Discover `style_pack` through the tool registry. `operation: catalog` lists
-the twelve finance packs and their content fit. `inspect` returns the original
+all 59 published Lemo styles and their content fit. The original 12 in groups
+1–3 remain finance-priority choices; the 47 additions in group 4 are supporting
+illustrative styles or specialist evidence treatments. Do not rank every
+style equally for finance. `finance_fit`, `evidence` and `requires` describe
+the additions' boundaries. See [full index](../../style-packs/CATALOG.md).
+`inspect` returns the original
 style directory, native engine entry, required evidence/runtime dependencies,
 and versioned `selection`. Read that pack's `STYLE.md`, `FINANCE.md` and
 `TECHNIQUES.md`. Recommend by content fit before checking availability.
@@ -50,7 +55,7 @@ that merely change the text.
 ## Author using the real engine
 
 `materialize` copies ONLY the chosen engine, shared mechanics, guides and
-licence into a new project-local directory, e.g.
+licence and declared vendor support into a new project-local directory, e.g.
 `projects/<id>/composition/drawing-library/`. It refuses to overwrite a
 previous library. Pass `selection` to verify the approved digest. Reference
 stories, sample media, score and voices are not included. Add the MIT notice

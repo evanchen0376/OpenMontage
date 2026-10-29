@@ -63,7 +63,7 @@ ROUTES = {
 ADAPTED = {
     "caption-news": "captionChunks", "city-symphony": "cutAt,splitScreen", "countdown": "splitScreen,countdown",
     "game-show": "rays,pixelActor", "kino-montage": "montageWindow,captionChunks",
-    "living-screencast": "appWindow,pixelActor", "newsreel": "filmGate", "telestrator": "telestrate",
+    "living-screencast": "appWindow,pixelActor", "newsreel": "filmGate,cutAt", "telestrator": "telestrate",
     "lidar-survey": "pointSurvey", "microscope": "scanPlate,scaleBar,roiBox",
 }
 SOURCE_NEEDS = {
@@ -103,8 +103,6 @@ def expand(source: Path) -> None:
             "implementation": status, "support_files": ["vendor"],
         }
         first.append(record)
-        style = (base / "STYLE.md").read_text()
-        essence = re.search(r"## 1\.[^\n]*\n(.*?)(?=\n## )", style, re.S)
         note = "保留原独立绘制模块及其本地依赖闭包。" if native else "从原内联样片的视觉语法拆分为独立接口；原完整实现隔离保存在reference/source。"
         finance = f"""# {meta['cn']} · 财经使用\n\n适合：{uses}。视觉核心：{grammar}。\n\n本风格{'依赖真实材料' if slug in SOURCE_NEEDS else '主要用于叙事、隐喻或示意'}，不会改变现有研究和脚本方法。关键数据、统计口径、日期、单位和来源必须原生可读；风格化对象不自动代表精确数量。示意、假设和真实证据分别标注。\n\n{record['avoid']}\n\n中文按实际字形测量换行，横竖屏重新构图，保留social-ui-safe字幕区。语音、BGM、字幕、封面和财经尾句仍服从OpenMontage项目合同，原样片的声音、品牌、角色、剧情和时间轴不自动复用。\n\n制作时读STYLE和TECHNIQUES，按当前主题形成自己的镜头方案后再查样片技法；三张关键帧和连续运动样片使用项目真实文字和素材。工程测试只是接口/材质验证，不是事实或完整美术验收。\n"""
         (base / "FINANCE.md").write_text(finance)
@@ -117,6 +115,13 @@ def expand(source: Path) -> None:
         (base / "DEMO.md").write_text("# 上游参考\n\n先完成当前影片镜头方案，再读[原样片说明](reference/DEMO.md)。源码隔离于reference/source；它不是新片入口。\n")
     catalog["packs"] = first
     catalog_path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2)+"\n")
+    index = ["# 完整风格索引", "", "59种正式风格；首批12种保持财经优先，新增47种用于叙事辅助或专项素材。`_template`不在正式索引中。", "", "原生表示保留独立上游模块；适配表示从内联视觉语法抽取接口。两者都不代表原样片全功能等价。工程片段不替代事实核验、真实素材测试或正式影片设计。", "", "| 风格 | 财经定位 | 内容用途 | 入口 | 素材/运行条件 |", "|---|---|---|---|---|"]
+    for item in first:
+        fit = "财经优先" if item["group"] <= 3 else {"supporting":"叙事辅助", "specialist":"专项"}[item["finance_fit"]]
+        kind = {"native-techniques":"原生", "adapted-techniques":"适配"}.get(item.get("implementation"), "原生/适配")
+        index.append(f"| [{item['name']}]({item['slug']}/STYLE.md) · `{item['slug']}` | {fit} | {'、'.join(item['finance_use'])} | {kind} · `{item['native_entry']}` | {', '.join(item['requires']) or 'Canvas 2D'} |")
+    index.extend(["", "技术验证和边界：[接入说明](../docs/FINANCE_STYLE_PACKS.md)。完整索引由 `scripts/expand_style_catalog.py` 维护。", ""])
+    (PACKS / "CATALOG.md").write_text("\n".join(index))
     print(f"Catalogued {len(first)} packs ({len(ROUTES)} added); first-wave metadata preserved")
 
 

@@ -29,7 +29,7 @@ export async function graphicStudy(slug,E,canvas) {
   }
   if(slug==='microgame'){
     E.setCtx(g);
-    return t=>{g.fillStyle=['#F0D94D','#CEDDD4','#E9A291'][Math.min(2,Math.floor(t/3))];g.fillRect(0,0,1920,1080);const k=progress(t%3,.1,.5);E.rrect(500,260,920,550,80,{fill:'#F8F2DF',stroke:'#272D43',lw:14});text(g,['核对单位','识别假设','检查来源'][Math.min(2,Math.floor(t/3))],960,560,{size:110,weight:900,align:'center',color:'#272D43'});g.fillStyle='#272D43';g.fillRect(500,865,920*(1-t%3/3),18);};
+    return t=>{g.fillStyle=['#F0D94D','#CEDDD4','#E9A291'][Math.min(2,Math.floor(t/3))];g.fillRect(0,0,1920,1080);E.part(E.rrect(500,260,920,550,80),'#F8F2DF','#D5CCAF',{stroke:'#272D43',lw:14});text(g,['核对单位','识别假设','检查来源'][Math.min(2,Math.floor(t/3))],960,560,{size:110,weight:900,align:'center',color:'#272D43'});g.fillStyle='#272D43';g.fillRect(500,865,920*(1-t%3/3),18);};
   }
   if(slug==='midcentury-toon'){
     return t=>{g.fillStyle='#EDE5CF';g.fillRect(0,0,1920,1080);E.plane(g,E.kidney(970,540,650,t*.025),'#618F8D');E.star(g,1430,330,150,{fill:'#DFA44D',line:0});E.atom(g,540,530,180,{color:'#2F4650'});E.paperFinish(g,1920,1080,.7);};
@@ -40,7 +40,7 @@ export async function graphicStudy(slug,E,canvas) {
   }
   if(slug==='pixel-rpg'){
     const F=await import('../pixel-rpg/engine/font.js'),UI=await import('../pixel-rpg/engine/ui.js'),fb=new E.FB(),out=E.makeOut(canvas);
-    return t=>{fb.clear(1);for(let i=0;i<16;i++)fb.rect(i*20,130-Math.sin(i)*9,18,50,4+i%3);UI.win(fb,30,24,260,95);F.text(fb,'BUDGET / DEMO',50,42,19,null,2);F.text(fb,'VERIFY THE COST',50,82,20,null,1);UI.hand(fb,220,85,t);out.present(fb,E.LUT.full||Object.values(E.LUT)[0]);out.show();};
+    return t=>{fb.clear(1);for(let i=0;i<16;i++)fb.rect(i*20,130-Math.sin(i)*9,18,50,4+i%3);UI.win(fb,30,24,260,95);F.text(fb,'BUDGET / DEMO',50,42,19,null,2);F.text(fb,'VERIFY THE COST',50,82,20,null,1);fb.rect(50,103,Math.round(210*progress(t,0,7)),4,20);UI.hand(fb,220,85,t);out.present(fb,E.LUT.full);out.show();};
   }
   if(slug==='rubber-hose'||slug==='scifi-toon'){
     E.init(canvas);

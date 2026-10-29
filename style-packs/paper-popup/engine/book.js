@@ -21,39 +21,7 @@ function edgeCanvas() {
   return c;
 }
 
-// cloth cover + gold-foil title; also generates the roughness(g)/metalness(b) map
-export function coverCanvases(drawPipIcon) {
-  const w = 2048, h = Math.round(2048 * BD / BW), c = cv(w, h), x = c.getContext('2d'), m = cv(w, h), y = m.getContext('2d');
-  // cloth weave
-  x.fillStyle = '#1f5566'; x.fillRect(0, 0, w, h);
-  const R = mulberry(3);
-  for (let i = 0; i < h; i += 3) { x.fillStyle = `rgba(0,0,0,${.05 + R() * .07})`; x.fillRect(0, i, w, 1.2); }
-  for (let i = 0; i < w; i += 3) { x.fillStyle = `rgba(255,255,255,${.02 + R() * .04})`; x.fillRect(i, 0, 1.2, h); }
-  for (let i = 0; i < 90; i++) { const px = R() * w, py = R() * h, r = 60 + R() * 300, g = x.createRadialGradient(px, py, 0, px, py, r); g.addColorStop(0, `rgba(${R() < .5 ? '0,0,0' : '120,170,180'},${.06 * R()})`); g.addColorStop(1, 'rgba(0,0,0,0)'); x.fillStyle = g; x.fillRect(px - r, py - r, 2 * r, 2 * r); }
-  // gold areas are also drawn into m (b = metal, g = roughness)
-  y.fillStyle = 'rgb(0,235,0)'; y.fillRect(0, 0, w, h);
-  const GOLD = '#e0b456';
-  const both = fn => { x.save(); fn(x, GOLD); x.restore(); y.save(); fn(y, 'rgb(0,90,255)'); y.restore(); };
-  both((k, col) => { k.strokeStyle = col; k.lineWidth = 10; k.strokeRect(90, 90, w - 180, h - 180); k.lineWidth = 4; k.strokeRect(120, 120, w - 240, h - 240);
-    for (const [cx, cy] of [[120, 120], [w - 120, 120], [120, h - 120], [w - 120, h - 120]]) { k.beginPath(); k.arc(cx, cy, 34, 0, Math.PI * 2); k.fillStyle = col; k.fill(); } });
-  both((k, col) => { k.fillStyle = col; k.textAlign = 'center'; k.textBaseline = 'alphabetic';
-    k.font = '150px "Lilita One"'; k.fillText('The Little', w * .63, h * .33);
-    k.font = '210px "Lilita One"'; k.fillText("Sprite's", w * .63, h * .52);
-    k.font = '170px "Lilita One"'; k.fillText('Adventure', w * .63, h * .69);
-    k.font = 'italic 70px "IM Fell English"'; k.fillText('~ a paper tale ~', w * .63, h * .81); });
-  // round illustration (paper-coloured ground + Pip)
-  const cx = w * .24, cy = h * .52, r = 330;
-  both((k, col) => { k.beginPath(); k.arc(cx, cy, r + 26, 0, Math.PI * 2); k.lineWidth = 14; k.strokeStyle = col; k.stroke(); });
-  x.save(); x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); x.clip();
-  x.fillStyle = '#f4e9cf'; x.fillRect(cx - r, cy - r, 2 * r, 2 * r);
-  x.fillStyle = '#9fd18a'; x.beginPath(); x.ellipse(cx, cy + r * .95, r * 1.3, r * .55, 0, 0, Math.PI * 2); x.fill();
-  x.fillStyle = '#ffd766'; x.beginPath(); x.arc(cx + r * .45, cy - r * .45, r * .2, 0, Math.PI * 2); x.fill();
-  drawPipIcon(x, cx - r * .5, cy - r * .55, r * 1.0, r * 1.25);
-  x.restore();
-  y.save(); y.beginPath(); y.arc(cx, cy, r, 0, Math.PI * 2); y.fillStyle = 'rgb(0,200,0)'; y.fill(); y.restore();
-  return { c, m };
-}
-
+// Project supplies its own cover art and material maps.
 export function makeBook(cover) {
   const root = new THREE.Group();
   const cloth = new THREE.MeshStandardMaterial({ color: '#1f5566', roughness: .85 });

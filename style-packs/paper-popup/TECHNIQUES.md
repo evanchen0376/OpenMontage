@@ -8,7 +8,7 @@
 
 ## 可用接口
 
-- `engine/book.js`：`BW`, `BT`, `PG`, `texOf`, `coverCanvases`, `makeBook`。
+- `engine/book.js`：`BW`, `BT`, `PG`, `texOf`, `makeBook`。
 - `engine/cutmesh.js`：`mats`, `cutMesh`, `blobShadow`, `thread`, `particles`。
 - `engine/lib.js`：`clamp`, `lerp`, `seg`, `ss`, `eio`, `eo`, `ei`, `back`, `spring`, `mulberry`, `hash`, `vnoise`, `TAU`, `monotone`, `track`, `env`。
 - `engine/paper.js`：`INK`, `cv`, `GRAIN`, `paperFill`, `finishCut`, `sh`, `blob`, `smoothClosed`, `smoothOpen`, `crescent`, `rr`。

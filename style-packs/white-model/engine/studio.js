@@ -13,12 +13,12 @@ export const PAL = {
   shade: '#1c2c66', black: '#0b0f18', sun: '#ffd9ad', roofNew: '#bff3ff',
 };
 
-export function makeStudio(W, H, M) {
+export function makeStudio(W, H, M, {mount = null, pixelRatio = 2} = {}) {
   const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
-  renderer.setPixelRatio(2); renderer.setSize(W, H);
+  renderer.setPixelRatio(pixelRatio); renderer.setSize(W, H);
   renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap; renderer.shadowMap.autoUpdate = false;
-  document.getElementById('stage').appendChild(renderer.domElement);
+  if (mount) mount.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(30, W / H, 0.05, 9);
   const post = makePost(renderer, scene, camera, W, H, { ssaa: 2, ao: true, aoRadius: .035, aoScale: 1.4, aoThickness: .05, aoAmt: .9 });

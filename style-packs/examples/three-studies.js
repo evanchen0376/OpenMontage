@@ -31,7 +31,10 @@ export async function threeStudy(slug,E,canvas) {
     S.camera.position.set(5,5,16);S.camera.lookAt(0,3,0);update=t=>{U.uLight.value.x=-3+progress(t,0,7)*6;};
   } else if(slug==='paper-popup'){
     const cover=cv(800,600),a=cover.getContext('2d');a.fillStyle='#C2B27F';a.fillRect(0,0,800,600);a.fillStyle='#365D64';a.font='bold 80px sans-serif';a.fillText('STUDY',120,320);
-    const book=E.makeBook({c:cover,m:cover});book.root.scale.setScalar(20);book.root.position.set(0,0,-2);S.scene.add(book.root);update=t=>{book.setOpen(progress(t,.1,5)*Math.PI*.95);};
+    const book=E.makeBook({c:cover,m:cover});book.root.scale.setScalar(20);book.root.position.set(0,0,-2);S.scene.add(book.root);
+    const {cutMesh}=await import('../paper-popup/engine/cutmesh.js'),pieces=[];
+    for(let i=0;i<3;i++){const art=cv(400,600),a=art.getContext('2d');a.fillStyle=['#638A7D','#BC9658','#61788F'][i];a.fillRect(30,80,340,520);a.fillStyle='#F1E9CD';for(let j=0;j<3;j++)a.fillRect(70+j*95,180,45,230);const p=cutMesh({c:art,w:.08,h:.14,ax:.5,ay:1});p.position.set((i-1)*.12,.002,.18);book.stage.add(p);pieces.push(p);}
+    update=t=>{book.setOpen(progress(t,.1,3)*Math.PI*.5);pieces.forEach((p,i)=>{p.rotation.x=-Math.PI*.5*(1-progress(t,1+i*.5,3));});};
   } else if(slug==='teardown'){
     const parts=[];for(let i=0;i<4;i++){const geo=E.keycapGeometry(1.8,1.8,.65);const part=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:['#D8D5C8','#6A8D89','#C5AE69','#B4BBB0'][i],roughness:.4}));part.castShadow=true;part.position.set((i%2-.5)*2.5,1,Math.floor(i/2)*2.5-1);S.scene.add(part);parts.push(part);}
     update=t=>parts.forEach((p,i)=>{p.position.y=1+progress(t,.4+i*.3,2)*i*.8;});
@@ -41,11 +44,12 @@ export async function threeStudy(slug,E,canvas) {
     S.camera.position.set(10,12,13);S.camera.lookAt(0,0,0);update=t=>{S.camera.position.x=10+progress(t,0,7)*1.5;S.camera.lookAt(0,0,0);};draw=()=>post.composer.render();
   } else if(slug==='white-model'){
     const model={size:[1.4,1.1],decks:[],b:[],p:[]};for(let i=0;i<6;i++){const x=(i%3-1)*.38,z=(Math.floor(i/3)-.5)*.46,h=.12+i*.04;model.b.push([1900+i*20,h]);model.p.push([i,h,[[[x-.12,z-.16],[x+.12,z-.16],[x+.12,z+.16],[x-.12,z+.16]]]]);}
-    const studio=E.makeStudio(480,270,model),water=new THREE.DataTexture(new Uint8Array(4*4*4).fill(255),4,4),zs=new THREE.DataTexture(new Uint8Array(4*4*4).fill(0),4,4);water.needsUpdate=zs.needsUpdate=true;studio.build([0,1,2,3,4,5],water,zs);studio.camera.position.set(1.7,1.4,2.1);studio.camera.lookAt(0,.1,0);studio.renderer.shadowMap.needsUpdate=true;
-    return t=>{studio.camera.position.x=1.7+progress(t,0,7)*.3;studio.camera.lookAt(0,.1,0);if(studio.U.uProj)studio.U.uProj.value=progress(t,.5,3);if(studio.U.uNow)studio.U.uNow.value=t;studio.renderer.render(studio.scene,studio.camera);g.drawImage(studio.renderer.domElement,0,0,1920,1080);};
+    const studio=E.makeStudio(480,270,model),water=new THREE.DataTexture(new Uint8Array(4*4*4).fill(255),4,4),zs=new THREE.DataTexture(new Uint8Array(4*4*4).fill(0),4,4);water.needsUpdate=zs.needsUpdate=true;studio.build(new Map([0,1,2,3,4,5].map(i=>[i,i])),water,zs);studio.camera.position.set(1.7,1.4,2.1);studio.camera.lookAt(0,.1,0);studio.renderer.shadowMap.needsUpdate=true;
+    studio.U.uGrowOn.value=1;studio.U.uGT.value=[0,2,3,4,5];studio.U.uGS.value=[0,0,0,0,0];
+    return t=>{studio.camera.position.x=1.7+progress(t,0,7)*.3;studio.camera.lookAt(0,.1,0);studio.U.uProj.value=progress(t,.5,3)*2;studio.U.uPreR.value=progress(t,.5,4)*2;studio.U.uNow.value=t;studio.house.intensity=2*(1-progress(t,.5,3)*.9);studio.hemi.intensity=.1;studio.renderer.render(studio.scene,studio.camera);g.drawImage(studio.renderer.domElement,0,0,1920,1080);};
   } else if(slug==='lidar-survey'){
     const values=[];for(let i=0;i<100;i++)for(let j=0;j<75;j++){const x=(i-50)*.1,z=(j-37)*.1;values.push(x,Math.sin(x*.8)*Math.cos(z*.7)+1,z);}
-    const survey=E.pointSurvey({positions:new Float32Array(values),pointSize:3});S.scene.add(survey.points);S.scene.children[3].visible=false;update=t=>survey.setScan(-5+progress(t,0,6)*10);
+    const survey=E.pointSurvey({positions:new Float32Array(values),pointSize:3});S.scene.children[2].visible=false;S.scene.add(survey.points);update=t=>survey.setScan(-5+progress(t,0,6)*10);
   } else throw new Error('Missing 3D study: '+slug);
   return t=>{update(t);draw();g.drawImage(layer,0,0,1920,1080);};
 }

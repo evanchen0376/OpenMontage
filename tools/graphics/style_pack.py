@@ -7,7 +7,7 @@ from tools.base_tool import BaseTool, ToolResult, ToolStability, ToolStatus
 
 class StylePack(BaseTool):
     name = "style_pack"
-    version = "1.0.0"
+    version = "1.1.0"
     capability = "graphics"
     provider = "openmontage"
     stability = ToolStability.BETA
@@ -16,7 +16,7 @@ class StylePack(BaseTool):
     agent_skills = ["visual-style"]
     related_skills = ["skills/core/style-packs.md"]
     usage_location = "skills/core/style-packs.md"
-    best_for = ["Finance visual style libraries, native Canvas/WebGL drawing techniques"]
+    best_for = ["Finance-priority and supporting visual libraries, native/adapted Canvas/WebGL techniques"]
     not_good_for = ["Automatic scene or story generation", "Rendering a final film"]
     side_effects = ["materialize writes a new drawing library under output_path"]
     input_schema = {

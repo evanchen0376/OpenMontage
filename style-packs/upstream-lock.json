@@ -3212,8 +3212,8 @@
       "source": "styles/paper-popup/demo/book.js",
       "path": "paper-popup/engine/book.js",
       "source_sha256": "0aeb8c1034c03790d8fc9e03ed2102b56aab0fab0efb5c4f912e1be2c0d1d14b",
-      "sha256": "0aeb8c1034c03790d8fc9e03ed2102b56aab0fab0efb5c4f912e1be2c0d1d14b",
-      "modification": "portable helper imports; board supports project-owned asset base"
+      "sha256": "d49d0e82930140ad4edfc3047a4f783bc5021e6e670748c13e7bf9a65956626b",
+      "modification": "portable helper imports; board supports project-owned asset base; demo-specific cover title/character art kept in reference source only"
     },
     {
       "source": "styles/paper-popup/demo/cutmesh.js",
@@ -4556,8 +4556,8 @@
       "source": "styles/spy-titles/demo/paper.js",
       "path": "spy-titles/engine/paper.js",
       "source_sha256": "2281e0e2a0e9d9bbcb0266771d84f813742fe7cdf0b7d6c4ab8a33681da64ab7",
-      "sha256": "f2918f6e941127a129e607df120e485ce00c9a24c2dcd4a9da0128a9d871eaac",
-      "modification": "portable helper imports; board supports project-owned asset base"
+      "sha256": "2ff75c5c8c96eabca7a14f89821d63e1e76237c878afc18ae23455dd31d6e55a",
+      "modification": "portable helper imports; board supports project-owned asset base; removed demo DOM dependency; caller supplies context through setG"
     },
     {
       "source": "styles/spy-titles/demo/CREDITS",
@@ -5354,8 +5354,8 @@
       "source": "styles/white-model/demo/studio.js",
       "path": "white-model/engine/studio.js",
       "source_sha256": "25f248af8188a5239835c9dc5228abba15869c6042ade1220117c01951efc3fb",
-      "sha256": "acd00c2fc8afaeada0c76483a6ae4a63cb4392c9a84230db0f7d23f5c496ff2e",
-      "modification": "portable helper imports; board supports project-owned asset base"
+      "sha256": "681dcb5cbbb8230972e4c44375ce35a7748c6a09c7b235007bbc1e488cbd6408",
+      "modification": "portable helper imports; board supports project-owned asset base; optional caller-owned mount and pixel ratio; removed demo DOM dependency"
     },
     {
       "source": "styles/white-model/demo/CREDITS",

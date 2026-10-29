@@ -70,6 +70,18 @@ def import_sources(source: Path, destination: Path, *, all_styles: bool = False)
             if src.name == "engine.js" and src.parent.parent.name == "pictogram-motion":
                 raw += b"\n// OpenMontage ES-module access to the original G engine.\nexport default window.G;\n"
                 changes.append("classic pictogram engine exposed as ES module")
+            if src.name == "paper.js" and src.parent.parent.name == "spy-titles":
+                raw = raw.replace(b"document.getElementById('c')", b"document.createElement('canvas')")
+                raw = raw.replace(b"export const gMain =", b"cv.width = W; cv.height = H;\nexport const gMain =")
+                changes.append("removed demo DOM dependency; caller supplies context through setG")
+            if src.name == "studio.js" and src.parent.parent.name == "white-model":
+                raw = raw.replace(b"makeStudio(W, H, M)", b"makeStudio(W, H, M, {mount = null, pixelRatio = 2} = {})")
+                raw = raw.replace(b"renderer.setPixelRatio(2)", b"renderer.setPixelRatio(pixelRatio)")
+                raw = raw.replace(b"document.getElementById('stage').appendChild(renderer.domElement);", b"if (mount) mount.appendChild(renderer.domElement);")
+                changes.append("optional caller-owned mount and pixel ratio; removed demo DOM dependency")
+            if src.name == "book.js" and src.parent.parent.name == "paper-popup":
+                raw = re.sub(rb"// cloth cover \+ gold-foil title.*?(?=export function makeBook)", b"// Project supplies its own cover art and material maps.\n", raw, flags=re.S)
+                changes.append("demo-specific cover title/character art kept in reference source only")
         if src.suffix == ".txt":
             cleaned = re.sub(rb"[ \t]+(?=\r?$)", b"", raw, flags=re.MULTILINE)
             if cleaned != raw:

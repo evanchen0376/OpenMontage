@@ -6,7 +6,8 @@ export const C = {
   ink: '#1b1714', paper: '#efe4c9', red: '#d23a22', mus: '#e2a52a',
   redD: '#9a2a18', musD: '#b07e1c', paperD: '#d9ccae', inkL: '#3a322b',
 };
-export const cv = document.getElementById('c');
+export const cv = document.createElement('canvas');
+cv.width = W; cv.height = H;
 export const gMain = cv.getContext('2d');
 export let g = gMain;   // live binding: temporarily points at the layer while drawing a silhouette layer
 export function setG(c) { g = c; }

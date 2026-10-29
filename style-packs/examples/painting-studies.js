@@ -13,7 +13,7 @@ export async function paintingStudy(slug,E,canvas) {
     const {Impasto,Strokes,KNIFE}=E,layer=cv(1920,1080),engine=new Impasto(layer,{W:1920,H:1080,ss:1}),marks=new Strokes();
     for(let j=0;j<21;j++)for(let i=0;i<43;i++){const a=i/42,b=j/20;marks.push({x:180+i*36,y:150+j*36,ang:.12*Math.sin(i*7+j),len:50,wid:40,c:[.17+a*.2,.28+b*.25,.31+a*.17],c2:[.38+a*.2,.49+b*.2,.48],hgt:2,seed:i+j*43,type:KNIFE,rev:(j*43+i)/180});}
     const batch=engine.batch(marks.data());
-    return t=>{engine.begin([.89,.85,.77]);engine.draw(batch,{t,reveal:0,grey:0,wet:.7});engine.finish({ground:[.89,.85,.77]});g.drawImage(layer,0,0);};
+    return t=>{engine.begin([.89,.85,.77]);engine.draw(batch,{t,appear:0,appDur:.45,n:Math.ceil(marks.n*progress(t,0,6)),grey:0,wet:.7});engine.finish({ground:[.89,.85,.77]});g.drawImage(layer,0,0);};
   }
   if(slug==='ink-wash'){
     const wet=cv(),dry=cv(),color=cv(),L={wet:wet.getContext('2d'),dry:dry.getContext('2d'),col:color.getContext('2d')};
@@ -34,7 +34,7 @@ export async function paintingStudy(slug,E,canvas) {
     return t=>{paper(g,1920,1080,{base:'#F3EBDB'});buildings.forEach((shape,i)=>E.sketchShape(g,shape,['#C8A578','#B0B9B1','#B8A8AA'][i%3],{p:progress(t,i*.4,1.7),seed:i+4,ink:3,wash:progress(t,2+i*.2,1.5)*.65}));};
   }
   if(slug==='woodcut'){
-    const shape=E.shape([E.ellipse(960,540,460,330)],{sp:9,halo:12,seed:3,reveal:{t0:0,t1:6}}),mask=cv(),a=mask.getContext('2d'),printer=E.makePrinter();
+    const shape=E.shape([E.ellipse(960,540,460,330)],{sp:9,halo:12,seed:3,reveal:{t0:0,t1:6,key:(x,y)=>(x-500)/920}}),mask=cv(),a=mask.getContext('2d'),printer=E.makePrinter();
     return t=>{a.fillStyle='#000';a.fillRect(0,0,1920,1080);shape.draw(a,t);g.drawImage(printer.render(mask,null,{mode:'print',seed:3}),0,0);};
   }
   if(slug==='engraving'){
@@ -54,10 +54,12 @@ export async function paintingStudy(slug,E,canvas) {
     const red=slug==='papercut-red';const object=E.piece([0,0,620,620],a=>{
       const shape=q=>{q.arc(310,310,285,0,Math.PI*2);};
       if(red)E.fill(a,shape);else E.fill(a,E.DYE.red,shape);
-      for(let i=0;i<16;i++){const ang=i*Math.PI/8;E.cut(a,q=>{q.ellipse(310+Math.cos(ang)*175,310+Math.sin(ang)*175,24,70,ang,0,Math.PI*2);});}
+      for(let i=0;i<16;i++){const ang=i*Math.PI/8;E.cut(a,q=>{q.ellipse(310+Math.cos(ang)*175,310+Math.sin(ang)*175,55,18,ang,0,Math.PI*2);});}
       E.cut(a,q=>q.arc(310,310,95,0,Math.PI*2));
     },{seed:6});
-    return t=>{paper(g,1920,1080,{base:red?'#EFE3CC':'#D8C9A5'});g.save();g.translate(960,540);g.rotate((progress(t,0,7)-.5)*.35);g.translate(-310,-310);if(red)E.paperShadow(g,1,2);else{g.shadowColor='rgba(48,20,12,.4)';g.shadowBlur=20;}E.drawPiece(g,object);g.restore();};
+    let transmit,front,glCanvas,screen;
+    if(!red){transmit=cv();front=cv();glCanvas=cv();const {makeGL}=await import('../shadow-puppet/engine/gl.js');screen=makeGL(glCanvas);}
+    return t=>{const a=red?g:transmit.getContext('2d');paper(a,1920,1080,{base:red?'#EFE3CC':'#FFFFFF'});a.save();a.translate(960,540);a.rotate((progress(t,0,7)-.5)*.35);a.translate(-310,-310);if(red)E.paperShadow(a,1,2);E.drawPiece(a,object);a.restore();if(!red){screen.render(transmit,front,{lamps:[[760+progress(t,0,7)*400,450,1,.5]],expo:1.8,cloth:1,time:t,bloom:.16});g.drawImage(glCanvas,0,0);}};
   }
   if(slug==='silkscreen-poster'){
     const texture=E.makeTextures('#F3E7D2',5),parts=[E.circlePath(700,520,290),E.rectPath(850,260,450,550),E.ringPath(1250,550,130,230)];

@@ -1,6 +1,7 @@
 // Browser integration checks for drawing libraries, not a production renderer.
 // Usage: node scripts/qa_style_packs.mjs [--modules /path/to/node_modules]
 //   [--out projects/style-pack-qa] [--browser /path/to/chrome]
+//   [--clips] [--new | --pack slug1,slug2] [--merge] [--report-only]
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -21,17 +22,20 @@ const packs=allPacks.filter(p=>(!process.argv.includes('--new')||p.group===4)&&(
 if(!packs.length)throw new Error('No matching styles');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 function writeIndex(report) {
-  const cards=allPacks.filter(p=>report.checks.some(r=>r.pack===p.id)).map(pack=>{
-    const row=report.checks.find(r=>r.pack===pack.id&&r.format==='landscape');
-    return `<article><h2>${pack.name}</h2><p>${pack.visual_contract}</p>${row?.clip_info?`<video controls preload="none" poster="${pack.id}-landscape-6.5.png" src="${row.clip}"></video>`:`<img src="${pack.id}-landscape-6.5.png" alt="${pack.name}">`}<p><a href="${pack.id}-portrait-6.5.png">竖屏关键帧</a> · ${row?.passed?'技术检查通过':'检查未通过'}</p></article>`;
+  const visible=allPacks.filter(p=>report.checks.some(r=>r.pack===p.id));
+  const cards=visible.map(pack=>{
+    const rows=report.checks.filter(r=>r.pack===pack.id),row=rows.find(r=>r.format==='landscape');
+    const passed=rows.length===2&&rows.every(r=>r.passed),fit=pack.group<=3?'primary':pack.finance_fit;
+    const label={primary:'财经优先',specialist:'专项素材',supporting:'叙事辅助'}[fit];
+    return `<article data-fit="${fit}"><h2>${pack.name}</h2><p><small>${pack.slug} · ${label}</small></p><p>${pack.visual_contract}</p>${row?.clip_info?`<video controls preload="none" poster="${pack.id}-landscape-6.5.png" src="${row.clip}"></video>`:`<img loading="lazy" src="${pack.id}-landscape-6.5.png" alt="${pack.name}">`}<p><a href="${pack.id}-portrait-6.5.png">竖屏关键帧</a> · ${passed?'技术检查通过':'检查未通过'}</p><p><small>依赖：${pack.requires.join(' / ')||'Canvas 2D'}</small></p></article>`;
   }).join('');
-  fs.writeFileSync(path.join(out,'index.html'),`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>12种财经风格 · 技术验证</title><style>body{max-width:1200px;margin:40px auto;padding:0 24px;font:17px/1.7 system-ui;color:#e8e8e5;background:#181c20}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:28px}article{padding:20px;background:#22282d;border-radius:12px}video,img{width:100%;display:block}a{color:#8ed0cf}h2{font-size:22px}</style><h1>12种财经画面风格</h1><p>合成数据与技术夹具，用于验证绘制接口和运动。不是财经事实样片；档案、物件照片与卫星影像尚需具体项目的真实素材验证。运动片段为8秒、12fps的无声工程预览。</p><p><a href="report.json">自动检查报告</a></p><main>${cards}</main></html>`);
+  fs.writeFileSync(path.join(out,'index.html'),`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${visible.length}种风格 · 技术验证</title><style>body{max-width:1200px;margin:40px auto;padding:0 24px;font:17px/1.7 system-ui;color:#e8e8e5;background:#181c20}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:28px}article{padding:20px;background:#22282d;border-radius:12px}article[hidden]{display:none}video,img{width:100%;display:block}a{color:#8ed0cf}h2{font-size:22px}small{color:#b7c7c2}select,input{font:inherit;padding:10px;margin:0 12px 24px 0;max-width:90%;background:#29332f;color:#eee;border:1px solid #698278;border-radius:5px}</style><h1>${visible.length}种画面风格</h1><p>12种财经优先风格＋47种叙事辅助/专项风格。合成数据与技术夹具用于验证绘制接口和运动；每段8秒、12fps、无声。真实影像、档案、工程模型、点云和扫描切片须在具体项目另行准备。这些样例不代表原样片全功能等价或最终成片质量；竖屏页保留材质画幅，正式竖屏作品须单独设计镜头。</p><p><a href="report.json">自动检查报告</a> · ${report.checks.filter(r=>r.passed).length}/${report.checks.length} 项通过</p><select id="fit" aria-label="财经适用类型"><option value="all">全部风格</option value="primary">财经优先</option><option value="supporting">叙事辅助</option><option value="specialist">专项素材</option></select><input id="search" aria-label="搜索风格" placeholder="搜索中文名或英文名"><main>${cards}</main><script>const fit=document.getElementById('fit'),search=document.getElementById('search');function filter(){for(const a of document.querySelectorAll('article'))a.hidden=(fit.value!=='all'&&a.dataset.fit!==fit.value)||!a.textContent.toLowerCase().includes(search.value.toLowerCase());}fit.onchange=filter;search.oninput=filter;</script></html>`);
 }
 if(process.argv.includes('--report-only')) { writeIndex(JSON.parse(fs.readFileSync(path.join(out,'report.json'))));process.exit(0); }
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.woff2':'font/woff2','.ttf':'font/ttf','.txt':'text/plain'};
 async function clip(page,file) {
   const fps=12,seconds=8;
-  const ff=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-vcodec','mjpeg','-r',String(fps),'-i','-','-an','-c:v','libx264','-preset','fast','-crf','20','-pix_fmt','yuv420p',file],{stdio:['pipe','ignore','pipe']});
+  const ff=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-vcodec','mjpeg','-r',String(fps),'-i','-','-an','-c:v','libx264','-preset','fast','-crf','20','-pix_fmt','yuv420p','-movflags','+faststart',file],{stdio:['pipe','ignore','pipe']});
   let error='';ff.stderr.on('data',b=>{error+=b;});
   const closed=new Promise((resolve,reject)=>{ff.once('error',reject);ff.once('close',code=>code===0?resolve():reject(new Error(error)));});
   let pipeError=null;ff.stdin.on('error',e=>{pipeError=e;});
@@ -62,7 +66,9 @@ const server=http.createServer((req,res)=>{
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 let browser;
-const report={kind:'engineering-fixtures',real_evidence_validated:false,checks:[],errors:[]};
+const previous=process.argv.includes('--merge')&&fs.existsSync(path.join(out,'report.json'))?JSON.parse(fs.readFileSync(path.join(out,'report.json'))):null;
+const expectedPacks=new Set([...packs.map(p=>p.id),...(previous?.checks.map(r=>r.pack)||[])]);
+const report={kind:'engineering-fixtures',real_evidence_validated:false,checks:previous?.checks.filter(r=>!packs.some(p=>p.id===r.pack))||[],errors:[],last_run:{at:new Date().toISOString(),packs:packs.map(p=>p.id)}};
 try {
   fs.mkdirSync(out,{recursive:true});
   browser=await chromium.launch({headless:true,executablePath:arg('--browser',process.env.PLAYWRIGHT_CHROME),args:process.platform==='darwin'?['--use-angle=metal','--enable-gpu','--ignore-gpu-blocklist','--force-color-profile=srgb']:['--enable-gpu','--force-color-profile=srgb']});
@@ -101,7 +107,8 @@ try {
   }
 }finally{
   await browser?.close();await new Promise(r=>server.close(r));
-  report.passed=report.checks.length===packs.length*2&&report.checks.every(r=>r.passed);
+  report.passed=report.checks.length===expectedPacks.size*2&&report.checks.every(r=>r.passed);
+  report.coverage={catalog_packs:allPacks.length,checked_packs:expectedPacks.size,complete_catalog:expectedPacks.size===allPacks.length};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');
   writeIndex(report);
 }

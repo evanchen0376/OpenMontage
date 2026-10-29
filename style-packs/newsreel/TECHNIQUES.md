@@ -10,7 +10,7 @@
 
 
 
-独立适配接口：`filmGate`。
+独立适配接口：`filmGate,cutAt`。
 
 ## 集成边界
 

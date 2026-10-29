@@ -249,8 +249,9 @@ Orthogonal to *runtime* is *authoring mode*: **how** the composition is built. P
 
 ### Named Visual Style Packs (Approved Library Reuse)
 
-For named visual styles, read `skills/core/style-packs.md`. The twelve finance
-style packs under `style-packs/` add drawing engines, material techniques,
+For named visual styles, read `skills/core/style-packs.md`. The 59 published
+Lemo style packs under `style-packs/` (including 12 finance-priority packs)
+add drawing engines, material techniques,
 camera/motion grammar and finance overlays to existing pipelines. Discover
 them through `style_pack`; do not reduce them to palette YAML or run their
 reference demo stories as new films.

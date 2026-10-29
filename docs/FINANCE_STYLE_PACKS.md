@@ -1,8 +1,10 @@
 # 财经画面风格接入
 
-本次引入12种风格：数据叙事、瑞士动态排版、等距信息图、电视新闻包装、
+已接入Lemo正式索引的全部59种风格，排除开发用`_template`。首批12种财经优先：数据叙事、瑞士动态排版、等距信息图、电视新闻包装、
 蓝图、白板讲解、复古半调案卷、视觉调查、数据实物化、工程简报板、
-档案灯台、卫星简报。它们是绘制库，沿用现有内容规划、pipeline、审批和渲染器。
+档案灯台、卫星简报。新增47种扩展绘画、印刷、角色、像素、纸艺、3D与纪录技法。
+它们是绘制库，沿用现有内容规划、pipeline、审批和渲染器。
+完整名单、用途和依赖见[59种风格索引](../style-packs/CATALOG.md)。
 
 ## 使用入口
 
@@ -34,11 +36,31 @@ python -m lib.style_packs verify
 
 ## 已迁入什么
 
-- 12份完整原始风格规范、12份财经适配、12份技法说明。
+- 59份完整原始风格规范、59份财经适配、59份技法说明。
 - 独立原引擎：数据叙事、等距图、蓝晒纸与制图、白板笔画、工程简报墙、卫星相机与shader；瑞士运动曲线。
 - 拆分适配：瑞士网格/遮罩、新闻条/翻牌/擦除、半调/纸张/套印、证据框/时间读数、实体堆叠、档案台/放大镜。
 - 原demo代码隔离于reference；素材、旁白、音乐及样片品牌不进入新片。
 - Remotion和HyperFrames的时间驱动接入器，工具发现、版本绑定和契约检查。
+- 新增47种中，37种保留独立原生模块与相对依赖闭包；10种从内联代码的视觉语法中抽取独立适配接口。完整原实现保留在reference/source，不能直接作为新片。
+- 新增共享支持：Three后期、胶片门/计时/字幕块/蒙太奇窗口、界面与像素人物、点云扫描、校准切片与ROI。材料化时一并复制，纳入版本digest。
+- 上游代码固定revision `ef1954e27faf9b5230f8492571b83c7c010e0748`，803个来源文件逐项记录SHA256。去除原立体书样片封面故事，修复经典脚本导出和DOM挂载耦合；原文仍在reference。
+
+## 新增风格如何用于财经
+
+首批12种仍是数据、机制、研究与新闻的默认候选。新增风格根据主题选择，
+不能因为库里有59种，就把同一条财经解释混成59种画风。
+
+| 用途 | 新增候选 | 使用边界 |
+|---|---|---|
+| 金融科技与工具讲解 | dark-keynote、hologram-hud、ascii-crt、living-screencast | 精确界面与数字原生排版；录屏使用实际产品 |
+| 快讯、事件与实拍分析 | caption-news、countdown、city-symphony、telestrator | 授权片段、真实事件时间与坐标校准 |
+| 商业史与制度叙事 | newsreel、kino-montage、art-deco、engraving、woodcut、silent-film | 档案须真实，装饰材质不作为证据 |
+| 生活财经与情绪叙事 | watercolor、ink-wash、impasto、crayon-book、urban-sketch、one-line | 插画和隐喻明确标注，不用面积/物件数冒充数据 |
+| 编辑插图与文化消费 | risograph、silkscreen-poster、ukiyoe、spy-titles、stained-glass | 保持文字可读和分色逻辑 |
+| 财经启蒙与行为寓言 | brick-toy、pixel-rpg、pictogram-motion、microgame、game-show、midcentury-toon、rubber-hose、scifi-toon、cel-anime-80s | 角色与故事由新片创作，趣味不替代条件说明 |
+| 空间、产业与工程 | white-model、lidar-survey、teardown、tilt-shift、lowpoly-island、hd-2d、backrooms | 测绘、体块、拆解需对应真实项目材料；隐喻场景不得暗示测量结论 |
+| 纸艺与品牌叙事 | paper-popup、paper-lantern、papercut-red、shadow-puppet、glass-product | 迁入材质/折叠/灯光技法，镜头和对象重新设计 |
+| 医药与检测产业 | microscope | 真实切片、扫描元数据和比例校准，不生成假组织影像 |
 
 ## 当前边界
 
@@ -60,14 +82,19 @@ python -m lib.style_packs verify
 | 卫星简报 | 原地球、坐标、嵌套影像shader | 真实有日期影像及bbox；测试使用明确网格 |
 
 浏览器技术测试验证接口，不认证事实或美术质量。真实证据类必须加真实
-素材样片审核。适配状态不能被描述为12种原样片的完整功能等价。
+素材样片审核。适配状态不能被描述为59种原样片的完整功能等价。
+
+新增风格的工程片段只覆盖代表性接口：例如积木组装、像素调色板、油彩高度场、
+皮影透光、纸片折起、白模投影和点云截面。没有完整复刻原样片角色表演、
+所有镜头、全部后期或真实素材处理链；详见各包TECHNIQUES.md。
+竖屏夹具重新布置标题与说明，材质窗口保持原比例；它不证明整支影片已完成竖屏导演设计。
 
 ## 验证与预览
 
 Python契约：
 
 ```sh
-python -m pytest tests/contracts/test_style_packs.py
+.venv/bin/python -m pytest tests/contracts/test_style_packs.py
 ```
 
 浏览器依赖集中在 style-packs/package.json；开发环境可在该目录安装 npm
@@ -75,22 +102,25 @@ python -m pytest tests/contracts/test_style_packs.py
 及 `--browser` 浏览器路径，不要求存在 Lemo 源仓库。
 
 ```sh
-node scripts/qa_style_packs.mjs --out projects/style-pack-qa
-node scripts/qa_style_packs.mjs --clips --out projects/style-pack-qa
+node scripts/qa_style_packs.mjs --out projects/style-pack-qa-all
+node scripts/qa_style_packs.mjs --clips --out projects/style-pack-qa-all
 ```
 
 QA启动临时本地服务，逐个验证横竖屏、三帧、乱序seek的像素确定性和
 四种数据风格替换数据后的变化，结束后关闭服务和浏览器。输出report.json
-和72张关键帧；`--clips` 另输出12段8秒、12fps无声工程片段及本地index.html
-预览页。`--report-only` 可从已生成的report.json重建预览页。图片中明确标注合成夹具，不是财经事实。对应画面逻辑在
-style-packs/examples/specimens.js，可用于检查接口，禁止作为生产场景目录调用。
+和354张关键帧；`--clips` 另输出59段8秒、12fps、960×540的无声H264工程片段及本地index.html
+预览页。`--new` 仅检查新增47种；`--pack slug1,slug2`选择风格，`--merge`将补测结果更新到已有报告；不加merge则为独立报告。
+`--report-only` 可从已生成的report.json重建预览页。图片中明确标注合成夹具，不是财经事实。
+对应画面逻辑在style-packs/examples/specimens.js与各类studies模块，可用于检查接口，禁止作为生产场景目录调用。
 
 `shared/readability.js` 可验证作者提供的实际文字框和完整可读区间（中文
 阅读时间、边界、竖屏字幕安全区）；没有测量数据时返回not_checked，不能当作通过。
 运行时接口测试：`node --test tests/tools/style_pack_runtime.test.mjs`。
 
-本机工程验证记录：24项横竖屏浏览器检查通过；72张关键帧与12段连续
-片段已生成在projects/style-pack-qa/，通过ffprobe检查片段编码与时长。
+本机工程验证记录：118项横竖屏浏览器检查通过；354张关键帧与59段连续
+片段已生成在[完整预览页](../projects/style-pack-qa-all/index.html)，通过ffprobe检查片段编码与时长。
+Python相关回归203项、Node运行时接口2项通过；803个来源文件哈希校验通过，
+首批12种的批准版本身份保持一致。首批预览projects/style-pack-qa/单独保留。
 HyperFrames的GSAP绘制接入器通过真实timeline seek/rewind测试；Remotion
 接入器通过实际独立Composition关键帧渲染（projects/style-pack-adapter-qa/）。
 这不等于已完成每种风格的完整生产影片审核或HF完整片段渲染。
@@ -101,6 +131,8 @@ HyperFrames的GSAP绘制接入器通过真实timeline seek/rewind测试；Remoti
 
 ## 更新上游
 
-`scripts/import_lemo_styles.py <本地源仓库>` 是显式开发维护操作，记录源revision
+`scripts/import_lemo_styles.py <本地源仓库> --all` 导入正式索引全部59种，随后运行
+`scripts/expand_style_catalog.py <本地源仓库>` 更新新增风格导引和完整索引。
+它们是显式开发维护操作，记录源revision
 和逐文件SHA256。上线和制作时无需源仓库。升级应审查差异、检查第三方
 授权、重跑画面验证，不把新源代码静默覆盖到进行中的项目。

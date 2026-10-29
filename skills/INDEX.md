@@ -330,6 +330,6 @@ Claude Code accesses them via symlinks in `.claude/skills/`.
 
 ## Named Visual Style Packs
 
-- [Style Packs](core/style-packs.md): twelve finance-oriented drawing libraries,
+- [Style Packs](core/style-packs.md): 59 visual libraries, with 12 finance-priority packs,
   original visual grammars, project-local engines, runtime adapters and visual
   verification. Discover through the `style_pack` tool.

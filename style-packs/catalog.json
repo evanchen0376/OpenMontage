@@ -984,7 +984,8 @@
       ],
       "visual_contract": "真实档案投影门、新闻纸、银色调与胶片抖动",
       "techniques": [
-        "filmGate"
+        "filmGate",
+        "cutAt"
       ],
       "native_entry": "engine/primitives.js",
       "specimen": "newsreel",
