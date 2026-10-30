@@ -122,11 +122,8 @@ def test_legacy_runs_and_non_video_derivatives_remain_compatible(tmp_path):
     write_checkpoint(tmp_path, "legacy", "assets", "in_progress", {}, pipeline_type="cinematic")
     init_project("legacy", title="Legacy", pipeline_type="cinematic", pipeline_dir=tmp_path)
     marker = json.loads((tmp_path / "legacy/project.json").read_text())
-    # Initializing an existing run must not silently re-gate it.
-    # Here no project marker existed, so this was a new initialization.
-    assert marker["style_confirmation_required"] is True
-    marker.pop("style_confirmation_required")
-    (tmp_path / "legacy/project.json").write_text(json.dumps(marker))
+    # Initializing an existing checkpoint-only run must not silently re-gate it.
+    assert "style_confirmation_required" not in marker
     init_project("legacy", title="Legacy", pipeline_type="cinematic", pipeline_dir=tmp_path)
     assert "style_confirmation_required" not in json.loads((tmp_path / "legacy/project.json").read_text())
     write_checkpoint(tmp_path, "legacy", "assets", "in_progress", {}, pipeline_type="cinematic")

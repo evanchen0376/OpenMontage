@@ -221,7 +221,7 @@ def init_project(
         (project_dir / sub).mkdir(parents=True, exist_ok=True)
 
     marker_path = project_dir / PROJECT_MARKER_FILENAME
-    new_project = not marker_path.exists()
+    new_project = not marker_path.exists() and not any(project_dir.glob("checkpoint_*.json"))
     marker: dict[str, Any] = {}
     if marker_path.exists():
         try:
