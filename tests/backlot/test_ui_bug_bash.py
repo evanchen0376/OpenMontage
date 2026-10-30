@@ -14,6 +14,7 @@ from lib.checkpoint import init_project, write_checkpoint
 from scripts import backlot_screenshot_stage
 from tests.contracts.test_phase0_contracts import sample_artifact
 from tests.contracts.test_style_confirmation import confirmation
+from tests.contracts.test_dual_covers import package as make_cover_package
 from lib.pipeline_loader import load_pipeline
 
 
@@ -30,6 +31,7 @@ APPROVAL_CASES = [
     ("gate-assets", "cinematic", "assets", "asset_manifest", "asset-1"),
     ("gate-edit", "documentary-montage", "edit", "edit_decisions", "cut-1"),
     ("gate-compose", "cinematic", "compose", "render_report", "renders/output.mp4"),
+    ("gate-cover", "cinematic", "cover", "cover_package", "4:3"),
     ("gate-publish", "cinematic", "publish", "publish_log", "youtube"),
 ]
 
@@ -53,6 +55,8 @@ def _build_approval_projects() -> None:
     root = backlot_screenshot_stage.STAGE_DIR
     for project_id, pipeline_type, stage, artifact_name, _visible_text in APPROVAL_CASES:
         artifact = sample_artifact(artifact_name)
+        if stage == "cover":
+            artifact = make_cover_package(root / project_id)
         if artifact_name == "edit_decisions":
             artifact["render_runtime"] = "ffmpeg"
         review_summary = (
@@ -163,6 +167,7 @@ def test_project_pages_fit_mobile_and_tablet_widths(staged_backlot_server):
         "/p/paper-boats?static=1",
         "/p/gate-proposal?static=1",
         "/p/gate-character-design?static=1",
+        "/p/gate-cover?static=1",
     ]
     viewports = [
         {"width": 390, "height": 844},
@@ -206,6 +211,23 @@ def test_style_comparison_is_visible_at_the_existing_proposal_gate(staged_backlo
             assert "pending" in text
             assert "1080×1920" in text
             assert "isometric" in text and "whiteboard" in text and "paper" in text
+        finally:
+            browser.close()
+
+
+def test_cover_gate_shows_both_actual_cover_images(staged_backlot_server):
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=True)
+        page = browser.new_page(viewport={"width": 1280, "height": 900})
+        try:
+            page.goto(staged_backlot_server + "/p/gate-cover?static=1", wait_until="networkidle")
+            panel = page.locator('.approval-artifact[data-artifact="cover_package"]')
+            panel.wait_for()
+            assert panel.locator('.cover-gallery img').count() == 2
+            assert "3:4" in panel.inner_text() and "4:3" in panel.inner_text()
+            assert panel.locator('.cover-gallery img').evaluate_all(
+                '(images) => images.every(image => image.complete && image.naturalWidth > 0)'
+            )
         finally:
             browser.close()
 

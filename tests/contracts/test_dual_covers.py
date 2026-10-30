@@ -1,5 +1,4 @@
 """Regressions for persistent dual-format cover delivery, gating and export."""
-import copy
 import json
 from pathlib import Path
 

@@ -478,7 +478,7 @@ function artifactReviewContent(name, artifact, s) {
     const verification = artifact.verification || {};
     return [
       covers.length ? el("div", { class: "cover-gallery", style: "display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 14px" },
-        ...covers.map(cover => el("figure", { style: "margin:0;max-width:360px" },
+        ...covers.map(cover => el("figure", { style: "margin:0;min-width:0;max-width:360px;flex:1 1 260px" },
           el("img", {
             src: thumbURL(s.project_id, cover.path, 640),
             alt: `${cover.aspect_ratio || ""} ${cover.height > cover.width ? "portrait" : "landscape"} video cover`,
