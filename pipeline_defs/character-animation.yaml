@@ -32,6 +32,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/character-animation/executive-producer
   - pipelines/character-animation/research-director
   - pipelines/character-animation/proposal-director
@@ -83,13 +84,16 @@ stages:
     skill: pipelines/character-animation/proposal-director
     required_artifacts_in:
       - research_brief
+    primary_artifact: proposal_packet
     produces:
+      - style_confirmation
       - proposal_packet
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Concepts are differentiated and not a carbon copy of any reference
       - Character count, action complexity, and reuse strategy are explicit
       - Render runtime selection presents Remotion and HyperFrames when both are available

@@ -28,6 +28,7 @@ ARTIFACT_NAMES = [
     "review",
     "cost_log",
     "decision_log",
+    "style_confirmation",
     "source_media_review",
     "final_review",
     "character_qa_report",

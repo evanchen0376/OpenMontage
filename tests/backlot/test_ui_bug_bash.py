@@ -13,6 +13,8 @@ import pytest
 from lib.checkpoint import init_project, write_checkpoint
 from scripts import backlot_screenshot_stage
 from tests.contracts.test_phase0_contracts import sample_artifact
+from tests.contracts.test_style_confirmation import confirmation
+from lib.pipeline_loader import load_pipeline
 
 
 pytest.importorskip("playwright.sync_api")
@@ -30,6 +32,21 @@ APPROVAL_CASES = [
     ("gate-compose", "cinematic", "compose", "render_report", "renders/output.mp4"),
     ("gate-publish", "cinematic", "publish", "publish_log", "youtube"),
 ]
+
+
+def _planning_fixture(root, project_id, pipeline_type, stage):
+    manifest = load_pipeline(pipeline_type)
+    planning = next((s for s in manifest["stages"] if s["name"] in {"idea", "proposal"}), None)
+    if planning is None:
+        return {}
+    style = confirmation(project_id, approved=stage != planning["name"])
+    if stage == planning["name"]:
+        return {"style_confirmation": style}
+    canonical = planning["primary_artifact"]
+    write_checkpoint(root, project_id, planning["name"], "completed",
+                     {canonical: sample_artifact(canonical), "style_confirmation": style},
+                     pipeline_type=pipeline_type, human_approved=True)
+    return {}
 
 
 def _build_approval_projects() -> None:
@@ -60,7 +77,7 @@ def _build_approval_projects() -> None:
             project_id,
             stage,
             "awaiting_human",
-            {artifact_name: artifact},
+            {artifact_name: artifact, **_planning_fixture(root, project_id, pipeline_type, stage)},
             pipeline_type=pipeline_type,
             review={
                 "round": 1,
@@ -80,6 +97,7 @@ def _build_approval_projects() -> None:
         pipeline_type="character-animation",
         pipeline_dir=root,
     )
+    _planning_fixture(root, "gate-character-design", "character-animation", "character_design")
     write_checkpoint(
         root,
         "gate-character-design",

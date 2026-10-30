@@ -30,6 +30,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/podcast-repurpose/executive-producer
   - pipelines/podcast-repurpose/idea-director
   - pipelines/podcast-repurpose/script-director
@@ -53,13 +54,16 @@ stages:
     skill: pipelines/podcast-repurpose/idea-director
     optional_artifacts_in:
       - source_media_review
+    primary_artifact: brief
     produces:
+      - style_confirmation
       - brief
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Source podcast format identified (solo, interview, panel)
       - Output types specified (audiogram clips, quote-led clips, companion video)
       - Platform targets and clip count realistic

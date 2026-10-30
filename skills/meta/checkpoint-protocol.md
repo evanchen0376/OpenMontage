@@ -26,6 +26,13 @@ Read the current stage's configuration from the pipeline manifest:
 
 ### Step 2: Prepare Checkpoint Data
 
+For video `idea`/`proposal`, first follow `style-confirmation.md`. Embed the
+schema-valid `style_confirmation` alongside the canonical artifact. Pending
+comparisons use the existing `awaiting_human` gate; completing it requires
+explicit style and format approval evidence. New runs cannot write downstream
+checkpoints before this planning gate is approved. Historical checkpoints
+remain readable; do not silently copy their approval into a redesign.
+
 Gather everything needed for the checkpoint:
 
 1. **Stage name** — which stage just completed

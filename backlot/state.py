@@ -259,6 +259,7 @@ ARTIFACT_FILES = {
     "cover_package": "cover_package.json",
     "publish_log": "publish_log.json",
     "decision_log": "decision_log.json",
+    "style_confirmation": "style_confirmation.json",
     "wechat_source_analysis": "wechat_source_analysis.json",
     "wechat_content_screen": "wechat_content_screen.json",
     "finance_article_research": "finance_article_research.json",

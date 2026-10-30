@@ -32,6 +32,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/explainer/executive-producer
   - pipelines/explainer/research-director
   - pipelines/explainer/proposal-director
@@ -89,13 +90,16 @@ stages:
     skill: pipelines/explainer/proposal-director
     required_artifacts_in:
       - research_brief
+    primary_artifact: proposal_packet
     produces:
+      - style_confirmation
       - proposal_packet
       - decision_log
     tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Concept options are genuinely different (structure, hook, audience)
       - Each concept is grounded in research findings, not generic
       - Production plan reflects actual tool availability from preflight

@@ -4,6 +4,15 @@ Use when selecting or producing a film with a named visual style, especially
 finance data stories, mechanisms, research and news. This supplements the
 existing pipeline; it does not select a provider, renderer, or approval policy.
 
+## Mandatory planning entry
+
+Every video run first follows `../meta/style-confirmation.md`, including
+when no named pack has yet been selected. Catalog discovery and comparison
+must precede a visual recommendation; a previously approved episode is one
+candidate, not the default. Record comparison and approval in the planning
+checkpoint's `style_confirmation` artifact. Explicit user choices do not
+need another confirmation. Then use the selection mechanics below.
+
 ## Select and lock
 
 Discover `style_pack` through the tool registry. `operation: catalog` lists

@@ -330,6 +330,10 @@ Claude Code accesses them via symlinks in `.claude/skills/`.
 
 ## Named Visual Style Packs
 
+- [Production Style Confirmation](meta/style-confirmation.md): mandatory at
+  video idea/proposal; current catalog and series discovery, content-fit
+  comparison, separate format decision and recorded approval at the existing gate.
+
 - [Style Packs](core/style-packs.md): 59 visual libraries, with 12 finance-priority packs,
   original visual grammars, project-local engines, runtime adapters and visual
   verification. Discover through the `style_pack` tool.

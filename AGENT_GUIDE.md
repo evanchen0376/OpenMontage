@@ -247,6 +247,26 @@ Orthogonal to *runtime* is *authoring mode*: **how** the composition is built. P
 
 **Default to atelier for hero work** — marketing, launches, brand pieces, any single-deliverable explainer that must impress. The deciding rule: *reuse engine knowledge, never creative components.* In atelier mode the stock scene-type catalog, `hyperframes-registry` blocks, fixtures, and finished components are **off-limits** — they are frozen looks that reintroduce sameness. Before building, route through **`skills/meta/taste-direction.md`** to set the design read and taste dials, then **`skills/meta/bespoke-composition.md`**, which sequences: art direction (`visual-style`) → motion principles (Disney 12 via `framer-motion`/`lottie-bodymovin`) → engine mechanics (`remotion-best-practices` + the stock components read *only as a mechanics codex*) → render via the atelier path. Close with a **distinctness review**: *could this be any other product's video? does it reuse a look I've made before?* — the inverse of "does it match the reference." Atelier costs more tokens and iteration than templated; say so at proposal so the user opts in knowingly.
 
+### Production Style Confirmation (Mandatory Before Locking the Plan)
+
+For every video production, read `skills/meta/style-confirmation.md` during
+the first `idea`/`proposal` stage, even when an older episode exists. Discover
+the current style-pack catalog and relevant series styles before proposing
+a visual treatment. Compare at least three content-fit visual grammars when
+the choice is open; honor an explicit user choice without reconfirmation.
+Record a schema-valid `style_confirmation` alongside the planning artifact,
+with real script-beat examples, references, limitations and a recommendation.
+Confirm visual style and output format at the existing planning approval gate
+before downstream production. Old project approvals do not approve a new run.
+Persistent audio preferences keep their existing authority.
+
+Style, coverage strategy, aspect ratio and runtime are separate decisions.
+Neither Remotion/HyperFrames availability nor the old project's layout can
+stand in for style selection. `init_project` enables checkpoint enforcement
+for new video runs; legacy checkpoints remain readable. A requested redesign
+returns the affected run to this gate. See the skill for artifact and approval
+details. This is part of the existing gate, not another round of permission.
+
 ### Named Visual Style Packs (Approved Library Reuse)
 
 For named visual styles, read `skills/core/style-packs.md`. The 59 published

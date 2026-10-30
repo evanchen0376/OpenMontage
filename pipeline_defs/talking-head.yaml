@@ -20,6 +20,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/talking-head/executive-producer
   - pipelines/talking-head/idea-director
   - pipelines/talking-head/script-director
@@ -47,13 +48,16 @@ compatible_playbooks:
 stages:
   - name: idea
     skill: pipelines/talking-head/idea-director
+    primary_artifact: brief
     produces:
+      - style_confirmation
       - brief
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Brief accurately reflects footage content
       - Target platform is appropriate
       - Duration target is realistic

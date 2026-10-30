@@ -33,6 +33,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/animation/executive-producer
   - pipelines/animation/research-director
   - pipelines/animation/proposal-director
@@ -89,13 +90,16 @@ stages:
     skill: pipelines/animation/proposal-director
     required_artifacts_in:
       - research_brief
+    primary_artifact: proposal_packet
     produces:
+      - style_confirmation
       - proposal_packet
       - decision_log
     tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Concept options are genuinely different (animation mode, structure, hook)
       - Animation mode selection is grounded in technique research and tool availability
       - Each concept includes a reuse strategy (motifs, templates, transition family)

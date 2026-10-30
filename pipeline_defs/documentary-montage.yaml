@@ -35,6 +35,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/documentary-montage/executive-producer
   - pipelines/documentary-montage/idea-director
   - pipelines/documentary-montage/scene-director
@@ -50,12 +51,15 @@ compatible_playbooks:
 stages:
   - name: idea
     skill: pipelines/documentary-montage/idea-director
+    primary_artifact: brief
     produces:
+      - style_confirmation
       - brief
     tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Thematic question is ONE sentence
       - Tone register is ONE value from the fixed list
       - Duration and shape are concrete

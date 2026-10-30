@@ -40,6 +40,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/cinematic/executive-producer
   - pipelines/cinematic/research-director
   - pipelines/cinematic/proposal-director
@@ -86,13 +87,16 @@ stages:
       - research_brief
     optional_artifacts_in:
       - source_media_review
+    primary_artifact: proposal_packet
     produces:
+      - style_confirmation
       - proposal_packet
       - decision_log
     tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Source mode and emotional arc are clear
       - Motion-required delivery is explicitly identified when applicable
       - Delivery shape is realistic for available footage and assets

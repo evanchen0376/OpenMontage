@@ -34,6 +34,10 @@ Write a `taste_profile` when the proposal or playbook needs a stronger creative 
 
 ## Process
 
+At the first video planning stage, apply `style-confirmation.md` before
+locking this profile. Consider the current full catalog plus series styles;
+do not let an earlier episode silently determine this episode's look or ratio.
+
 ### 1. Make a Design Read
 
 Before choosing a playbook or palette, state what the video needs to feel like and why. Tie it to the audience, promise, platform, and subject matter.

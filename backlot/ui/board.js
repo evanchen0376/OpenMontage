@@ -160,8 +160,8 @@ function toggleDrawer(stageName) {
 
 const STAGE_ARTIFACTS = {
   research: ["research_brief"],
-  proposal: ["proposal_packet"],
-  idea: ["brief"],
+  proposal: ["proposal_packet", "style_confirmation"],
+  idea: ["brief", "style_confirmation"],
   script: ["script"],
   scene_plan: ["scene_plan"],
   assets: ["asset_manifest"],
@@ -354,6 +354,29 @@ function genericArtifactSummary(artifact) {
 }
 
 function artifactReviewContent(name, artifact, s) {
+  if (name === "style_confirmation") {
+    const recommended = (artifact.recommendation || {}).candidate_id;
+    const approval = artifact.approval || {};
+    const format = artifact.format || {};
+    return [
+      el("p", { class: "approval-lead" }, artifact.content_basis || ""),
+      reviewFacts([
+        reviewFact("style approval", approval.status),
+        reviewFact("styles reviewed", (artifact.catalog_review || {}).reviewed_count),
+        reviewFact("format", `${format.aspect_ratio || ""} · ${format.width || ""}×${format.height || ""} · ${format.fps || ""} fps`),
+        reviewFact("format approval", format.status),
+      ]),
+      titledItems((artifact.candidates || []).map((candidate) => ({
+        id: candidate.id,
+        title: candidate.name,
+        description: `${candidate.fit} Tradeoff: ${candidate.tradeoff}`,
+      })), recommended),
+      (artifact.recommendation || {}).reason
+        ? el("p", { class: "approval-rationale" }, artifact.recommendation.reason) : null,
+      format.basis ? el("p", { class: "approval-guidance" }, format.basis) : null,
+      approval.evidence ? el("p", { class: "approval-guidance" }, approval.evidence) : null,
+    ].filter(Boolean);
+  }
   if (name === "brief") {
     return [
       artifact.hook ? el("p", { class: "approval-lead" }, artifact.hook) : null,
@@ -486,6 +509,7 @@ function artifactReviewContent(name, artifact, s) {
 }
 
 function artifactReviewTitle(name, artifact, s) {
+  if (name === "style_confirmation") return "Visual style & output format";
   if (name === "proposal_packet") {
     const selected = (artifact.selected_concept || {}).concept_id;
     const concept = (artifact.concept_options || []).find((item) => item.id === selected);

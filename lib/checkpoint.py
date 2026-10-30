@@ -44,6 +44,7 @@ CANONICAL_STAGE_ARTIFACTS = {
 # Additional artifacts that may be produced alongside canonical ones.
 # These are not stage-defining but are required by governance contracts.
 SUPPLEMENTARY_ARTIFACTS = {
+    "style_confirmation",  # Explicit style comparison and format approval at planning
     "source_media_review",  # Required before first planning stage when user media exists
     "final_review",         # Required by compose stage before presenting to user
     "video_analysis_brief", # Reference-video grounding artifact carried alongside stages
@@ -220,6 +221,7 @@ def init_project(
         (project_dir / sub).mkdir(parents=True, exist_ok=True)
 
     marker_path = project_dir / PROJECT_MARKER_FILENAME
+    new_project = not marker_path.exists()
     marker: dict[str, Any] = {}
     if marker_path.exists():
         try:
@@ -233,6 +235,14 @@ def init_project(
     marker["project_id"] = project_id
     marker["title"] = title
     marker["pipeline_type"] = pipeline_type
+    if new_project:
+        from lib.pipeline_loader import load_pipeline_readonly, get_stage_order
+
+        manifest = load_pipeline_readonly(pipeline_type)
+        if manifest.get("deliverable_type", "video") == "video" and any(
+            stage in {"idea", "proposal"} for stage in get_stage_order(manifest)
+        ):
+            marker["style_confirmation_required"] = True
     if style_playbook is not None:
         marker["style_playbook"] = style_playbook
 
@@ -418,6 +428,16 @@ def write_checkpoint(
                 f"user, END YOUR TURN, and only after the user approves "
                 f"re-write with status='completed', human_approved=True."
             )
+
+    from lib.style_confirmation import enforce_style_confirmation
+
+    try:
+        enforce_style_confirmation(
+            pipeline_dir / project_id, pipeline_type, stage, status, artifacts,
+            human_approved=human_approved,
+        )
+    except (ValueError, OSError, jsonschema.ValidationError) as exc:
+        raise CheckpointValidationError(str(exc)) from exc
 
     checkpoint = {
         "version": "1.0",

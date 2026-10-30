@@ -29,6 +29,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/clip-factory/executive-producer
   - pipelines/clip-factory/idea-director
   - pipelines/clip-factory/script-director
@@ -52,13 +53,16 @@ stages:
     skill: pipelines/clip-factory/idea-director
     optional_artifacts_in:
       - source_media_review
+    primary_artifact: brief
     produces:
+      - style_confirmation
       - brief
       - decision_log
-    tools_available: []
+    tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Source content type identified (webinar, stream, interview, etc.)
       - Target platforms and clip count are realistic
       - Clip selection criteria are clear (hook, coherence, value, energy, platform fit)

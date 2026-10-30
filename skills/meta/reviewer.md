@@ -452,6 +452,16 @@ The templated→atelier inversion (`AGENT_GUIDE.md` → "Composition Authoring M
 
 ## Selected Style-Pack Review
 
+At video idea/proposal, require the `style_confirmation` comparison from
+`style-confirmation.md`: current catalog/series discovery, materially different
+grammars grounded in actual beats, references, limitations, recommendation,
+and separate format basis. An explicit user style choice may use the scoped
+single-choice path. A prior episode's approval is not this run's approval.
+Pending approval is valid for review; downstream production requires the
+completed planning checkpoint with approved style and format. Checkpoint
+validation enforces this for newly initialized runs. Do not require a paid
+asset or full video merely to confirm a proposal.
+
 When artifacts contain `style_pack`, read `skills/core/style-packs.md`. Check
 selection/version continuity, declared overrides, actual material/type/motion
 fidelity and project-specific shot design. Approved engine/technique reuse is

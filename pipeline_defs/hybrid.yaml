@@ -29,6 +29,7 @@ extensions:
   custom_tools: false
 
 required_skills:
+  - meta/style-confirmation
   - pipelines/hybrid/executive-producer
   - pipelines/hybrid/idea-director
   - pipelines/hybrid/script-director
@@ -53,13 +54,16 @@ stages:
     skill: pipelines/hybrid/idea-director
     optional_artifacts_in:
       - source_media_review
+    primary_artifact: brief
     produces:
+      - style_confirmation
       - brief
       - decision_log
     tools_available: [style_pack]
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Style comparison follows meta/style-confirmation; current catalog and series styles are considered before recommendation, with separate format approval"
       - Anchor medium is clearly identified
       - Support layers are justified and realistic
       - Output mix matches the source inventory

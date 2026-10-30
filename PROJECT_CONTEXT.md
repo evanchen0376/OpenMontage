@@ -122,6 +122,12 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 
 ## Finance Visual Style Packs
 
+Every new video run confirms its visual grammar and output format within
+the existing idea/proposal gate (`skills/meta/style-confirmation.md`).
+`style_confirmation` is a supplementary canonical artifact; `init_project`
+marks new video runs for write-time enforcement in `lib/style_confirmation.py`.
+Legacy checkpoints remain readable. Ranking styles remains an agent decision.
+
 `style-packs/catalog.json` indexes all 59 published Lemo drawing libraries,
 including 12 finance-priority packs and 47 supporting/specialist styles.
 `lib/style_packs.py` handles discovery, provenance, version identity and
