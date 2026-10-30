@@ -90,6 +90,19 @@ def test_explicit_user_choice_does_not_force_three_options():
     validate_confirmation(style)
 
 
+def test_pending_proposal_does_not_pretend_the_runtime_is_already_locked():
+    from schemas.artifacts import validate_artifact
+    from jsonschema import ValidationError
+
+    proposal = sample_artifact("proposal_packet")
+    proposal["approval"]["status"] = "pending"
+    proposal["production_plan"].pop("render_runtime")
+    validate_artifact("proposal_packet", proposal)
+    proposal["approval"]["status"] = "approved"
+    with pytest.raises(ValidationError):
+        validate_artifact("proposal_packet", proposal)
+
+
 def test_selected_pack_must_match_inspected_identity_and_proposal(tmp_path):
     init_project("film", title="Film", pipeline_type="animated-explainer", pipeline_dir=tmp_path)
     style = confirmation(approved=True)

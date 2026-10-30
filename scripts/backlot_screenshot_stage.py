@@ -184,6 +184,28 @@ def stage_project(pid: str, title: str, palette: str, scenes: list, *,
     brief["topic"] = title
     cp("research", "completed", {"research_brief": brief})
 
+    # These are fictional, pre-approved demonstrations, not live production approvals.
+    style = {
+        "version": "1.0", "project_id": pid, "mode": "explicit_choice",
+        "content_basis": "Synthetic cinematic screenshot fixture",
+        "catalog_review": {"sources": ["styles/clean-professional.yaml"], "reviewed_count": 1},
+        "candidates": [{
+            "id": "cinematic-fixture", "name": "Cinematic fixture", "kind": "custom",
+            "reference": "styles/clean-professional.yaml", "fit": "Atmospheric fictional demo",
+            "tradeoff": "Synthetic placeholders do not prove production quality",
+            "visual_grammar": ["Horizon silhouettes and restrained light"],
+            "beat_examples": [scenes[0][1]], "runtime_requirements": ["FFmpeg"],
+        }],
+        "recommendation": {"candidate_id": "cinematic-fixture", "reason": "Explicit fixture design"},
+        "format": {"aspect_ratio": "16:9", "width": 960, "height": 540, "fps": 25,
+                   "container": "mp4", "basis": "Synthetic fixture output", "status": "approved",
+                   "approval_evidence": "Fictional approval for screenshot fixture only"},
+        "approval": {"status": "approved", "candidate_id": "cinematic-fixture",
+                     "evidence": "Fictional approval for screenshot fixture only"},
+    }
+    cp("proposal", "completed", {"proposal_packet": sample_artifact("proposal_packet"),
+                                 "style_confirmation": style}, human_approved=True)
+
     script = script_artifact(title, scenes)
     plan = scene_plan_artifact(scenes, hero)
     (art_dir / "decision_log.json").write_text(json.dumps(decision_log(pid), indent=2))

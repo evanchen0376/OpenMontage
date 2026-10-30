@@ -71,7 +71,7 @@
     },
     "production_plan": {
       "type": "object",
-      "required": ["pipeline", "stages", "render_runtime"],
+      "required": ["pipeline", "stages"],
       "properties": {
         "style_pack": {"type": "object","required": ["id","upstream_revision","digest"],"additionalProperties": false,"properties": {"id": {"type": "string","pattern": "^lemo-[a-z0-9-]+$"},"upstream_revision": {"type": "string","pattern": "^[0-9a-f]{40}$"},"digest": {"type": "string","pattern": "^[0-9a-f]{64}$"},"variant": {"type": "string"},"overrides": {"type": "array","items": {"type": "string"}},"note": {"type": "string"}},"description": "Optional approved drawing-library identity. Carry unchanged across planning, assets, edit and render; palette/motion overrides are explicit. Independent of render_runtime and playbook."},
         "pipeline": { "type": "string", "description": "Pipeline manifest name, e.g., 'animated-explainer'" },
@@ -348,6 +348,10 @@
     },
     "metadata": { "type": "object" }
   },
+  "allOf": [{
+    "if": {"properties": {"approval": {"properties": {"status": {"enum": ["approved", "approved_with_changes"]}}}}},
+    "then": {"properties": {"production_plan": {"required": ["render_runtime"]}}}
+  }],
   "$defs": {
     "taste_profile": {
       "type": "object",

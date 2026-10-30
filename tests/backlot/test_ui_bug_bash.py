@@ -193,6 +193,23 @@ def test_project_pages_fit_mobile_and_tablet_widths(staged_backlot_server):
             browser.close()
 
 
+def test_style_comparison_is_visible_at_the_existing_proposal_gate(staged_backlot_server):
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=True)
+        page = browser.new_page(viewport={"width": 1280, "height": 900})
+        try:
+            page.goto(staged_backlot_server + "/p/gate-proposal?static=1", wait_until="networkidle")
+            panel = page.locator('.approval-artifact[data-artifact="style_confirmation"]')
+            panel.wait_for()
+            text = panel.inner_text()
+            assert "Visual style & output format" in text
+            assert "pending" in text
+            assert "1080×1920" in text
+            assert "isometric" in text and "whiteboard" in text and "paper" in text
+        finally:
+            browser.close()
+
+
 def test_static_navigation_invalid_route_and_active_takes(staged_backlot_server):
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=True)
