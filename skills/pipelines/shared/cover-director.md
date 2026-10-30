@@ -38,14 +38,18 @@ image-generation providers through the registry and route with
 
 Produce:
 
-- `projects/<project-id>/assets/images/cover.png` as the primary working asset
-- optional versioned variants beside it
+- `projects/<project-id>/assets/images/cover-3x4.png` (1080×1440 portrait)
+- `projects/<project-id>/assets/images/cover-4x3.png` (1440×1080 landscape)
+- `projects/<project-id>/assets/images/cover.png` as a compatibility copy of the portrait primary
+- optional additional versioned variants beside the two required covers
 - `projects/<project-id>/artifacts/cover_package.json`
 - `checkpoint_cover.json`
 
-New cover runs MUST emit `cover_package` version `1.1` with
-`generation_policy`, `cover_approach`, and `visual_source`. Existing version
-`1.0` artifacts remain readable only for backward compatibility.
+New cover runs MUST emit `cover_package` version `1.2` with both required
+orientations: portrait in `primary_cover`, landscape in `variants`.
+`variants` does not make the landscape deliverable optional. Carry
+`generation_policy`, `cover_approach`, root `visual_source`, and each cover's
+own `visual_source`. Existing `1.0`/`1.1` artifacts remain readable for history.
 
 Do not leave a referenced cover only in the host image-generation directory or
 in a temporary folder. `publish` is responsible for copying the approved cover
@@ -68,15 +72,17 @@ render drifted from the proposal, the render wins.
 
 ### 2. Resolve the platform specification
 
-Use an explicit cover specification from `brief.metadata.cover_spec` or
-`proposal_packet.production_plan.cover_spec` when present. Otherwise:
+Load `cover_defaults.formats`: every run delivers **both** `3:4` portrait
+(1080×1440) and `4:3` landscape (1440×1080), regardless of video aspect ratio.
+This is a persistent user requirement, not a question to ask again. An explicit
+project cover spec may add platform variants; it must not silently drop either
+required cover or restore the old landscape 16:9 default. Only a new explicit
+user instruction can change this requirement.
 
-- vertical video → `3:4`, `1080x1440`
-- landscape video → `16:9`, `1280x720`
-- square video → `1:1`, `1080x1080`
-
-Record the resolved ratio and dimensions in `cover_package`. Do not stretch an
-existing frame to fit. Crop, recompose, or generate for the target canvas.
+Generate/recompose for each canvas: portrait commonly places headline above
+the scene, landscape uses a separate horizontal hierarchy. Do not stretch one
+finished cover or crop its baked title to obtain the other. Inspect both at
+mobile size. Record both actual ratios, dimensions and source provenance.
 
 ### 3. Resolve and announce the visual-source policy
 
@@ -131,10 +137,10 @@ explicitly requested replacement.
 
 The stage is not complete until all are true:
 
-- the primary file exists inside the project,
+- both required files exist inside the project and use distinct paths,
 - pixel dimensions and aspect ratio match the resolved spec,
 - headline text is exact and contains no missing glyphs,
-- the cover is readable at mobile thumbnail size,
+- both covers are readable at mobile thumbnail size,
 - the subject and promise match the final video,
 - no watermark, accidental logo, broken crop, or unsupported claim is visible.
 - for the Codex default, `visual_source.kind` is
@@ -150,7 +156,7 @@ completed until the issues are fixed.
 
 Validate `cover_package` against its schema, write the artifact and checkpoint,
 then run the normal reviewer. This stage is human-gated by default: write
-`awaiting_human`, present the cover and verification summary, and end the turn.
+`awaiting_human`, present both covers and their verification summary, and end the turn.
 After approval, complete the checkpoint so `publish` can package the real cover.
 
 ## Common pitfalls

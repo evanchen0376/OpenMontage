@@ -672,7 +672,15 @@ text afterward with a deterministic native compositor. Frame-led, existing-
 asset-only, pure Remotion/HTML/SVG, `image_selector`, or FFmpeg-only primary
 covers require an explicit user-approved override for that project; convenience,
 cost, or a usable final-video frame is not an override. Record the policy,
-visual-source provenance, and any approved override in `cover_package` v1.1.
+visual-source provenance, and any approved override in `cover_package`.
+
+Persistent cover delivery is **two covers for every video**: `3:4` portrait
+at 1080×1440 and `4:3` landscape at 1440×1080. Load `cover_defaults.formats`;
+do not infer a single cover ratio from the video's aspect ratio. Recompose and
+typeset each separately, inspect both at mobile size, and hand both to export.
+New cover artifacts use `cover_package` v1.2 (portrait primary plus required
+landscape variant); v1.0/v1.1 stay readable as historical artifacts. Do not
+ask the user to repeat this preference on future projects.
 
 ## Tool Families
 

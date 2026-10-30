@@ -513,6 +513,13 @@ def write_checkpoint(
 
     # Validate the canonical artifact and final checkpoint shape.
     validate_checkpoint(checkpoint)
+    if stage == "cover" and status in {"completed", "awaiting_human"}:
+        from lib.cover_policy import validate_cover_files
+
+        try:
+            validate_cover_files(artifacts.get("cover_package", {}), project_dir)
+        except (ValueError, OSError) as exc:
+            raise CheckpointValidationError(str(exc)) from exc
 
     path = _checkpoint_path(pipeline_dir, project_id, stage)
     path.parent.mkdir(parents=True, exist_ok=True)

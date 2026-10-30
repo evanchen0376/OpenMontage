@@ -55,6 +55,10 @@ def validate_artifact(name: str, data: dict[str, Any]) -> None:
     """Validate artifact data against its schema. Raises on failure."""
     schema = load_schema(name)
     jsonschema.validate(instance=data, schema=schema)
+    if name == "cover_package":
+        from lib.cover_policy import validate_cover_metadata
+
+        validate_cover_metadata(data)
     if name.startswith("wechat_") or name == "finance_article_research":
         from lib.wechat_editorial import validate_wechat_artifact
 

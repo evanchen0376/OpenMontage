@@ -39,3 +39,7 @@ Approval is per-gate — an earlier "go ahead" does not cover this gate.
 Use the approved `cover_package.primary_cover.path` as the packaged thumbnail.
 Do not replace the approved character cover with poster-frame notes or a new
 concept during publish.
+
+Pass the entire approved `cover_package` plus `project_dir` to `export_bundle`.
+Both required covers (3:4 portrait and 4:3 landscape) must be copied; the
+primary alone is only the legacy thumbnail alias, not the full cover handoff.

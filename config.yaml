@@ -51,6 +51,16 @@ cover_defaults:
   codex_primary_visual_required: true
   exact_text_compositor: native
   require_explicit_approval_for_alternative: true
+  # Every cover run delivers BOTH orientations, independently of video ratio.
+  formats:
+    - orientation: portrait
+      aspect_ratio: "3:4"
+      width: 1080
+      height: 1440
+    - orientation: landscape
+      aspect_ratio: "4:3"
+      width: 1440
+      height: 1080
 
 paths:
   pipeline_dir: pipeline

@@ -474,17 +474,23 @@ function artifactReviewContent(name, artifact, s) {
   }
   if (name === "cover_package") {
     const primary = artifact.primary_cover || {};
+    const covers = [primary, ...(artifact.variants || [])].filter(cover => cover.path);
     const verification = artifact.verification || {};
     return [
-      primary.path ? el("img", {
-        src: thumbURL(s.project_id, primary.path, 640),
-        alt: "Generated video cover",
-        loading: "lazy",
-        style: "display:block;max-width:360px;width:100%;max-height:480px;object-fit:contain;border-radius:8px;margin:10px 0 14px;background:#0b0d10",
-      }) : null,
+      covers.length ? el("div", { class: "cover-gallery", style: "display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 14px" },
+        ...covers.map(cover => el("figure", { style: "margin:0;max-width:360px" },
+          el("img", {
+            src: thumbURL(s.project_id, cover.path, 640),
+            alt: `${cover.aspect_ratio || ""} ${cover.height > cover.width ? "portrait" : "landscape"} video cover`,
+            loading: "lazy",
+            style: "display:block;max-width:360px;width:100%;max-height:480px;object-fit:contain;border-radius:8px;background:#0b0d10",
+          }),
+          el("figcaption", {}, `${cover.aspect_ratio} · ${cover.width}×${cover.height}`),
+        )),
+      ) : null,
       reviewFacts([
         reviewFact("status", artifact.status),
-        reviewFact("ratio", primary.aspect_ratio),
+        reviewFact("ratios", covers.map(cover => cover.aspect_ratio).join(" · ")),
         reviewFact("dimensions", primary.width && primary.height ? `${primary.width}×${primary.height}` : null),
         reviewFact("tool", primary.source_tool),
         reviewFact("text checked", verification.text_checked),

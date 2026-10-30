@@ -97,6 +97,14 @@ class ExportBundle(BaseTool):
             },
             "subtitles_path": {"type": "string"},
             "thumbnail_path": {"type": "string"},
+            "cover_package": {
+                "type": "object",
+                "description": "Approved cover_package; packages the primary and every variant, including both required cover ratios.",
+            },
+            "project_dir": {
+                "type": "string",
+                "description": "Project root for resolving cover_package paths. Defaults to video_path.parent.parent.",
+            },
             "thumbnail_concept": {
                 "type": "object",
                 "description": "Thumbnail concept JSON when no rendered thumbnail exists.",
@@ -162,6 +170,22 @@ class ExportBundle(BaseTool):
 
         title = inputs["title"]
         project_name = inputs.get("project_name") or self._infer_project_name(video_path)
+        cover_package = inputs.get("cover_package")
+        cover_assets = []
+        cover_root = Path(inputs.get("project_dir") or video_path.resolve().parent.parent).expanduser()
+        if cover_package is not None:
+            try:
+                from schemas.artifacts import validate_artifact
+                from lib.cover_policy import validate_cover_files
+
+                validate_artifact("cover_package", cover_package)
+                validate_cover_files(cover_package, cover_root)
+                cover_assets = [cover_package["primary_cover"], *cover_package["variants"]]
+                for asset in cover_assets:
+                    if not (cover_root / asset["path"]).is_file():
+                        raise ValueError(f"Cover file not found: {asset['path']}")
+            except Exception as exc:
+                return ToolResult(success=False, error=f"cover_package invalid: {exc}")
 
         # Explicitly-provided optional assets must exist — silently dropping them
         # would ship a publish package missing part of an approved deliverable.
@@ -212,6 +236,11 @@ class ExportBundle(BaseTool):
             "hashtags": hashtags,
             "chapters": chapters,
         }
+        if cover_assets:
+            metadata["covers"] = [
+                {"aspect_ratio": asset["aspect_ratio"], "path": f"thumbnails/cover-{asset['aspect_ratio'].replace(':', 'x')}.{asset['format']}"}
+                for asset in cover_assets
+            ]
         meta_json = meta_dir / "metadata.json"
         meta_json.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
         files_written.append(str(meta_json))
@@ -237,7 +266,15 @@ class ExportBundle(BaseTool):
             files_written.append(str(chapters_txt))
 
         # Thumbnail: real image if given, else concept JSON
-        thumb_in = inputs.get("thumbnail_path")
+        for asset in cover_assets:
+            out_cover = thumb_dir / f"cover-{asset['aspect_ratio'].replace(':', 'x')}.{asset['format']}"
+            shutil.copy2(cover_root / asset["path"], out_cover)
+            files_written.append(str(out_cover))
+        if cover_assets:
+            package_path = thumb_dir / "cover_package.json"
+            package_path.write_text(json.dumps(cover_package, ensure_ascii=False, indent=2), encoding="utf-8")
+            files_written.append(str(package_path))
+        thumb_in = str(cover_root / cover_assets[0]["path"]) if cover_assets else inputs.get("thumbnail_path")
         if thumb_in and Path(thumb_in).expanduser().is_file():
             thumb_in = Path(thumb_in).expanduser()
             out_thumb = thumb_dir / f"thumbnail{thumb_in.suffix or '.png'}"

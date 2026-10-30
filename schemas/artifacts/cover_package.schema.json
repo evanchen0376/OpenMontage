@@ -13,7 +13,7 @@
     "verification"
   ],
   "properties": {
-    "version": { "type": "string", "enum": ["1.0", "1.1"] },
+    "version": { "type": "string", "enum": ["1.0", "1.1", "1.2"] },
     "status": {
       "type": "string",
       "enum": ["ready", "needs_revision"]
@@ -126,6 +126,7 @@
         "provider": { "type": "string" },
         "model": { "type": "string" },
         "prompt": { "type": "string" },
+        "visual_source": { "$ref": "#/$defs/visualSource" },
         "style_reference_paths": {
           "type": "array",
           "items": { "type": "string" }
@@ -139,7 +140,7 @@
   "allOf": [
     {
       "if": {
-        "properties": { "version": { "const": "1.1" } },
+        "properties": { "version": { "enum": ["1.1", "1.2"] } },
         "required": ["version"]
       },
       "then": {
@@ -149,7 +150,7 @@
     {
       "if": {
         "properties": {
-          "version": { "const": "1.1" },
+          "version": { "enum": ["1.1", "1.2"] },
           "generation_policy": { "const": "codex_generated_visual_native_text" }
         },
         "required": ["version", "generation_policy"]
@@ -168,12 +169,40 @@
     {
       "if": {
         "properties": {
-          "version": { "const": "1.1" },
+          "version": { "enum": ["1.1", "1.2"] },
           "generation_policy": { "const": "user_approved_alternative" }
         },
         "required": ["version", "generation_policy"]
       },
       "then": { "required": ["override"] }
+    },
+    {
+      "if": {"properties": {"version": {"const": "1.2"}}, "required": ["version"]},
+      "then": {
+        "properties": {
+          "primary_cover": {
+            "required": ["visual_source"],
+            "properties": {"aspect_ratio": {"const": "3:4"}, "role": {"const": "primary"}}
+          },
+          "variants": {
+            "minItems": 1,
+            "items": {"required": ["visual_source"], "properties": {"role": {"const": "variant"}}},
+            "contains": {"properties": {"aspect_ratio": {"const": "4:3"}}, "required": ["aspect_ratio"]}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"version": {"const": "1.2"}, "generation_policy": {"const": "codex_generated_visual_native_text"}},
+        "required": ["version", "generation_policy"]
+      },
+      "then": {
+        "properties": {
+          "primary_cover": {"properties": {"visual_source": {"properties": {"kind": {"const": "codex_builtin_image_gen"}}}}},
+          "variants": {"items": {"properties": {"visual_source": {"properties": {"kind": {"const": "codex_builtin_image_gen"}}}}}}
+        }
+      }
     }
   ],
   "additionalProperties": false

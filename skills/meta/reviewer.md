@@ -341,9 +341,10 @@ Run at **compose**, **cover**, and **publish** stages. Ensures the agent reviewe
 3. If `final_review.issues_found` is non-empty and `recommended_action` is not `present_to_user`: **SUGGESTION** — "Self-review found issues; verify they were resolved before publishing"
 
 ### At cover stage:
-1. Require new cover runs to emit `cover_package.version: "1.1"` with
-   `generation_policy`, `cover_approach`, and `visual_source`. A newly created
-   1.0 artifact is **CRITICAL**; 1.0 remains valid only as historical data.
+1. Require new cover runs to emit `cover_package.version: "1.2"` with
+   `generation_policy`, `cover_approach`, and per-cover `visual_source`.
+   Both `3:4` portrait and `4:3` landscape are required, regardless of video ratio.
+   New single-cover or 1.0/1.1 outputs are **CRITICAL**; old artifacts remain readable as history.
 2. In a Codex session with `cover_defaults.codex_primary_visual_required: true`,
    require `generation_policy: "codex_generated_visual_native_text"` and
    `visual_source.kind: "codex_builtin_image_gen"`. A primary visual sourced
@@ -354,7 +355,9 @@ Run at **compose**, **cover**, and **publish** stages. Ensures the agent reviewe
 3. Verify both `visual_source.path` and `primary_cover.path` exist inside the
    project. Provenance text alone is not evidence that Codex image generation
    ran.
-4. Verify `cover_package.primary_cover.path` has the declared dimensions.
+4. Verify the portrait primary and required landscape variant both exist,
+   use distinct files, have their declared dimensions and accurate ratio labels.
+   Inspect each at mobile size; one stretched/rebadged cover is **CRITICAL**.
 5. Verify the cover matches the actual rendered video's topic and approved visual direction.
 6. If text is present, require legibility at mobile thumbnail size and no malformed glyphs.
 7. If `cover_package.verification` contains failures or unresolved issues: **CRITICAL** — do not approve or publish the cover.

@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Literal, Optional
 
 import yaml
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 class BudgetMode(str, Enum):
@@ -72,12 +72,41 @@ class NarrationDefaultsConfig(BaseModel):
     generation_mode: Literal["single_pass", "segmented"] = "segmented"
 
 
+class CoverFormatConfig(BaseModel):
+    orientation: Literal["portrait", "landscape"]
+    aspect_ratio: Literal["3:4", "4:3"]
+    width: int = Field(gt=0)
+    height: int = Field(gt=0)
+
+    @model_validator(mode="after")
+    def consistent_dimensions(self):
+        numerator, denominator = map(int, self.aspect_ratio.split(":"))
+        if self.width * denominator != self.height * numerator:
+            raise ValueError("Cover dimensions must match aspect_ratio")
+        expected = "portrait" if self.height > self.width else "landscape"
+        if self.orientation != expected:
+            raise ValueError("Cover orientation must match dimensions")
+        return self
+
+
 class CoverDefaultsConfig(BaseModel):
     """Persistent cover policy applied by the post-render cover stage."""
 
     codex_primary_visual_required: bool = True
     exact_text_compositor: Literal["native", "generated"] = "native"
     require_explicit_approval_for_alternative: bool = True
+    formats: list[CoverFormatConfig] = Field(default_factory=lambda: [
+        CoverFormatConfig(orientation="portrait", aspect_ratio="3:4", width=1080, height=1440),
+        CoverFormatConfig(orientation="landscape", aspect_ratio="4:3", width=1440, height=1080),
+    ])
+
+    @field_validator("formats")
+    @classmethod
+    def require_both_orientations(cls, formats):
+        ratios = [item.aspect_ratio for item in formats]
+        if len(ratios) != 2 or set(ratios) != {"3:4", "4:3"}:
+            raise ValueError("Cover defaults require one 3:4 portrait and one 4:3 landscape cover")
+        return formats
 
 
 class PathsConfig(BaseModel):

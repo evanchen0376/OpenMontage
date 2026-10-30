@@ -32,6 +32,7 @@ def test_every_production_pipeline_generates_a_cover_after_compose():
         ), pipeline_name
         assert cover["checkpoint_required"] is True, pipeline_name
         assert cover["human_approval_default"] is True, pipeline_name
+        assert any("Both 3:4 portrait and 4:3 landscape" in item for item in cover["review_focus"]), pipeline_name
 
 
 def test_publish_requires_the_approved_cover_when_present():

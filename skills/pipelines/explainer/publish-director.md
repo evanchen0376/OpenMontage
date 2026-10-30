@@ -175,6 +175,8 @@ Approval is per-gate — an earlier "go ahead" does not cover this gate.
 ## Cover Handoff (Binding)
 
 `cover_package` is a required input from the post-render `cover` stage. Package
-`cover_package.primary_cover.path` as `thumbnail_path` in `export_bundle`.
+the entire `cover_package` and the `project_dir` into `export_bundle`, so both
+required covers (`3:4` portrait and `4:3` landscape) are copied. The portrait
+primary also supplies the legacy `thumbnail.png` compatibility file.
 Do not generate a new thumbnail concept when an approved cover exists; a
 concept-only export is a contract failure for new runs.

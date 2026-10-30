@@ -287,6 +287,7 @@ stages:
     checkpoint_required: true
     human_approval_default: true
     review_focus:
+      - "Both 3:4 portrait and 4:3 landscape covers are delivered and individually readable at mobile size"
       - "In Codex, the core visual uses built-in image_gen unless an explicit user-approved override is recorded"
       - Cover matches the promise and actual content of the final render
       - Headline text is exact and readable at mobile thumbnail size
@@ -294,6 +295,7 @@ stages:
       - Primary cover file exists inside the project workspace
       - Provider, model, prompt, and cost provenance are recorded when generated
     success_criteria:
+      - Both required cover files exist with verified dimensions and distinct paths in cover_package v1.2
       - Schema-valid cover_package artifact
       - Primary cover exists and passes dimension, text, and content-match verification
 
